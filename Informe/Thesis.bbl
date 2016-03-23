@@ -1,0 +1,141 @@
+\begin{thebibliography}{10}
+
+\bibitem{JacobRehofTorbenMogensen}
+Jakob Rehof and Torben Mogensen.
+\newblock {\em Tractable constraints in finite semilattices}.
+\newblock Springer-Verlag, 1996.
+
+\bibitem{Didfail}
+Jonathan Burket, Lori Flynn, William Klieber, Jonathan Lim, Wei Shen, and
+  William Snavely.
+\newblock Making didfail succeed: Enhancing the cert static taint analyzer for
+  android app sets.
+\newblock Technical report, CERT Division, 2015.
+
+\bibitem{Flowdroid}
+Christian Fritz Eric Bodden Alexandre Bartel Jacques Klein Damien Octeau
+  Patrick~McDaniel Steven~Arzt, Siegfried~Rasthofer and Yves~Le Traon.
+\newblock Flowdroid: Precise context, flow, field, object-sensitive and
+  lifecycle-aware taint analysis for android apps.
+\newblock Technical report, Department of Computer Science and Engineering
+  Pennsylvania State University, 2014.
+
+\bibitem{DroidSafe}
+Jeff Perkins Limei Gilham Nguyen~Nguyen Michael I.~Gordon, Deokhwan~Kim and
+  Martin Rinard.
+\newblock Information-flow analysis of android applications in droidsafe.
+\newblock Technical report, Massachusetts Institute of Technology, 2015.
+
+\bibitem{PScout}
+Zhen~Huang Kathy Wain Yee~Au, Yi Fan~Zhou and David Lie.
+\newblock Pscout: Analyzing the android permission specification.
+\newblock Technical report, Dept. of Electrical and Computer Engineering
+  University of Toronto, Canada, 2012.
+
+\bibitem{InformationFlow}
+Andrei Sabelfeld and Andrew~C. Myers.
+\newblock Language-based information-flow security.
+\newblock {\em IEEE JOURNAL ON SELECTED AREAS IN COMMUNICATIONS}, 2003.
+
+\bibitem{AbsInt}
+Patrick Cousot and Radhia Cousot.
+\newblock Abstract interpretation: A unified lattice model for static analysis
+  of programs by construction or approximation of fixpoints.
+\newblock {\em In Proceedings of the 4th ACM SIGACT-SIGPLAN Symposium on
+  Principles of Pro- gramming Languages}, 1977.
+
+\bibitem{IntAnd}
+Jorge Cordero Luis Cruz Miguel Gonz{\'a}lez Francisco Hern{\'a}ndez David
+  Palomero Jos{\'e} Rodr{\'\i}guez de Llera Daniel Sanz Mariam Saucedo
+  Pilar~Torralbo Manuel~B{\'a}ez, {\'A}lvaro~Borrego and {\'A}lvaro Zapata.
+\newblock {\em Introducci{\'o}n a Android}.
+
+\bibitem{JavaBytecodeVerif}
+David~Pichardie Gilles~Barthe and Tamara Rezk.
+\newblock A certified lightweight non- interference java bytecode verifier.
+\newblock {\em Proc. Of 16th European Symposium on Programming}, 2005.
+
+\bibitem{InformFlowForLowLevel}
+N.~Kobayashi and K.~Shirane.
+\newblock Type-based information flow analysis for a low-level language.
+\newblock 2002.
+
+\bibitem{VerConfPolForMobCod}
+Tamara Rezk.
+\newblock {\em Verification of confidentiality policies for mobile code}.
+\newblock PhD thesis, Universite de Nice and INRIA Sophia Antipolis, 2006.
+
+\bibitem{TypAssLangConf}
+Dachuan Yu and Nayeem Islam.
+\newblock A typed assembly language for confidentiality.
+\newblock {\em European Symposium on Programming}, 2006.
+
+\bibitem{PreStatAna}
+Amar~S. Bhosale.
+\newblock Precise static analysis of taint flow for android application sets.
+\newblock Master's thesis, Software Engineering Institute., 2014.
+
+\bibitem{SecTypePresComp}
+A.~Basu G.~Barthe and T.~Rezk.
+\newblock Security types preserving compilation.
+\newblock {\em Journal of Computer Languages, Systems and Structures.}, 2005.
+
+\bibitem{InformFlowByteode}
+Francisco Bavera and Eduardo Bonelli.
+\newblock Typebased information flow analysis for bytecode languages with
+  variable object field policies.
+\newblock 2008.
+
+\bibitem{DimensPrincDeclass}
+Andrei Sabelfeld and David Sands.
+\newblock Dimensions and principles of declassification.
+\newblock {\em CSFW 2005}, 2005.
+
+\bibitem{AndrTaintFlow}
+Amar Bhosale Limin~Jia William~Klieber, Lori~Flynn and Lujo Bauer.
+\newblock Android taint flow analysis for app sets.
+\newblock {\em ACM SIGPLAN International Workshop on the State Of the Art in
+  Java Program Analysis - SOAP 2014}, 2014.
+
+\bibitem{DinDep}
+Scott F.~Smith Paritosh~Shroff and Mark Thober.
+\newblock Dynamic dependency monitoring to secure information flow.
+\newblock {\em CSF [DBL07]}.
+
+\bibitem{InfFloMon}
+Andrey Chudnov and David~A. Naumann.
+\newblock Information flow monitor inlining.
+\newblock {\em CSF [DBL10]}.
+
+\bibitem{EnfRobDeclQuaRob}
+Andrei~Sabelfeld Andrew C.~Myers and Steve Zdancewic.
+\newblock Enforcing robust declassification and qualified robustness.
+\newblock {\em Journal of Computer Security}, 2006.
+
+\bibitem{ChallInformFloSec}
+Steve Zdancewic.
+\newblock Challenges for information-flow security.
+\newblock {\em Proceedings of the 1st International Workshop on the Programming
+  Language Interference and Dependence}, 2004.
+
+\bibitem{FloSenSecTyp}
+S.~Hunt and D.~Sands.
+\newblock On flow-sensitive security types.
+\newblock {\em POPL'06, Proceedings of the 33rd Annual}, 2006.
+
+\bibitem{VarObjFiel}
+F.~Bavera and E.~Bonelli.
+\newblock ypebased information flow analysis for bytecode languages with
+  variable object field policies.
+\newblock www.lifia.info.unlp.edu.ar/ eduardo/publications/jvmsLong.pdf, 2008.
+
+\bibitem{TypInformFlow}
+F.~Bavera and E.~Bonelli.
+\newblock Typebased information flow analysis for bytecode languages with
+  robust declassification.
+\newblock http://dc.exa.unrc.edu.ar/docentes/pancho/fbavera/papers/ifbcode
+  robust.ps http://dc.exa.unrc.edu.ar/docentes/pancho/fbavera/papers/ifbcode
+  robust.pshttp://dc.exa.unrc.edu.ar/docentes/pancho/fbavera/papers/ifbcode
+  robust.ps.
+
+\end{thebibliography}

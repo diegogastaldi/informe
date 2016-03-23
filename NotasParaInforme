@@ -1,0 +1,1 @@
+- Exepciones: Si pongo el STATE_PHONE en privado, como el LOG queda variable, le va a asignar nivel privado ya que tendrá información privada. Pero si a su vez, el LOG es publico y este flujo pertenece a una excepción no habrá error. Linea 39 - tratable…py

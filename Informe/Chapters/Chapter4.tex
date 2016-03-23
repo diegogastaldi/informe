@@ -1,0 +1,47 @@
+\lhead{\emph{Implementación}}
+\graphicspath{{Imagenes/}} 
+
+\chapter{Implementación}
+
+Los aportes a DidFail fueron realizados usando el lenguaje de programación Python. Se modificaron diferentes módulos de ésta herramienta y se crearon otros para la implementación de las nuevas funcionalidades. \par
+
+\section{Etapa 1}
+
+En la figura 10 se muestra la información necesaria para llevar a cabo la primer etapa del análisis, los chequeos que se realizan para que funcione correctamente y la salida generada en esta etapa. \par
+
+\includegraphics[scale=0.75]{Figura10}
+
+\subsection{Información dada por Didfail}
+La salida1 de la Figura 10 corresponde a la salida dada por Didfail, la cual contiene todos los sinks usados por las aplicaciones a analizar con sus correspondientes posibles source. Un ejemplo de esto se muestra en la Figura 11, aquí el formato esta dado por los diccionarios de Python. \par
+
+\includegraphics[scale=0.6]{Figura11}
+
+\subsection{Niveles de Seguridad}
+En el caso de la salida2 de la Figura 10, corresponde al orden parcial que relaciona los niveles de seguridad, donde previo a crearlo, se chequea que se cumplan las propiedades de este tipo de orden. \par
+El usuario debe modificar el archivo security-levels.txt. Aquí debe respetar la siguiente sintaxis: \par
+\begin{description}
+\item[Comentarios:] Las lineas que comienzan con un ``\#'' son ignoradas.
+\item[Relaciones:] Las relaciones son vistas como dos textos separados por un $ \le $ , siendo los espacios ignorados. Aquí el string que se encuentra a la izquierda de $ \le $ representa al nivel que precede al nivel representado por el string a la derecho del símbolo.
+\item[Linea Errónea:] Una linea es considerada errónea cuando no contiene el símbolo $ \le $ o cuando tanto a la derecha como a la izquierda de $ \le $ se encuentra un string vacío.
+\end{description}
+\par
+
+\subsection{Excepciones}
+La salida3 de la Figura 10 corresponde a las excepciones. Lo corroborado por la herramienta en este caso es que los métodos participantes de la excepción existan en la API de la version de android con la que se esta trabajando.\par
+En este caso, el usuario debe modificar el archivo exceptions.txt en caso de que se esté trabajando mediante el uso de archivos de configuración o agregando excepciones a través de la interfaz gráfica. En el caso del archivo, la sintaxis es similar a la mencionada anteriormente, pero con la diferencia de que el símbolo que separa los string es una flecha ($\rightarrow$) y que a los lados de dicha flecha se colocan métodos. \par
+A modo de ejemplo, la Figura 12 muestra una excepción donde, si la información que obtiene el método``getDeviceId()'' puede ser parte de los argumentos del método ``i(java.lang.String,java.lang.String)'', sin importar los niveles de estos, no sera considerado violación de seguridad.\par
+Si bien las excepciones podrían haber sido implementadas para que trabajen con categorías (vease 4.1.4) en lugar de que lo hagan con métodos directamente, haciendo el trabajo del usuario mas simple e intuitivo, tiene como desventaja que al dar una excepción de una categoría A a una categoría B, en realidad se estarían considerando muchas excepciones (todas las posibles combinaciones de los métodos pertenecientes a la categoría A, con todos los métodos de la categoría B). \par
+
+\includegraphics[scale=0.7]{Figura12}
+
+\subsection{Asignación de niveles a métodos}
+
+Por ultimo, la salida4 de la Figura 10 corresponde a la asignación de niveles a métodos. Esto puede ser dado por el usuario de dos maneras: mediante la gui o mediante el archivo de configuración assign-levels.txt. En el primer caso basta con completar los casilleros en blanco con el nombre de la categoría a la que pertenece el método y el nivel a asignarle; en el caso del archivo de configuración, se da la categoría, seguida de una flecha y concluyendo con el nivel a asignar.\par
+Vale aclarar que la categoría es un nombre que se le da a un conjunto de métodos que obtienen o manejan información similar. Por ello es que todos los métodos de una categoría van a tener el mismo nivel. Por ejemplo, los métodos que obtienen tanto la latitud (getLatitude()) como la longitud (getLongitude()) corresponden a la misma categoría (ACCESS FINE LOCATION) y por ende tendrán el mismo nivel.\par
+Las categorías y sus métodos dependen de la API de android que se este utilizando.\par
+
+\section{Etapa 2}
+
+A partir de la salida proveniente de Didfail  y combinándolas con los niveles correspondientes a cada source y sink de la misma, se ejecuta una implementación del algoritmo de Jacob Rehof y Torben Mogensen \cite{JacobRehofTorbenMogensen}. Este algoritmo chequea si se produce una violación de seguridad comprobando si en cada flujo de información, sus niveles se corresponden con alguna relación del orden de niveles. Para ello también contiene una representación del orden generado. Pero, previo a cualquier chequeo, se comprueba si el flujo pertenece a una excepción, en tal caso nunca será considerara violación de seguridad.\par
+Además del funcionamiento antes mencionado, el algoritmo también tiene la posibilidad de asignar niveles a métodos que no poseen uno previamente asignado. Esto lo realiza asignándole el menor nivel del orden al método y luego comprobando que en todos los flujos en los que aparece el método variable (método sin nivel asignado) como sink, si el nivel actual asignado es el supremo entre su nivel y el nivel del otro método participante del flujo. En caso de ser así, el nivel no es modificado, pero si por el contrario esto no se cumple, al método variable se le asigna el nivel supremo antes mencionado.\par
+Como salida del algoritmo hay dos posibilidades: Indica que todo esta bien y la asignación que hizo a los métodos que no tenían niveles para evitar violaciones de seguridad, o bien, informando la violación de seguridad encontrada.
