@@ -9,6 +9,39 @@ El análisis estático es un método de análisis en el cual el código fuente es ana
 El análisis estático permite examinar todas las posibles ejecuciones de un programa. Esto es especialmente valioso en el análisis de la seguridad, ya que los ataques suelen explotar aplicaciones de maneras imprevistas y no probados. Sin embargo, predecir el comportamiento del programa sin ejecutar no es un problema trivial. Al reducir al problema de la parada (halt), es posible demostrar que la búsqueda de todas las maneras posibles de ejecutar cualquier programa no trivial arbitrario es un problema indecidible. Sin embargo, el análisis estático puede proporcionar resultados útiles mediante la aproximación de algunas facetas de la ejecución real de un programa \cite{AbsInt}.\par
 Una de las técnicas de análisis estático lleva a cabo el análisis del flujo de datos (data flow). El taint analysis es un tipo especial de análisis de flujo de datos que realiza el seguimiento de datos a lo largo del camino de la ejecución del programa. En esta técnica, los datos sensibles son marcados con una mancha en la fuente u origen, y se propaga a través de todas las rutas de ejecución del programa. La presencia de este mancha en los sink o destinos predefinidos se utiliza para establecer un flujo entre la fuente y el sink. Este flujo puede ser utilizado para detectar las fugas de datos sensibles desde la fuente a diferentes destinos. Donde, si además, se agregan niveles tanto a los source (fuentes) como a los sinks, se pueden detectar que si información importante o privada puede estar llegando a lugares públicos o no deseados.\par
 
+\section{Information Flow}
+
+La protección de la confidencialidad de la información manipulada por los sistemas de computación es un problema de larga data, siendo cada vez más importante. Las prácticas de seguridad estándares previas al surgimiento de estudios sobre information-flow \cite{InformationFlow} no ofrecían garantías sustanciales de que el comportamiento de extremo a extremo de un sistema informático satisface las políticas de seguridad importantes como la confidencialidad. Una política de confidencialidad de extremo a extremo podría afirmar que los datos de entrada secretas no pueden deducirse por un atacante a través de observaciones sobre salida del sistema; esta política regula el flujo de la información.\par
+Los mecanismos de seguridad convencionales, tales como el control de acceso y cifrado no se refieren directamente a la aplicación de las políticas de flujo de información. Analizar las características de confidencialidad de un sistema informático es difícil, ya que estos puede incluir errores de implementación y diseño y, además, como los sistemas informáticos modernos comúnmente incorporan hosts o código que no son de confianza, posiblemente maliciosos, hace que la garantía de confidencialidad sea aún más difícil. \par 
+Una forma estándar para proteger los datos confidenciales es el control de acceso: se requiere algún privilegio con el fin de acceder a los archivos u objetos que contienen el datos confidenciales. El problema aquí es que las verificaciones de control de acceso imponen restricciones a la divulgación de información, pero no de su propagación. Una vez que la información es liberado de su contenedor, el programa que accede a ella puede, por error o malicia, inadecuadamente transmitir la información en alguna forma. No es realista suponer que todos los programas en un sistema de computación grande son dignos de confianza; Por otro lado, los mecanismos de seguridad tales como la verificación de firmas y escaneo de antivirus no garantizan que se mantenga la confidencialidad por el programa revisado. \par
+Para asegurar que la información se utiliza sólo de acuerdo con las políticas de confidencialidad pertinentes, es necesario analizar cómo fluye la información dentro del programa. La creencia de que un sistema es seguro con respecto a la confidencialidad debe surgir de un análisis riguroso que demuestre que el sistema en su conjunto hace cumplir las políticas de confidencialidad de sus usuarios. Este análisis debe demostrar que la información controlada por una política de confidencialidad no puede fluir a un lugar donde se viola esa política, la Figura 1 muestra un ejemplo básico indicando un flujo permitido y uno que no lo es (que viola las políticas de seguridad). Las políticas de confidencialidad que deseamos cumplir son, por lo tanto, las políticas de flujo de información y los mecanismos que las hacen cumplir son los controles de flujo de información. Esto dió lugar a un nuevo enfoque: el uso de técnicas de lenguajes de programación para especificar y hacer cumplir las políticas de flujo de información.\par
+
+\begin{center}
+ \includegraphics[scale=0.5]{Figura1}
+ \end{center}
+
+El análisis de confidencialidad e integridad para lenguajes de bajo nivel (assembly, bytecode) \cite{JavaBytecodeVerif, InformFlowForLowLevel, VerConfPolForMobCod, TypAssLangConf, PreStatAna} aún tiene un menor desarrollo que el alcanzado para lenguajes de alto nivel (Java, C). Esto se debe principalmente a la dificultad de razonar con programas no estructurados. Existen trabajos basados en sistemas de tipos que incluyen un subconjunto bastante extenso de Java bytecode \cite{SecTypePresComp, InformFlowForLowLevel, VerConfPolForMobCod, InformFlowByteode}. \par
+Numerosos trabajos se direccionan en extender el análisis para que soporte desclasificación de información \cite{DimensPrincDeclass}. Entre estos podemos nombrar Intransitive noninterference \cite{PreStatAna}, decentralized label model \cite{AndrTaintFlow}, relaxing noninterference \cite{DinDep, InfFloMon} and robust declassification \cite{EnfRobDeclQuaRob}. Desclasificación no es un tema cerrado \cite{ChallInformFloSec}. Además no hay trabajos específicos en cuanto a desclasificación para lenguajes de bajo nivel, como bytecode. F. Bavera y E. Bonelli \cite{TypInformFlow} presentan un sistema de tipos que garantiza robust desclasificación \cite{EnfRobDeclQuaRob}. En el mismo trabajo señalan que el reúso de variables plantea un nuevo problema en presencia de desclasificación y que sistemas de tipos como el presentado por S. Hunt y D. Sands \cite{FloSenSecTyp} deben ser revisados si quieren ser extendidos con alguna noción de desclasificación, como sucede en el caso de robust desclasificación.
+Para verificar que programas en Bytecode satisfacen robust declassification es necesario, además, poder verificar que los ataques (código no confiable insertado en determinados puntos del programa) cumple con ciertos requisitos. Es decir, para poder garantizar desclasificación robusta el poder del atacante debe ser limitado. Esta limitación consiste en restringir las posibles acciones del atacante. Por lo tanto, si se quiere contar con una herramienta para verificar la seguridad de los programas que pueda ser utilizada en la práctica es necesario poder verificar que los ataques no violan los requisitos. Actualmente no existen análisis ni herramientas que garanticen robust declassification para aplicaciones Android.\par
+Los resultados preliminares del grupo son sobre técnicas de information-flow para Bytecode \cite{InformFlowByteode, VarObjFiel} y Robust Declassification para Bytecode \cite{EnfRobDeclQuaRob, TypInformFlow}. Si bien contribuyen al conocimiento de IFA, no son técnicas enfocadas a aplicaciones Android. Dado el estado del arte en el área de information-flow y desclasificación es necesario avanzar en la definición de análisis para aplicaciones Android.\par
+
+\subsection{Niveles de Seguridad}
+
+El punto de partida en el análisis del flujo de información es la clasificación de las variables del programa en diferentes niveles de seguridad. La forma más básica de clasificar las variables puede ser L (low) a las variables de baja seguridad, la información pública; y H (hight) a las de alta seguridad, información privada. El objetivo es prevenir que la información privada se filtre de manera incorrecta, es decir, evitar que la información en las variables H fluya a las variables L. \par
+En términos más generales, se requiere un retículo de niveles de seguridad para asegurar que la información fluya solamente de niveles menores a niveles mayores o iguales. Por ejemplo, si L ? H, entonces se permitirían los flujos de L a L, de H a H, y de L a H, y no estaría permitido flujos de H a L: claramente es ilegal un flujo explícito donde se le a una variable pública el contenido de una privada, pero por el contrario, asignar información pública en variables privada es perfectamente legal. Otro caso, que puede ser considerado peligroso cuando, es cuando de acuerdo a condiciones que involucren información privada se realice una detereminada acción, como muestra el ejemplo a continuación: \par
+\begin{description}
+\item[
+if ((secreto\% 2) == 0)  fuga = 0;   else   fuga = 1; 
+]
+\end{description}
+Esto copia el último bit del secreto de fugas. \par
+Otro caso interesante en el uso de niveles de seguridad es la integridad en lugar de confidencialidad. Si se ven algunas variables que contiene información posiblemente contaminada, entonces es posible que se desee evitar que la información fluya desde éstas a variables no contaminados. Se puede modelar esto utilizando un retículo con Untainted?Tainted. \par
+
+\subsection{Sinks y Sources}
+Los sources y sinks son componentes muy importantes en los flujos de información, siendo estos los recursos mediante los cuales las aplicaciones leen u obtienen sus datos (source), para luego tratarlos según sus objetivos y concluir con el envío de estos a otros recursos denominados sink. Estos recursos son externos a las aplicaciones. \par
+Estos generan dependencias desde los sources a los sinks, por lo que al asignarle niveles a ambos (vease sección 2.2.1) permitiría controlar o conocer los casos en los que se producen flujos ilegales de información. \par
+Ejemplos de sources pueden ser el deviceId, los contactos, las fotos y la ubicacion; y por otro lado, ejemplos de sinks incluyen internet, mensaje de texto y archivos. \par
+
 \section{Android}
 
 El sistema operativo Android domina el mercado de dispositivos móviles, pero las aplicaciones desarrolladas para Android se han enfrentado a algunos problemas de seguridad de gran impacto. Entre estos problemas tienen gran relevancia las vulnerabilidades que provocan fugas de datos sensibles.\par
@@ -19,6 +52,11 @@ Un intent puede incluir un destinatario, una acción y, posiblemente, otros datos
 Además de la comunicación entre aplicaciones, los intents también se utilizan para la comunicación intra-aplicación entre los diferentes componentes de una sola aplicación. El uso de intents implícitos para la comunicación intra-aplicación ha demostrado ser un error común en el desarrollo de aplicaciones de Android. Un componente que utiliza un intent implícito para comunicarse con otro componente en la misma aplicación podría ser vulnerable a que otra aplicación intercepte su mensaje. Esto permite a aplicaciones maliciosas secuestrar o espiar en aplicaciones que tienen acceso a información o recursos sensibles.\par
 
 \subsection{Introducción a la plataforma Android}
+Android es un pila de software de código abierto creado para una amplia gama de dispositivos.\par
+
+\begin{center}
+\includegraphics[scale=0.75]{Figura2}
+\end{center}
 
 Android \cite{IntAnd} trabaja en Linux, y cada aplicación utiliza un proceso propio. Los dispositivos tienen un único foco de ejecución principal, que es la aplicación que está visible en la pantalla, pero puede tener varias aplicaciones en un segundo plano, cada una con su propia pila de tareas. La pila de tareas es la secuencia de ejecución de procesos en Android. Se componen de actividades que se van apilando según son invocadas, y solo pueden terminarse cuando las tareas que tiene encima están terminadas, o cuando el sistema las destruye porque necesita memoria, por lo que tienen que estar preparadas para terminar en cualquier momento. El sistema siempre eliminará la actividad que lleve más tiempo parada. En caso de que el sistema necesitara mucha memoria, si la aplicación no está en el foco, puede ser eliminada por completo a excepción de su actividad principal. \par 
 Una de las características principales del diseño en Android es la reutilización de componentes entre las aplicaciones, es decir, dos aplicaciones diferentes pueden utilizar una misma componente, aunque esté en otra aplicación para así, evitar la repetición innecesaria de código, y la consiguiente ocupación de espacio. Los componentes son los elementos básicos con los que se construyen el proyecto. Hay cuatro tipos, pero las aplicaciones se componen principalmente de actividades. Habrá tantas actividades como ventanas distintas tenga la aplicación. Sin embargo, por si solos, los componentes no pueden hacer funcionar una aplicación. Para ello están los "intents". Todos ellos deben declararse en el archivo llamado AndroidManifest.xml (junto con otros elementos que se mostrarán después) con el mismo nombre que lleve la clase asociada. Por ejemplo, la clase MainActivity, será definida en el AndroidManifest con el mismo nombre. 
@@ -39,16 +77,51 @@ Por último, el campo Category es un string (cadena de caracteres) que contiene i
 \item[AndroidManifest:]  este fichero es un documento xml en el que se declaran los elementos de la aplicación, así como sus restricciones, permisos, procesos, acceso a datos e interacciones con elementos de otras aplicaciones. Cada elemento se declara con una etiqueta única. No debe confundirse este documento con el xml asociado a cada actividad. Los elementos gráficos y distribución de la pantalla serán definidos para cada actividad dentro de su xml, pero no en el AndroidManifest. 
 \end{description}
 
-\section{Information Flow}
+Cada aplicación es comprimida en un paquete APK, lo que permite su distribución e instalación. Estos paquetes contienen una colección de archivos, recursos, permisos, entre otras cosas, como muestra la siguiente figura. \par 
 
-La protección de la confidencialidad de la información manipulada por los sistemas de computación es un problema de larga data, siendo cada vez más importante. Las prácticas de seguridad estándares previas al surgimiento de estudios sobre information-flow \cite{InformationFlow} no ofrecían garantías sustanciales de que el comportamiento de extremo a extremo de un sistema informático satisface las políticas de seguridad importantes como la confidencialidad. Una política de confidencialidad de extremo a extremo podría afirmar que los datos de entrada secretas no pueden deducirse por un atacante a través de observaciones sobre salida del sistema; esta política regula el flujo de la información.\par
-Los mecanismos de seguridad convencionales, tales como el control de acceso y cifrado no se refieren directamente a la aplicación de las políticas de flujo de información. Analizar las características de confidencialidad de un sistema informático es difícil, ya que estos puede incluir errores de implementación y diseño y, además, como los sistemas informáticos modernos comúnmente incorporan hosts o código que no son de confianza, posiblemente maliciosos, hace que la garantía de confidencialidad sea aún más difícil. \par 
-Una forma estándar para proteger los datos confidenciales es el control de acceso: se requiere algún privilegio con el fin de acceder a los archivos u objetos que contienen el datos confidenciales. El problema aquí es que las verificaciones de control de acceso imponen restricciones a la divulgación de información, pero no de su propagación. Una vez que la información es liberado de su contenedor, el programa que accede a ella puede, por error o malicia, inadecuadamente transmitir la información en alguna forma. No es realista suponer que todos los programas en un sistema de computación grande son dignos de confianza; Por otro lado, los mecanismos de seguridad tales como la verificación de firmas y escaneo de antivirus no garantizan que se mantenga la confidencialidad por el programa revisado. \par
-Para asegurar que la información se utiliza sólo de acuerdo con las políticas de confidencialidad pertinentes, es necesario analizar cómo fluye la información dentro del programa. La creencia de que un sistema es seguro con respecto a la confidencialidad debe surgir de un análisis riguroso que demuestre que el sistema en su conjunto hace cumplir las políticas de confidencialidad de sus usuarios. Este análisis debe demostrar que la información controlada por una política de confidencialidad no puede fluir a un lugar donde se viola esa política. Las políticas de confidencialidad que deseamos cumplir son, por lo tanto, las políticas de flujo de información y los mecanismos que las hacen cumplir son los controles de flujo de información. Esto dió lugar a un nuevo enfoque: el uso de técnicas de lenguajes de programación para especificar y hacer cumplir las políticas de flujo de información.\par
-El análisis de confidencialidad e integridad para lenguajes de bajo nivel (assembly, bytecode) \cite{JavaBytecodeVerif, InformFlowForLowLevel, VerConfPolForMobCod, TypAssLangConf, PreStatAna} aún tiene un menor desarrollo que el alcanzado para lenguajes de alto nivel (Java, C). Esto se debe principalmente a la dificultad de razonar con programas no estructurados. Existen trabajos basados en sistemas de tipos que incluyen un subconjunto bastante extenso de Java bytecode \cite{SecTypePresComp, InformFlowForLowLevel, VerConfPolForMobCod, InformFlowByteode}. \par
-Numerosos trabajos se direccionan en extender el análisis para que soporte desclasificación de información \cite{DimensPrincDeclass}. Entre estos podemos nombrar Intransitive noninterference \cite{PreStatAna}, decentralized label model \cite{AndrTaintFlow}, relaxing noninterference \cite{DinDep, InfFloMon} and robust declassification \cite{EnfRobDeclQuaRob}. Desclasificación no es un tema cerrado \cite{ChallInformFloSec}. Además no hay trabajos específicos en cuanto a desclasificación para lenguajes de bajo nivel, como bytecode. F. Bavera y E. Bonelli \cite{TypInformFlowWithRobustDecl} presentan un sistema de tipos que garantiza robust desclasificación \cite{EnfRobDeclQuaRob}. En el mismo trabajo señalan que el reúso de variables plantea un nuevo problema en presencia de desclasificación y que sistemas de tipos como el presentado por S. Hunt y D. Sands \cite{FloSenSecTyp} deben ser revisados si quieren ser extendidos con alguna noción de desclasificación, como sucede en el caso de robust desclasificación.
-Para verificar que programas en Bytecode satisfacen robust declassification es necesario, además, poder verificar que los ataques (código no confiable insertado en determinados puntos del programa) cumple con ciertos requisitos. Es decir, para poder garantizar desclasificación robusta el poder del atacante debe ser limitado. Esta limitación consiste en restringir las posibles acciones del atacante. Por lo tanto, si se quiere contar con una herramienta para verificar la seguridad de los programas que pueda ser utilizada en la práctica es necesario poder verificar que los ataques no violan los requisitos. Actualmente no existen análisis ni herramientas que garanticen robust declassification para aplicaciones Android.\par
-Los resultados preliminares del grupo son sobre técnicas de information-flow para Bytecode \cite{InformFlowByteode, VarObjFiel} y Robust Declassification para Bytecode \cite{EnfRobDeclQuaRob, TypInformFlow}. Si bien contribuyen al conocimiento de IFA, no son técnicas enfocadas a aplicaciones Android. Dado el estado del arte en el área de information-flow y desclasificación es necesario avanzar en la definición de análisis para aplicaciones Android.\par
+\begin{center}
+\includegraphics[scale=0.5]{Figura3}
+\end{center}
+
+\section{Ejemplo Motivador}
+
+La comunicación entre las aplicaciones es muy común y necesario para cumplir con sus objetivos. Esta comunicación la llevan a cabo principalmente mediante el uso de intents. Un ejemplo de ello es una foto, la cual puede fluir a través de diferentes aplicaciones: es sacada por la cámara y almacenada, luego es editada por alguna aplicación de edición para posteriormente ser compartida a través de alguna red social.\par
+
+\begin{center}
+ \includegraphics[scale=0.75]{Figura4}
+ \end{center}
+En la siguiente imagen se muestra un ejemplo donde información sensible puede fluir desde un source a un sink, y en su "viaje", pasar por múltiples aplicaciones que pueden ver y modificar su información: \par
+
+\begin{center}
+ \includegraphics[scale=0.75]{Figura5}
+ \end{center}
+ 
+Aquí la aplicación SendSms obtiene Device Id (Figura 6: (1)), lo guarda en un intent (Figura 6: (2)) y luego lo envía mediante el método startActivityForResult (Figura 6: (3)) para iniciar una nueva actividad. Dicho intent es implícito, es decir, no tiene un destinatario preestablecido, por lo que el sistema operativo se encarga de comprobar que aplicaciones pueden manejarlo (mediante la comprobación de sus archivos manifest). En este ejemplo, la aplicación elegida fue Echoer.apk debido que su Manifest cumplía con los requisitos (Figura 10: (4)). Ésta aplicación recibe el intent, lo guarda en un campo de la clase MainActivity (Figura 8: (5)), y luego de que se oprima el botón "button1", la información que tenia el intent es enviada de vuelta a la aplicación SendSms (Figura 9: (6)), para que este último envié el mensaje (Figura 7: (7)). \par
+En el escenario descripto, el source (deviceId), es información privada del dispositivo, puede llegar a dos sinks diferentes: uno de ellos es el Sms saliente y el otro sink es el Log, y de acuerdo a los niveles que se le asignen a estos últimos, los flujos puede o no producir una violación de seguridad. \par
+Las figura Figura 8 (5) y Figura 9 (6) muestran como fluye la información al Log escribiendo el contenido del intent recibido.
+
+\par
+\begin{center}
+ \includegraphics[scale=0.8]{Figura6}
+ \end{center}
+\par
+\begin{center}
+ \includegraphics[scale=0.8]{Figura7}
+ \end{center}
+\par
+\begin{center}
+ \includegraphics[scale=0.8]{Figura8}
+ \end{center}
+\par
+\begin{center}
+ \includegraphics[scale=0.8]{Figura9}
+ \end{center}
+\par
+\begin{center}
+ \includegraphics[scale=0.8]{Figura10}
+ \end{center}
+ 
+En este ejemplo se representa lo que sucede en muchas aplicaciones ya sea por mala intención o por descuidos: la aplicación SendSms quiere comunicarse con otro componente de sí misma, enviarle información para que éste lo trate según corresponda, para lo cual manda un intent con dicha información. A continuación, Echoer recibe el intent, filtra la información, y luego envía otro intent para que la aplicación inicial siga con su normal funcionamiento. Aquí SendSms no sabe que su información fue vista y tratada por otra aplicación. Este flujo es detectado por Didfail.\par
 
 \section{Herramientas de análisis estático}
 
@@ -60,6 +133,11 @@ Flowdroid \cite{Flowdroid} es una herramienta de análisis estático para aplicaci
 Analizar dichas aplicaciones es mas complicado que analizar un programa en java  porque estos corren sin el framework de Android, tienen un simple punto de entrada (el método main). En cambio, las aplicaciones Android, pueden tener multiples puntos de entradas, llamados implícitamente por el framework. Flowdroid resuelve este problema creando un método llamado dummymain(), el cual emula el ciclo de vida de las aplicaciones incluyendo todas las llamadas implícitas que pueden ocurrir.\par
 Flowdorid puede detectar precisamente solo flujos de datos intraprocedurales, ya que los interprocedurales incluyen intents, service, entre otros.\par
 
+\subsection{Epicc}
+
+Epicc analiza la comunicación entre componentes de manera precisa y efectiva, por lo que se podría decir que es un complemento a lo realizado por Flowdroid. \par
+Epicc identifica propiedades (tales como action, category and data MIME type) de los intents que pueden ser enviados y recibidos por los diferentes componentes.
+
 \subsection{Didfail}
 
 DidFail (Droid Intent Data Flow Analysis for Information Leakage) \cite{Didfail} usa el análisis estático para detectar potenciales fugas de information sensible entre un conjunto de aplicaciones Android. DidFail combina FlowDroid y Epicc para realizar un seguimiento de los flujos de datos tanto entre componentes como dentro de cada componente de un conjunto de aplicaciones. DidFail tiene dos fases en el análisis:
@@ -68,38 +146,4 @@ DidFail (Droid Intent Data Flow Analysis for Information Leakage) \cite{Didfail}
 \item Luego, basándose en los resultados de la primer fase, enumera los flujos de datos potencialmente peligrosos habilitados por las aplicaciones en su conjunto.
 \end{itemize}
 
-\subsection{Epicc}
-
-Epicc analiza la comunicación entre componentes de manera precisa y efectiva, por lo que se podría decir que es un complemento a lo realizado por Flowdroid. \par
-Epicc identifica propiedades (tales como action, category and data MIME type) de los intents que pueden ser enviados y recibidos por los diferentes componentes.
-
-
-\section{Ejemplo Motivador}
-
-La comunicación entre las aplicaciones es muy común y necesario para cumplir con sus objetivos. Esta comunicación la llevan a cabo principalmente mediante el uso de intents. Un ejemplo de ello es una foto, la cual puede fluir a través de diferentes aplicaciones: es sacada por la cámara y almacenada, luego es editada por alguna aplicación de edición para posteriormente ser compartida a través de alguna red social.\par
-
- \includegraphics[scale=0.75]{Figura0}
- 
-En la siguiente imagen se muestra un ejemplo donde información sensible puede fluir desde un source a un sink, y en su "viaje", pasar por múltiples aplicaciones que pueden ver y modificar su información: 
-
-\par
- \includegraphics[scale=0.75]{Figura1}
- 
-Aquí la aplicación SendSms obtiene Device Id (Figura 2: (1)), lo guarda en un intent (Figura 2: (2)) y luego lo envía mediante el método startActivityForResult (Figura 2: (3)) para iniciar una nueva actividad. Dicho intent es implícito, es decir, no tiene un destinatario preestablecido, por lo que el sistema operativo se encarga de comprobar que aplicaciones pueden manejarlo (mediante la comprobación de sus archivos manifest). En este ejemplo, la aplicación elegida fue Echoer.apk debido que su Manifest cumplía con los requisitos (Figura 6: (4)). Ésta aplicación recibe el intent, lo guarda en un campo de la clase MainActivity (Figura 4: (5)), y luego de que se oprima el botón "button1", la información que tenia el intent es enviada de vuelta a la aplicación SendSms (Figura 5: (6)), para que este último envié el mensaje (Figura 3: (7)). \par
-El problema está en que se filtra la información al Log escribiendo el contenido del intent como muestra la figura Figura 4 (5) y la Figura 5 (6). 
-
-\par
- \includegraphics[scale=0.75]{Figura2}
-\par
- \includegraphics[scale=0.75]{Figura3}
-\par
- \includegraphics[scale=0.75]{Figura4}
-\par
- \includegraphics[scale=0.75]{Figura5}
-\par
- \includegraphics[scale=0.75]{Figura6}
- 
-En este ejemplo se representa lo que sucede en muchas aplicaciones ya sea por mala intención o por descuidos: la aplicación SendSms quiere comunicarse con otro componente de sí misma, enviarle información para que éste lo trate según corresponda, para lo cual manda un intent con dicha información. A continuación, Echoer recibe el intent, filtra la información, y luego envía otro intent para que la aplicación inicial siga con su normal funcionamiento. Aquí SendSms no sabe que su información fue vista y tratada por otra aplicación.\par
-Este flujo es detectado por Didfail. En los capítulos siguientes se presenta como a partir de la salida de Didfail, y mediante modificaciones en dicha herramienta, se le dan niveles a los métodos involucrados en los flujos, se chequean si se produce violaciones de seguridad de acuerdo al orden establecido entre los niveles, ignorando aquellos métodos que son considerados excepciones, y las opciones para introducir dicha información.\par
-
-
+En los capítulos siguientes se presenta como a partir de la salida que proporciona Didfail, y mediante modificaciones en dicha herramienta, se le dan niveles a los métodos involucrados en los flujos, se chequean si se produce violaciones de seguridad de acuerdo al orden establecido entre los niveles, ignorando aquellos métodos que son considerados excepciones, y las opciones para introducir dicha información.\par

@@ -1,27 +1,34 @@
-\lhead{\emph{Diseño}}
+\lhead{\emph{Diseño e Implementación}}
 \graphicspath{{Imagenes/}} 
 
-\chapter{Diseño}
+\chapter{Diseño e Implementacón}
 
 El objetivo es que a partir de la información que nos proporciona la herramienta Didfail (con algunas modificaciones) y la información ingresada por el usuario como los niveles de seguridad con los que se va a trabajar, el orden parcial que los relaciona, las excepciones, y la asignación de niveles tanto a los source como a los sinks, identificar cual es el flujo de información que viola lo anterior mencionado en caso de que exista o informar la ausencia de dichas violaciones y brindar una posible asignación de niveles a los source y sinks que no fueron proporcionados por el usuario.
-Dicho análisis puede considerarse dividido en dos etapas: la primera consiste en la recopilación de información necesaria para efectuar el análisis y la segunda, a partir de la anterior, generar la información saliente, calcularla e informarla a través de la salida preestablecida. 
+Dicho análisis puede considerarse dividido en dos etapas: la primera consiste en la recopilación de información necesaria para efectuar el análisis y la segunda, a partir de la anterior, generar la información saliente, calcularla e informarla a través de la salida preestablecida. \par
+Aquí, aportes y modificaciones a DidFail fueron realizados usando el lenguaje de programación Python. Se modificaron diferentes módulos de ésta herramienta y se crearon otros para la implementación de las nuevas funcionalidades. \par
 
 \section{Escenario de ejemplo}
 
 \subsection{Información obtenida a través de Didfail}
 
-Un ejemplo de los escenarios a analizar por la herramienta es el que muestra la imagen que sigue (Figura 7), donde el componente 1 envía datos al componente 2, este ultimo los recibe y envía otros como respuesta. Por otro lado, el componente 3 interactúa con el componente 2 de manera similar. Vale aclarar que estos componentes pueden o no ser parte de una misma aplicación, lo cual no cambia el resultado en el análisis.
+Un ejemplo de los escenarios a analizar por la herramienta es el que muestra la imagen que sigue (Figura 11), donde el componente 1 envía datos al componente 2, este ultimo los recibe y envía otros como respuesta. Por otro lado, el componente 3 interactúa con el componente 2 de manera similar. Vale aclarar que estos componentes pueden o no ser parte de una misma aplicación, lo cual no cambia el resultado en el análisis.
 
-\includegraphics[scale=0.75]{Figura7}
+\begin{center}
+\includegraphics[scale=0.75]{Figura11}
+\end{center}
 \par
 
-En el escenario de la figura 7, Didfail determina que la información puede fluir  de  C1 a C2, de C2 a C1, de C3 a C2 y de C2 a C3 de manera directa, pero también pueden suceder flujos de C1 a C3 y de C3 a C1, en el caso de que C2 al recibir la información de, por ejemplo, C1, la guarde en algún campo y posteriormente la envié como respuesta a C3, luego de recibir un intent proveniente de este ultimo.\par
+En el escenario de la figura 11, Didfail determina que la información puede fluir  de  C1 a C2, de C2 a C1, de C3 a C2 y de C2 a C3 de manera directa, pero también pueden suceder flujos de C1 a C3 y de C3 a C1, en el caso de que C2 al recibir la información de, por ejemplo, C1, la guarde en algún campo y posteriormente la envié como respuesta a C3, luego de recibir un intent proveniente de este último.\par
 Estos flujos son originalmente representados de a pares, donde el componente izquierdo representa el source del flujo (quien envía el intent) y el componente derecho representa el sink del flujo (quien recibe el intent). Por ende, el resultado seria (source1, sink3), (source3, sink1), (source1, sink1) y (source3, sink3). \par
-A partir de las modificaciones que afectaron a Didfail, los source y sink tienen un campo llamado level, que permite, una vez calculado el flujo, comparar los niveles y ver si se corresponden con el orden entre ellos (vease 3.1.2)
+A partir de las modificaciones que afectaron a Didfail, los source y sink tienen un campo extra llamado level, que permite, una vez calculado el flujo, comparar los niveles y ver si se corresponden con el orden entre ellos. Un ejemplo concreto de estos se puede observar en la figura 12, la cual muestra un sink con sus correspondientes posibles source (las aplicaciones que generaron esta salida son aplicaciones de prueba llamadas Echoer, SendSms y WriteFile: vease Capitulo 4). Aquí el formato esta dado por los diccionarios de Python. \par
+
+\begin{center}
+\includegraphics[scale=0.6]{Figura12}
+\end{center}
 
 \subsection{Información obtenida a través de archivo de configuración únicamente}
 
-Otra información necesaria para efectuar el análisis son los niveles de seguridad y el orden que los relaciona, el cual debe ser un orden parcial como requisito excluyente, vease Figura 8. \par
+Otra información necesaria para efectuar el análisis son los niveles de seguridad y el orden que los relaciona, el cual debe ser un orden parcial como requisito excluyente. Un ejemplo de esto se puede ver en la Figura 13. \par
 Aquí no es necesario dar las relaciones transitivas (por ejemplo Public - Private) ni tampoco las relaciones reflexivas (Public - Public), las cuales deben estar presentes para cumplir con el requisito de orden parcial pero, para hacer el trabajo del usuario mas simple,  las relaciones reflexivas y transitivas son calculadas automáticamente.\par
 Los motivos por el que la relación entre los niveles debe ser de orden parcial son:
 \begin{description}
@@ -31,41 +38,87 @@ Los motivos por el que la relación entre los niveles debe ser de orden parcial s
 \end{description}
 \par
 
-\includegraphics[scale=1]{Figura8}
+\begin{center}
+\includegraphics[scale=0.75]{Figura13}
+\end{center}
 
-\subsection{Información obtenida mediante gui o archivos de configuración}
-
-Las entradas que deben proporcionarse a la herramienta que caben en esta clasificación corresponden a la asignación de niveles a métodos y las excepciones.
-La asignación de niveles a métodos podrían ser como se muestra en la figura 9, por ejemplo. 
-
-\includegraphics[scale=0.75]{Figura9}
+Para brindar los niveles y sus relaciones, el usuario debe modificar el archivo security-levels.txt. Aquí debe respetar la siguiente sintaxis: \par
+\begin{description}
+\item[Comentarios:] Las lineas que comienzan con un ``\#'' son ignoradas.
+\item[Relaciones:] Las relaciones son vistas como dos textos separados por un $ \le $ , siendo los espacios ignorados. Aquí el string que se encuentra a la izquierda de $ \le $ representa al nivel que precede al nivel representado por el string a la derecho del símbolo.
+\item[Linea Errónea:] Una linea es considerada errónea cuando no contiene el símbolo $ \le $ o cuando tanto a la derecha como a la izquierda de $ \le $ se encuentra un string vacío.
+\end{description}
 \par
 
-Aquí, al método source1 se le asigna el nivel privado, lo cual se interpreta de la siguiente manera: la información que obtiene la ejecución del método source1 es información privada que, de acuerdo al orden de los niveles anteriores, no debe llegar a ser argumento de alguno de los métodos con un nivel menor, como son Public, Semi-private1 o Semi-private2. \par
+
+\subsection{Información obtenida mediante GUI o archivos de configuración}
+
+Las entradas que deben proporcionarse a la herramienta que caben en esta clasificación corresponden a la asignación de niveles a métodos y las excepciones.
+
+\subsubsection{Asignación de niveles a métodos}
+
+La asignación de niveles a métodos podrían ser dado por el usuario de dos maneras: mediante la GUI o mediante el archivo de configuración assign-levels.txt. En el primer caso la interfaz provee campos de entrada de texto para ser completados con el nombre de la categoría a la que pertenece el método y el nivel a asignarle; en el caso del archivo de configuración, se da la categoría, seguida de una flecha y concluyendo con el nivel a asignar.\par
+Vale aclarar que la categoría es un nombre que se le da a un conjunto de métodos que obtienen o manejan información similar. Por ello es que todos los métodos de una categoría van a tener el mismo nivel. Por ejemplo, los métodos que obtienen tanto la latitud (getLatitude()) como la longitud (getLongitude()) corresponden a la misma categoría (ACCESS FINE LOCATION) y por ende tendrán el mismo nivel.\par
+Las categorías y sus métodos dependen de la API de android que se este utilizando.\par
+
+\begin{center}
+\includegraphics[scale=0.75]{Figura14}
+\end{center}
+
+En la figura 14 se muestra un ejemplo de asignación de niveles a métodos donde al método source1 se le asigna el nivel privado, lo cual se interpreta de la siguiente manera: la información que obtiene la ejecución del método source1 es información privada que, de acuerdo al orden de los niveles anteriores, no debe llegar a ser argumento de alguno de los métodos con un nivel menor, como son Public, Semi-private1 o Semi-private2. \par
 En cuanto a la interpretación de la asignación a sink1 corresponde a que la información que tiene el método sink1 como argumento, luego de la ejecución de éste, llega a lugares considerados "Private".\par
-Un ejemplo concreto puede ser, que dado el método getLatitud(), el cual obtiene la ubicación del dispositivo considerada normalmente como información privada, se le asigna el nivel  ``Private''. Por otro lado, la información que es enviada via sms (mediante el método sendSms()) normalmente es considerada pública ya que puede llegar a distintas personas. Teniendo en cuenta este escenario, si existe el flujo (getLatitud, sendSms), existe una violación de seguridad donde información privada arriba a lugares públicos.\par
+Un ejemplo concreto puede ser, que dado el método getLatitud(), el cual obtiene la ubicación del dispositivo considerada normalmente como información privada, se le asigna el nivel  ``Private''. Por otro lado, la información que es enviada via sms (mediante el método sendSms()) normalmente es considerada pública ya que puede llegar a distintas personas. Teniendo en cuenta este escenario, si existe el flujo (getLatitud, sendSms), existe una violación de 
+seguridad donde información privada arriba a lugares públicos.\par
+
+\subsubsection{Excepciones}
+
 En el caso de las excepciones, pueden ser:\par
 \begin{description}
 \item[source1 a sink3]
 \end{description}
 Esto significa que si Didfail detecta un flujo de source1 a sink3, sin  importar los niveles que estos tengan asignado, el flujo es ignorado, y no provoca violaciones de seguridad.\par
 Un ejemplo concreto del uso de excepciones que se puede mencionar es el caso en el que una aplicación dada requiere que el usuario se identifique antes de proveerle sus funcionalidades. Para ello el usuario introduce su contraseña, la cual es considerada información privada. En el caso de que la contraseña introducida sea errónea, la aplicación responderá indicando el fallo y posiblemente pidiendo el reingreso de ésta. Aquí surge un inconveniente, donde un componente que recibe información privada, la trata y responde a, posiblemente, un componente considerado público, como por ejemplo, la ventana informando que la contraseña es incorrecta. Si bien la ventana podría contener la contraseña ingresada, lo cual seria claramente una fuga de información, también puede responder simplemente el mensaje de error o éxito. Para situaciones como estas, la herramienta le deja la decisión al usuario, dandole la posibilidad de ignorar la violación de seguridad mediante el uso de excepciones.\par
-Otro escenario posible puede darse en el caso de que un método que participe en alguna excepción no tenga nivel asignado por el usuario y deba ser calculado por la herramienta. Aquí, si durante el análisis se encuentra el flujo indicado por la excepción, éste no va a limitar la asignación de un nivel al método, es decir, si por ejemplo, el flujo va de ``privado'' a ``variable1'' (donde ``privado'' es el nivel supremo del orden de los niveles y ``variable1'' es el método que no tiene nivel asignado), al momento de calcular el nivel del método ``variable1'' no se tendrá en cuenta dicho flujo, es decir, no debe ser mayor o igual a ``privado''. \par
+Durante el análisis, teniendo en cuenta la posibilidad de manejar excepciones, se puede dar el caso en el que un método que participe en alguna excepción no tenga nivel asignado por el usuario y deba ser calculado por la herramienta. Aquí, si durante el análisis se encuentra el flujo indicado por la excepción, éste no va a limitar la asignación de un nivel al método, es decir, si por ejemplo, el flujo va de ``privado'' a ``variable1'' (donde ``privado'' es el nivel supremo del orden de los niveles y ``variable1'' es el método que no tiene nivel asignado), al momento de calcular el nivel del método ``variable1'' no se tendrá en cuenta dicho flujo, es decir, no debe ser mayor o igual a ``privado''. \par
+Una vez brindadas las excepciones, la herramienta corrobora que los métodos participantes de la excepción existan en la API de la version de android con la que se esta trabajando.\par
+En este caso, el usuario debe modificar el archivo exceptions.txt en caso de que se esté trabajando mediante el uso de archivos de configuración o agregando excepciones a través de la interfaz gráfica. En el caso del archivo, la sintaxis es similar a la mencionada anteriormente, pero con la diferencia de que el símbolo que separa los string es una flecha ($\rightarrow$) y que a los lados de dicha flecha se colocan métodos. \par
+A modo de ejemplo, la Figura 15 muestra una excepción donde, si la información que obtiene el método``getDeviceId()'' puede ser parte de los argumentos del método ``i(java.lang.String,java.lang.String)'', no será considerado violación de seguridad, sin importar los niveles de estos.\par
+Si bien las excepciones podrían haber sido implementadas para que trabajen con categorías en lugar de que lo hagan con métodos directamente, haciendo el trabajo del usuario mas simple e intuitivo, tiene como desventaja que al dar una excepción de una categoría A a una categoría B, en realidad se estarían considerando muchas excepciones (todas las posibles combinaciones de los métodos pertenecientes a la categoría A, con todos los métodos de la categoría B). Por ello es que la excepciones trabajan con métodos, lo que le permite ser mas epecíficas y manejables.\par
+
+\begin{center}
+\includegraphics[scale=0.7]{Figura15}
+\end{center}
 
 \section{Etapa 1}
 
-En esta etapa, se recolecta toda la información necesaria para efectuar el análisis. Ésta puede ser provista por dos vías: Mediante la interfaz de usuario o mediante archivos de configuración, dependiendo del script que sea utilizado para ejecutar la herramienta. \par
-Dado el escenario anterior, se reemplaza cada método en los flujos por su nivel de acuerdo a la asignación brindada por el usuario, y en caso de que el método no tenga una asignación, será considerado variable y su nivel dependerá luego de los demás para evitar la violación del orden de los niveles. Esto es, puede darse el caso de que exista un nivel, el cual se le asigne al método variable y luego el chequeo no de error. O por el contrario, puede ocurrir que no exista dicho nivel y por lo tanto el sistema informará la violación.\par
+En esta etapa, se recolecta toda la información necesaria para efectuar el análisis, la cual puede ser provista por dos vías: mediante la interfaz de usuario o mediante archivos de configuración, dependiendo del script que sea utilizado para ejecutar la herramienta. \par
+Una vez que se cuenta con toda la información necesaria, se reemplaza cada método en los flujos por su nivel, de acuerdo a la asignación brindada por el usuario, y en caso de que algún método no tenga una asignación, será considerado variable y su nivel dependerá luego de los demás para evitar la violación del orden de los niveles. Esto es, puede darse el caso de que exista un nivel, el cual se le asigne al método variable y luego el chequeo no de error. O por el contrario, puede ocurrir que no exista dicho nivel y por lo tanto el sistema informará la violación.\par
 En el caso de los niveles de seguridad, se le agregan todos las relaciones necesarias para que el orden resultante sea un orden parcial. De igual manera, dicha relación puede resultar no ser del orden requerido por el no cumplimiento de la antisimetría (requisito para ser orden parcial).\par
 Por otro lado, también se requiere que los métodos participantes en las excepciones deben existir (pertenecer a la API de la versión de Android que la herramienta utiliza). \par
 En el caso de las asignaciones de niveles a métodos, los métodos deben cumplir el mismo requisito que los de las excepciones y además, el nivel que se le asigna a cada uno debe pertenecer al orden generado con anterioridad.
 En cualquier caso que no se cumplan los requisitos antes mencionados, se generará un error y se abortara la ejecución.\par
+En la figura 16 se muestra la información necesaria para llevar a cabo la primer etapa del análisis, los chequeos que se realizan para que funcione correctamente y la salida generada en esta etapa. \par
+
+\begin{center}
+\includegraphics[scale=0.7]{Figura16}
+\end{center}
 
 \section{Etapa 2}
 
 Una vez que se cuenta con toda la información necesaria, se lleva a cabo el chequeo de los flujos de información. La idea general de dicho chequeo  es comprobar que la información no fluya a lugares ``más públicos'' que de donde salió, es decir, que los niveles de los métodos con los que esta información es recopilada no sean menores (precedan en el orden de los niveles) a los niveles de los métodos donde puede llegar dicha información. Pero, dado que no todos los métodos pueden tener nivel asignado, es necesario la previa asignación de un nivel, para luego proceder con el chequeo. \par
-Si se tomara como entrada a la etapa 2 el escenario de la figura 7, 8 y 9, por ejemplo, ``source1'' tiene asignado el nivel ``Private'', además, como sabemos que la información obtenida por ``source1'' puede llegar a ``sink3'', y este último tiene nivel ``Semi-private3'' y dado que el orden de los niveles indica que ``Semi-private3'' es menor que ``Private'', se estaría produciendo una violación de seguridad. Pero, como dicho flujo esta presente en las excepciones, éste es descartado.\par
+Si se tomara como entrada a la etapa 2 el escenario de la figura 11, 13 y 14, por ejemplo, ``source1'' tiene asignado el nivel ``Private'', además, como sabemos que la información obtenida por ``source1'' puede llegar a ``sink3'', y este último tiene nivel ``Semi-private3'' y dado que el orden de los niveles indica que ``Semi-private3'' es menor que ``Private'', se estaría produciendo una violación de seguridad. Pero, como dicho flujo esta presente en las excepciones, éste es descartado.\par
 Otro caso que puede ocurrir es que la información vaya de un nivel menor a uno mayor o el caso que los niveles de seguridad sean iguales, en ambos casos no hay problemas de seguridad. Teniendo en cuenta el ejemplo, este caso es representado por el flujo ``source1 - sink1''.\par
 Una ultima alternativa seria, por ejemplo, el caso de que el flujo se dé entre ``Semi-private1'' y ``Semi-private2'': Aquí, los niveles son incomparable en el orden, lo que también deriva en una violación de seguridad (``source3 - sink3'').\par
+Para llevar a cabo el análisis en esta etapa, a partir de la salida proveniente de Didfail  y combinándolas con los niveles correspondientes a cada source y sink de la misma, se ejecuta una implementación del algoritmo de Jacob Rehof y Torben Mogensen \cite{JacobRehofTorbenMogensen}. La figura 17 muestra un pseudocódigo de dicho algoritmo, el cual chequea si se produce una violación de seguridad comprobando si en cada flujo de información, sus niveles se corresponden con alguna relación del orden de niveles. Para ello también contiene una representación del orden generado. Pero, previo a cualquier chequeo, se comprueba si el flujo pertenece a una excepción, en tal caso nunca será considerara violación de seguridad.\par
 
+\begin{center}
+\includegraphics[scale=0.7]{Figura17} NUMERO DUPLICADO
+\end{center}
 
+Además del funcionamiento antes mencionado, el algoritmo también tiene la posibilidad de asignar niveles a métodos que no poseen uno previamente asignado. Esto lo realiza asignándole el menor nivel del orden al método y luego comprobando que en todos los flujos en los que aparece el método variable (método sin nivel asignado) como sink, si el nivel actual asignado es el supremo entre su nivel y el nivel del otro método participante del flujo. En caso de ser así, el nivel no es modificado, pero si por el contrario esto no se cumple, al método variable se le asigna el nivel supremo antes mencionado.\par
+Como salida del algoritmo hay dos posibilidades: Indica que todo esta bien y la asignación que hizo a los métodos que no tenían niveles para evitar violaciones de seguridad, o bien, informando la violación de seguridad encontrada.
+
+DESCRIPCION DEL ALGORITMO
+
+\section{Compilación y uso}
+
+COMPLETAR

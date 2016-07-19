@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.10)  13 FEB 2016 15:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.10)  11 JUL 2016 21:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -614,11 +614,11 @@ LaTeX Info: Redefining \% on input line 18.
 ------------------------------------------------------------------------------
  Title Page
 ------------------------------------------------------------------------------
-<Imagenes/escudounrc.jpg, id=168, 160.6pt x 241.90375pt>
+<Imagenes/escudounrc.jpg, id=152, 160.6pt x 241.90375pt>
 File: Imagenes/escudounrc.jpg Graphic file (type jpg)
 
 <use Imagenes/escudounrc.jpg>
-Package pdftex.def Info: Imagenes/escudounrc.jpg used on input line 34.
+Package pdftex.def Info: Imagenes/escudounrc.jpg used on input line 36.
 (pdftex.def)             Requested size: 80.29979pt x 120.95157pt.
  [1
 
@@ -648,15 +648,11 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
 Package spanish Warning: Replacing `OT1/cmr/bx/sc' by 
 (spanish)                faked small caps on input line 2.
 
-
-Package spanish Warning: Replacing `OT1/cmr/bx/sc' by 
-(spanish)                faked small caps on input line 4.
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 6.
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 6.
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -684,192 +680,203 @@ Cap\'{\i }tulo 2.
 ------------------------------------------------------------------------------
 [4
 
-] [5] [6] [7] [8] [9]
+] [5] <Imagenes/Figura1.jpeg, id=261, 713.66624pt x 475.7775pt>
+File: Imagenes/Figura1.jpeg Graphic file (type jpg)
 
-Package natbib Warning: Citation `TypInformFlowWithRobustDecl' on page 10 undef
-ined on input line 49.
-
-[10] [11] <Imagenes/Figura0.png, id=352, 373.395pt x 481.8pt>
-File: Imagenes/Figura0.png Graphic file (type png)
-
-<use Imagenes/Figura0.png>
-Package pdftex.def Info: Imagenes/Figura0.png used on input line 81.
-(pdftex.def)             Requested size: 280.04556pt x 361.3491pt.
-
-<Imagenes/Figura1.png, id=354, 525.965pt x 184.69pt>
-File: Imagenes/Figura1.png Graphic file (type png)
-
-<use Imagenes/Figura1.png>
-Package pdftex.def Info: Imagenes/Figura1.png used on input line 86.
-(pdftex.def)             Requested size: 394.47276pt x 138.51714pt.
- [12 <./Imagenes/Figura0.png>]
-<Imagenes/Figura2.png, id=361, 488.82625pt x 232.87pt>
+<use Imagenes/Figura1.jpeg>
+Package pdftex.def Info: Imagenes/Figura1.jpeg used on input line 20.
+(pdftex.def)             Requested size: 356.83224pt x 237.88815pt.
+ [6 <./Imagenes/Figura1.jpeg>] [7] [8] [9]
+<Imagenes/Figura2.png, id=315, 465.23813pt x 322.95656pt>
 File: Imagenes/Figura2.png Graphic file (type png)
 
 <use Imagenes/Figura2.png>
-Package pdftex.def Info: Imagenes/Figura2.png used on input line 92.
-(pdftex.def)             Requested size: 366.61877pt x 174.65205pt.
+Package pdftex.def Info: Imagenes/Figura2.png used on input line 58.
+(pdftex.def)             Requested size: 348.92773pt x 242.21681pt.
+ [10 <./Imagenes/Figura2.png>] [11]
+<Imagenes/Figura3.jpeg, id=328, 732.7375pt x 476.78125pt>
+File: Imagenes/Figura3.jpeg Graphic file (type jpg)
 
-<Imagenes/Figura3.png, id=362, 491.8375pt x 282.05376pt>
-File: Imagenes/Figura3.png Graphic file (type png)
-
-<use Imagenes/Figura3.png>
-Package pdftex.def Info: Imagenes/Figura3.png used on input line 94.
-(pdftex.def)             Requested size: 368.87721pt x 211.53978pt.
- [13 <./Imagenes/Figura1.png> <./Imagenes/Figura2.png>] <Imagenes/Figura4.png, 
-id=369, 472.76625pt x 255.95625pt>
+<use Imagenes/Figura3.jpeg>
+Package pdftex.def Info: Imagenes/Figura3.jpeg used on input line 83.
+(pdftex.def)             Requested size: 366.36786pt x 238.39003pt.
+ [12]
+<Imagenes/Figura4.png, id=334, 373.395pt x 481.8pt>
 File: Imagenes/Figura4.png Graphic file (type png)
+ <use Imagenes/Figura4.png>
+Package pdftex.def Info: Imagenes/Figura4.png used on input line 91.
+(pdftex.def)             Requested size: 280.04556pt x 361.3491pt.
 
-<use Imagenes/Figura4.png>
-Package pdftex.def Info: Imagenes/Figura4.png used on input line 96.
-(pdftex.def)             Requested size: 354.5738pt x 191.9667pt.
-
-<Imagenes/Figura5.png, id=370, 478.78876pt x 156.585pt>
+[13 <./Imagenes/Figura3.jpeg>]
+<Imagenes/Figura5.png, id=339, 525.965pt x 184.69pt>
 File: Imagenes/Figura5.png Graphic file (type png)
 
 <use Imagenes/Figura5.png>
-Package pdftex.def Info: Imagenes/Figura5.png used on input line 98.
-(pdftex.def)             Requested size: 359.09068pt x 117.43845pt.
-
-<Imagenes/Figura6.png, id=371, 456.70625pt x 198.7425pt>
+Package pdftex.def Info: Imagenes/Figura5.png used on input line 96.
+(pdftex.def)             Requested size: 394.47276pt x 138.51714pt.
+ [14 <./Imagenes/Figura4.png> <./Imagenes/Figura5.png>] <Imagenes/Figura6.png, 
+id=346, 488.82625pt x 232.87pt>
 File: Imagenes/Figura6.png Graphic file (type png)
 
 <use Imagenes/Figura6.png>
-Package pdftex.def Info: Imagenes/Figura6.png used on input line 100.
-(pdftex.def)             Requested size: 342.52884pt x 149.0565pt.
- [14 <./Imagenes/Figura3.png> <./Imagenes/Figura4.png> <./Imagenes/Figura5.png>
-]) (./Chapters/Chapter3.tex [15 <./Imagenes/Figura6.png>]
-Cap\'{\i }tulo 3.
-------------------------------------------------------------------------------
- 3 Dise\~no
-------------------------------------------------------------------------------
-<Imagenes/Figura7.png, id=385, 418.56375pt x 252.945pt>
+Package pdftex.def Info: Imagenes/Figura6.png used on input line 105.
+(pdftex.def)             Requested size: 391.06152pt x 186.29623pt.
+
+<Imagenes/Figura7.png, id=347, 491.8375pt x 282.05376pt>
 File: Imagenes/Figura7.png Graphic file (type png)
 
 <use Imagenes/Figura7.png>
-Package pdftex.def Info: Imagenes/Figura7.png used on input line 15.
-(pdftex.def)             Requested size: 313.92203pt x 189.70828pt.
- [16
-
-] [17 <./Imagenes/Figura7.png>]
-<Imagenes/Figura8.png, id=398, 400.49625pt x 376.40625pt>
+Package pdftex.def Info: Imagenes/Figura7.png used on input line 109.
+(pdftex.def)             Requested size: 393.47052pt x 225.6433pt.
+ [15 <./Imagenes/Figura6.png>]
+<Imagenes/Figura8.png, id=354, 472.76625pt x 255.95625pt>
 File: Imagenes/Figura8.png Graphic file (type png)
 
 <use Imagenes/Figura8.png>
-Package pdftex.def Info: Imagenes/Figura8.png used on input line 34.
-(pdftex.def)             Requested size: 400.49527pt x 376.40532pt.
- [18]
-<Imagenes/Figura9.png, id=403, 460.72125pt x 475.7775pt>
+Package pdftex.def Info: Imagenes/Figura8.png used on input line 113.
+(pdftex.def)             Requested size: 378.2135pt x 204.76526pt.
+
+<Imagenes/Figura9.png, id=355, 478.78876pt x 156.585pt>
 File: Imagenes/Figura9.png Graphic file (type png)
 
 <use Imagenes/Figura9.png>
-Package pdftex.def Info: Imagenes/Figura9.png used on input line 41.
-(pdftex.def)             Requested size: 345.54008pt x 356.83223pt.
- [19 <./Imagenes/Figura8.png>] [20 <./Imagenes/Figura9.png>] [21] [22]) (./Chap
-ters/Chapter4.tex [23]
-Cap\'{\i }tulo 4.
-------------------------------------------------------------------------------
- 4 Implementaci\'on
-------------------------------------------------------------------------------
-<Imagenes/Figura10.png, id=428, 476.78125pt x 657.45625pt>
+Package pdftex.def Info: Imagenes/Figura9.png used on input line 117.
+(pdftex.def)             Requested size: 383.03152pt x 125.26816pt.
+
+<Imagenes/Figura10.png, id=356, 456.70625pt x 198.7425pt>
 File: Imagenes/Figura10.png Graphic file (type png)
 
 <use Imagenes/Figura10.png>
-Package pdftex.def Info: Imagenes/Figura10.png used on input line 12.
-(pdftex.def)             Requested size: 357.58505pt x 493.09099pt.
- [24
+Package pdftex.def Info: Imagenes/Figura10.png used on input line 121.
+(pdftex.def)             Requested size: 365.36548pt x 158.9942pt.
+ [16 <./Imagenes/Figura7.png> <./Imagenes/Figura8.png> <./Imagenes/Figura9.png>
+] [17 <./Imagenes/Figura10.png>])
+(./Chapters/Chapter3.tex [18]
+Cap\'{\i }tulo 3.
+------------------------------------------------------------------------------
+ 3 Dise\~no e Implementac\'on
+------------------------------------------------------------------------------
+[19
 
-]
-<Imagenes/Figura11.png, id=435, 712.6625pt x 201.75375pt>
+] <Imagenes/Figura11.png, id=379, 418.56375pt x 252.945pt>
 File: Imagenes/Figura11.png Graphic file (type png)
 
 <use Imagenes/Figura11.png>
 Package pdftex.def Info: Imagenes/Figura11.png used on input line 17.
-(pdftex.def)             Requested size: 427.6008pt x 121.05318pt.
+(pdftex.def)             Requested size: 313.92203pt x 189.70828pt.
 
-Overfull \hbox (10.12773pt too wide) in paragraph at lines 17--18
-[][] 
- []
-
-[25 <./Imagenes/Figura10.png>] [26 <./Imagenes/Figura11.png>]
-<Imagenes/Figura12.png, id=448, 584.1825pt x 81.30376pt>
+<Imagenes/Figura12.png, id=380, 712.6625pt x 201.75375pt>
 File: Imagenes/Figura12.png Graphic file (type png)
 
 <use Imagenes/Figura12.png>
-Package pdftex.def Info: Imagenes/Figura12.png used on input line 35.
-(pdftex.def)             Requested size: 408.92496pt x 56.91223pt.
- [27 <./Imagenes/Figura12.png>])
-(./Chapters/Chapter5.tex [28]
-Cap\'{\i }tulo 5.
-------------------------------------------------------------------------------
- 5 Resultados Experimentales
-------------------------------------------------------------------------------
-[29
+Package pdftex.def Info: Imagenes/Figura12.png used on input line 26.
+(pdftex.def)             Requested size: 427.6008pt x 121.05318pt.
 
-] <Imagenes/Figura13.png, id=467, 864.22874pt x 384.43625pt>
+Overfull \hbox (10.12773pt too wide) in paragraph at lines 26--27
+ [] 
+ []
+
+[20 <./Imagenes/Figura11.png>] [21 <./Imagenes/Figura12.png>]
+<Imagenes/Figura13.png, id=392, 400.49625pt x 376.40625pt>
 File: Imagenes/Figura13.png Graphic file (type png)
 
 <use Imagenes/Figura13.png>
-Package pdftex.def Info: Imagenes/Figura13.png used on input line 22.
-(pdftex.def)             Requested size: 432.11331pt x 192.21765pt.
-
-Overfull \hbox (14.64024pt too wide) in paragraph at lines 22--23
-[][] 
- []
-
-<Imagenes/Figura14.png, id=468, 566.115pt x 106.3975pt>
+Package pdftex.def Info: Imagenes/Figura13.png used on input line 42.
+(pdftex.def)             Requested size: 300.37144pt x 282.30399pt.
+ [22 <./Imagenes/Figura13.png>]
+<Imagenes/Figura14.png, id=399, 460.72125pt x 475.7775pt>
 File: Imagenes/Figura14.png Graphic file (type png)
 
 <use Imagenes/Figura14.png>
-Package pdftex.def Info: Imagenes/Figura14.png used on input line 29.
-(pdftex.def)             Requested size: 424.5852pt x 79.79791pt.
-
-Overfull \hbox (7.11214pt too wide) in paragraph at lines 29--30
-[][] 
- []
-
-<Imagenes/Figura15.png, id=469, 491.8375pt x 83.31125pt>
+Package pdftex.def Info: Imagenes/Figura14.png used on input line 65.
+(pdftex.def)             Requested size: 345.54008pt x 356.83223pt.
+ [23] [24 <./Imagenes/Figura14.png>] [25]
+<Imagenes/Figura15.png, id=413, 584.1825pt x 81.30376pt>
 File: Imagenes/Figura15.png Graphic file (type png)
 
 <use Imagenes/Figura15.png>
-Package pdftex.def Info: Imagenes/Figura15.png used on input line 36.
-(pdftex.def)             Requested size: 393.47052pt x 66.64908pt.
- [30 <./Imagenes/Figura13.png> <./Imagenes/Figura14.png>] <Imagenes/Figura16.pn
-g, id=478, 1126.2075pt x 566.115pt>
+Package pdftex.def Info: Imagenes/Figura15.png used on input line 88.
+(pdftex.def)             Requested size: 408.92496pt x 56.91223pt.
+ [26 <./Imagenes/Figura15.png>]
+<Imagenes/Figura16.png, id=419, 476.78125pt x 657.45625pt>
 File: Imagenes/Figura16.png Graphic file (type png)
 
 <use Imagenes/Figura16.png>
-Package pdftex.def Info: Imagenes/Figura16.png used on input line 42.
-(pdftex.def)             Requested size: 427.9633pt x 215.12593pt.
+Package pdftex.def Info: Imagenes/Figura16.png used on input line 102.
+(pdftex.def)             Requested size: 333.74458pt x 460.21625pt.
+ [27] [28 <./Imagenes/Figura16.png>])
+(./Chapters/Chapter4.tex [29] [30]
+Cap\'{\i }tulo 4.
+------------------------------------------------------------------------------
+ 4 Resultados Experimentales
+------------------------------------------------------------------------------
+[31
 
-Overfull \hbox (10.49023pt too wide) in paragraph at lines 42--43
-[][] 
- []
-
-<Imagenes/Figura17.png, id=479, 354.32375pt x 158.5925pt>
+] <Imagenes/Figura17.png, id=443, 864.22874pt x 384.43625pt>
 File: Imagenes/Figura17.png Graphic file (type png)
 
 <use Imagenes/Figura17.png>
-Package pdftex.def Info: Imagenes/Figura17.png used on input line 49.
-(pdftex.def)             Requested size: 354.32288pt x 158.59209pt.
- [31 <./Imagenes/Figura15.png> <./Imagenes/Figura16.png>]) (./Chapters/Chapter6
-.tex [32 <./Imagenes/Figura17.png>]
+Package pdftex.def Info: Imagenes/Figura17.png used on input line 23.
+(pdftex.def)             Requested size: 432.11331pt x 192.21765pt.
+
+Overfull \hbox (14.64024pt too wide) in paragraph at lines 23--24
+ [] 
+ []
+
+<Imagenes/Figura18.png, id=444, 566.115pt x 106.3975pt>
+File: Imagenes/Figura18.png Graphic file (type png)
+
+<use Imagenes/Figura18.png>
+Package pdftex.def Info: Imagenes/Figura18.png used on input line 31.
+(pdftex.def)             Requested size: 424.5852pt x 79.79791pt.
+
+Overfull \hbox (7.11214pt too wide) in paragraph at lines 31--32
+ [] 
+ []
+
+[32 <./Imagenes/Figura17.png> <./Imagenes/Figura18.png>]
+<Imagenes/Figura19.png, id=451, 491.8375pt x 83.31125pt>
+File: Imagenes/Figura19.png Graphic file (type png)
+
+<use Imagenes/Figura19.png>
+Package pdftex.def Info: Imagenes/Figura19.png used on input line 39.
+(pdftex.def)             Requested size: 368.87721pt x 62.48328pt.
+
+<Imagenes/Figura20.png, id=452, 1126.2075pt x 566.115pt>
+File: Imagenes/Figura20.png Graphic file (type png)
+
+<use Imagenes/Figura20.png>
+Package pdftex.def Info: Imagenes/Figura20.png used on input line 47.
+(pdftex.def)             Requested size: 427.9633pt x 215.12593pt.
+
+Overfull \hbox (10.49023pt too wide) in paragraph at lines 47--48
+ [] 
+ []
+
+[33 <./Imagenes/Figura19.png> <./Imagenes/Figura20.png>]
+<Imagenes/Figura21.png, id=461, 381.425pt x 174.6525pt>
+File: Imagenes/Figura21.png Graphic file (type png)
+
+<use Imagenes/Figura21.png>
+Package pdftex.def Info: Imagenes/Figura21.png used on input line 56.
+(pdftex.def)             Requested size: 343.27931pt x 157.18579pt.
+) (./Chapters/Chapter5.tex [34 <./Imagenes/Figura21.png>]
+Cap\'{\i }tulo 5.
+------------------------------------------------------------------------------
+ 5 Limitaciones
+------------------------------------------------------------------------------
+[35
+
+]) (./Chapters/Chapter6.tex [36]
 Cap\'{\i }tulo 6.
 ------------------------------------------------------------------------------
- 6 Limitaciones
+ 6 Conclusi\'on y futuros trabajos
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter7.tex [33
+[37
 
-]
-Cap\'{\i }tulo 7.
-------------------------------------------------------------------------------
- 7 Conclusi\'on y futuros trabajos
-------------------------------------------------------------------------------
-[34
+]) (./Thesis.bbl [38] [39
 
-]) (./Thesis.bbl [35] [36
-
-] [37]
+] [40]
 Underfull \hbox (badness 10000) in paragraph at lines 133--140
 []\OT1/cmr/m/n/12 F. Ba-ve-ra and E. Bo-ne-lli.  Ty-pe-ba-sed in-for-ma-tion fl
 ow
@@ -900,121 +907,43 @@ ers/ifbcode
  []
 
 )
-
-Package natbib Warning: There were undefined citations.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 95.
-[38]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 95.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
+ [41]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
  (./Thesis.aux
 LaTeX Info: Redefining \. on input line 23.
 LaTeX Info: Redefining \% on input line 23.
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 95.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 95.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
+Package rerunfilecheck Info: File `Thesis.out' has not changed.
+(rerunfilecheck)             Checksum: 4AF5F4487B67DFAEFCEE17501E28E44C;6951.
 
-
-Package rerunfilecheck Warning: File `Thesis.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Thesis.out':
-(rerunfilecheck)             Before: 1E3DCDF46E509369470178308DCF1B6F;7404
-(rerunfilecheck)             After:  6A7EE7C430506BCA277D72B010C6ABD7;7264.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 95.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 93.
  ) 
 Here is how much of TeX's memory you used:
- 14251 strings out of 493089
- 201501 string characters out of 6134841
- 275407 words of memory out of 5000000
- 17373 multiletter control sequences out of 15000+600000
+ 14239 strings out of 493089
+ 201528 string characters out of 6134841
+ 276489 words of memory out of 5000000
+ 17382 multiletter control sequences out of 15000+600000
  12012 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,13n,45p,1089b,672s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{chapter*.43} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.42} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.40} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.39} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.35} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.33} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.32} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.31} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.27} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.26} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.25} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.23} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.20} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.19} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{section.18} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.17} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.14} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.12} has been referenced but does not exi
-st, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.11} has been referenced but does not exist,
- replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.9} has been referenced but does not exist, 
-replaced by a fixed one
-
-pdfTeX warning (dest): name{section.8} has been referenced but does not exist, 
-replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter.5} has been referenced but does not exist, 
-replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.4} has been referenced but does not exist,
- replaced by a fixed one
-
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
-/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (42 pages, 1371836 bytes).
+ 49i,13n,45p,1087b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on Thesis.pdf (45 pages, 1549214 bytes).
 PDF statistics:
- 579 PDF objects out of 1000 (max. 8388607)
- 485 compressed objects within 5 object streams
- 132 named destinations out of 1000 (max. 500000)
- 424 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 553 PDF objects out of 1000 (max. 8388607)
+ 452 compressed objects within 5 object streams
+ 109 named destinations out of 1000 (max. 500000)
+ 407 words of extra memory for PDF output out of 10000 (max. 10000000)
 

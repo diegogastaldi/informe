@@ -1,51 +1,9 @@
-\lhead{\emph{Resultados Experimentales}}
-\graphicspath{{Imagenes/}} 
-\chapter{Resultados Experimentales}
+\lhead{\emph{Limitaciones}}
 
-En este capitulo se muestra un ejemplo del análisis mediante el uso de tres aplicaciones diferenciando las dos formas que tiene el usuario de brindar datos a la herramienta.\par
+\chapter{Limitaciones}
 
-\section{Descripción de aplicaciones a analizar}
-
-\begin{description}
-\item[SendSMS.apk:] Esta aplicación filtra el device ID del usuario a través de un mensaje de texto. Lee el Device ID y a continuación lo añade a un intent utilizando el método putExtra(), acto seguido envía el intent a través del método startActivityForResult() permitiendo a otra aplicación recibirlo y responder. Una vez recibida la respuesta, la aplicación filtra los datos a un mensaje.
-\item[Echoer.apk:] Esta aplicación recibe un intent usando el método getIntent(), escribe los datos recibidos en el Log y por ultimo, envía los datos de vuelta usando setResult().
-\item[WriteFile.apk:] Esta aplicación es similar a SendSMS, excepto que lee la ubicación del dispositivo y la fuga a un archivo.
-\end{description}
-\par
-
-\section{Datos}
-
-\subsection{Jerarquía de niveles de seguridad}
-
-En este ejemplo se usó el orden de niveles que muestra la Figura 13. En ella se puede observar a modo de comentario la representación gráfica del orden generado.\par
-
-\includegraphics[scale=0.5]{Figura13}
-
-
-\subsection{Asignación de niveles}
-
-Para mostrar el funcionamiento de la herramienta solo se le asigna niveles a dos categorías como muestra la Figura 14, ya que, como se ah mencionado con anterioridad, no es necesario darle niveles a todas las categorías participantes en los flujos de información.\par
-
-\includegraphics[scale=0.75]{Figura14}
-
-
-\subsection{Excepciones}
-
-La excepción de la Figura 15 hace que se ignore el flujo del device ID del usuario al Log.\par
-
-\includegraphics[scale=0.8]{Figura15}
-
-\subsection{Didfail modificado}
-
-La figura 16 muestra los flujos de información, los métodos que participan y los niveles de seguridad tiene cada uno asignado.\par
-
-\includegraphics[scale=0.38]{Figura16}
-
-\section{Resultados obtenidos}
-
-Los resultados obtenidos (Figura 17) muestran que no se producen flujos de información que viole los niveles de seguridad. Ademas muestra el menor nivel posible, con respecto al orden, a cada categorías que no tenían nivel asignado.\par
-La salida también incluye los Intent lanzados por las aplicaciones. En el conjunto actual de aplicaciones, estos ya fueron utilizados para el análisis y no agrega información en la salida, pero teniendo en cuenta una posible adición de otra aplicación al conjunto, el usuario tiene la posibilidad de ver el nivel de la información que la nueva aplicación puede obtener (en caso de que su manifest así lo permita).\par
-
-\includegraphics[scale=1]{Figura17}
-
-El nivel asignado a la categoría Log merece una aclaración. Como se mencionó en la descripción de las aplicaciones a analizar, al Log le llega información desde dos lugares, el device Id del usuario con un nivel de seguridad semi-private1 y la ubicación del dispositivo con nivel semi-public1. Para evitar la violación de seguridad, el Log debe tener un nivel igual o mas privado que sus sources, el cual seria semi-private1 o private. Sin embargo, lo obtenido por la herramienta es semi-public1. Esto ocurre por la excepción dada (Figura 15), que ignora el flujo del device Id al log.
+La herramienta que se detalla en este informe presenta diversas limitaciones, que pueden clasificarse en dos grupos: aquellas provenientes de las aplicaciones que usa (FlowDroid, Epicc, entre otras); y aquellas limitaciones propias de la herramienta.
+En el primer grupo, una limitación importante es la falta de solidez del análisis producida por las llamadas recursivas y el código nativo, ya que estos no son tratadas de manera eficaz por Epicc ni FlowDroid. FlowDroid analiza las llamadas que invocan a código nativo de la siguiente manera: si los datos de entrada estaban ``contaminado" (forma por la cual Flowdroid determina el flujo de la información) antes de la llamada, entonces se determina que todos los argumentos de llamada y cualquier valor de retorno están contaminados. Este manejo no es sólido; no analiza el código nativo en el destinatario de la llamada. Tampoco son consideradas las fugas de información que involucre multithread (hilos de ejecución).\par
+Didfail solo sigue el flujo de la información si ésta es transmitida a través de Intents, por lo que dos aplicaciones pueden enviarse información de manera tal que el análisis no lo detecte utilizando, por ejemplo, campos estáticos compartidos como medio de comunicación. Además, Didfail también detecta posibles flujos de información, que son imposibles que sucedan en realidad.\par
+En el segundo grupo de limitaciones, la definición de los niveles de seguridad es necesaria para poder utilizar de manera correcta la herramienta, y para lograr esto, el usuario debe tener conocimiento sobre relaciones de orden, configuración de entornos mediante el uso de archivos de configuración. Además, deberá conocer las variables asociadas a los recursos para poder asociarles los niveles de seguridad, esto último solo en los casos de que no se utilice la interfaz que provee la herramienta.\par
+Las pruebas fueron realizadas utilizando aplicaciones que podemos denominar de "juguete", es decir, aplicaciones desarrolladas exclusivamente para probar esta herramienta. Es necesario realizar pruebas a mayor escala, utilizando aplicaciones de uso cotidiano, que pertenezcan al mundo real, para poder comprobar de manera mas certera el rendimiento y la exactitud de los resultados.\par

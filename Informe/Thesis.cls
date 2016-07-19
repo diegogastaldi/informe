@@ -147,7 +147,7 @@
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
 \supervisor  {}
 \examiner    {}
-\degree      {}
+\degree      {Trabajo final de la Licenciatura en Ciencias de la Computación}
 \authors     {}
 \university  {\texorpdfstring{\href{https://www.unrc.edu.ar/)}
                 {Universidad Nacional de Río Cuarto. }}}
@@ -189,10 +189,13 @@
       {\large\textbf{\FACNAME}\par}
       {\large\textbf{\DEPTNAME}\par}
       \vfill
+      {\large\textbf{\degreename}\par}
+      \vfill
       {\huge \bf \@title \par}
       \smallskip
-      {\LARGE \supname \par}
       {\LARGE \authornames \par}
+      \vfill
+      {Director: \LARGE \supname \par}
       \vfill
       \bigskip
       \bigskip

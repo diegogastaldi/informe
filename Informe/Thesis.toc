@@ -7,36 +7,33 @@
 \contentsline {section}{\numberline {1.3}Estructura del Informe}{3}{section.7}
 \contentsline {chapter}{\numberline {2}Conocimientos Previos}{4}{chapter.8}
 \contentsline {section}{\numberline {2.1}An\'alisis Est\'atico}{4}{section.9}
-\contentsline {section}{\numberline {2.2}Android}{5}{section.10}
-\contentsline {subsection}{\numberline {2.2.1}Introducci\'on a la plataforma Android}{6}{subsection.11}
-\contentsline {section}{\numberline {2.3}Information Flow}{8}{section.12}
-\contentsline {section}{\numberline {2.4}Herramientas de an\'alisis est\'atico}{10}{section.13}
-\contentsline {subsection}{\numberline {2.4.1}Flowdroid}{11}{subsection.14}
-\contentsline {subsection}{\numberline {2.4.2}Didfail}{11}{subsection.15}
-\contentsline {subsection}{\numberline {2.4.3}Epicc}{11}{subsection.16}
-\contentsline {section}{\numberline {2.5}Ejemplo Motivador}{12}{section.17}
-\contentsline {chapter}{\numberline {3}Dise\~no}{16}{chapter.18}
-\contentsline {section}{\numberline {3.1}Escenario de ejemplo}{16}{section.19}
-\contentsline {subsection}{\numberline {3.1.1}Informaci\'on obtenida a trav\'es de Didfail}{16}{subsection.20}
-\contentsline {subsection}{\numberline {3.1.2}Informaci\'on obtenida a trav\'es de archivo de configuraci\'on \'unicamente}{17}{subsection.21}
-\contentsline {subsection}{\numberline {3.1.3}Informaci\'on obtenida mediante gui o archivos de configuraci\'on}{19}{subsection.22}
-\contentsline {section}{\numberline {3.2}Etapa 1}{21}{section.23}
-\contentsline {section}{\numberline {3.3}Etapa 2}{22}{section.24}
-\contentsline {chapter}{\numberline {4}Implementaci\'on}{24}{chapter.25}
-\contentsline {section}{\numberline {4.1}Etapa 1}{24}{section.26}
-\contentsline {subsection}{\numberline {4.1.1}Informaci\'on dada por Didfail}{25}{subsection.27}
-\contentsline {subsection}{\numberline {4.1.2}Niveles de Seguridad}{26}{subsection.28}
-\contentsline {subsection}{\numberline {4.1.3}Excepciones}{26}{subsection.29}
-\contentsline {subsection}{\numberline {4.1.4}Asignaci\'on de niveles a m\'etodos}{27}{subsection.30}
-\contentsline {section}{\numberline {4.2}Etapa 2}{28}{section.31}
-\contentsline {chapter}{\numberline {5}Resultados Experimentales}{29}{chapter.32}
-\contentsline {section}{\numberline {5.1}Descripci\'on de aplicaciones a analizar}{29}{section.33}
-\contentsline {section}{\numberline {5.2}Datos}{30}{section.34}
-\contentsline {subsection}{\numberline {5.2.1}Jerarqu\IeC {\'\i }a de niveles de seguridad}{30}{subsection.35}
-\contentsline {subsection}{\numberline {5.2.2}Asignaci\'on de niveles}{30}{subsection.36}
-\contentsline {subsection}{\numberline {5.2.3}Excepciones}{30}{subsection.37}
-\contentsline {subsection}{\numberline {5.2.4}Didfail modificado}{31}{subsection.38}
-\contentsline {section}{\numberline {5.3}Resultados obtenidos}{31}{section.39}
-\contentsline {chapter}{\numberline {6}Limitaciones}{33}{chapter.40}
-\contentsline {chapter}{\numberline {7}Conclusi\'on y futuros trabajos}{34}{chapter.41}
-\contentsline {chapter}{Bibliograf\'{\i }a}{36}{chapter*.42}
+\contentsline {section}{\numberline {2.2}Information Flow}{5}{section.10}
+\contentsline {subsection}{\numberline {2.2.1}Niveles de Seguridad}{7}{subsection.11}
+\contentsline {subsection}{\numberline {2.2.2}Sinks y Sources}{8}{subsection.12}
+\contentsline {section}{\numberline {2.3}Android}{8}{section.13}
+\contentsline {subsection}{\numberline {2.3.1}Introducci\'on a la plataforma Android}{10}{subsection.14}
+\contentsline {section}{\numberline {2.4}Ejemplo Motivador}{13}{section.15}
+\contentsline {section}{\numberline {2.5}Herramientas de an\'alisis est\'atico}{17}{section.16}
+\contentsline {subsection}{\numberline {2.5.1}Flowdroid}{17}{subsection.17}
+\contentsline {subsection}{\numberline {2.5.2}Didfail}{18}{subsection.18}
+\contentsline {subsection}{\numberline {2.5.3}Epicc}{18}{subsection.19}
+\contentsline {chapter}{\numberline {3}Dise\~no e Implementac\'on}{19}{chapter.20}
+\contentsline {section}{\numberline {3.1}Escenario de ejemplo}{19}{section.21}
+\contentsline {subsection}{\numberline {3.1.1}Informaci\'on obtenida a trav\'es de Didfail}{19}{subsection.22}
+\contentsline {subsection}{\numberline {3.1.2}Informaci\'on obtenida a trav\'es de archivo de configuraci\'on \'unicamente}{21}{subsection.23}
+\contentsline {subsection}{\numberline {3.1.3}Informaci\'on obtenida mediante GUI o archivos de configuraci\'on}{23}{subsection.24}
+\contentsline {subsubsection}{\numberline {3.1.3.1}Asignaci\'on de niveles a m\'etodos}{23}{subsubsection.25}
+\contentsline {subsubsection}{\numberline {3.1.3.2}Excepciones}{25}{subsubsection.26}
+\contentsline {section}{\numberline {3.2}Etapa 1}{26}{section.27}
+\contentsline {section}{\numberline {3.3}Etapa 2}{28}{section.28}
+\contentsline {chapter}{\numberline {4}Resultados Experimentales}{31}{chapter.29}
+\contentsline {section}{\numberline {4.1}Descripci\'on de aplicaciones a analizar}{31}{section.30}
+\contentsline {section}{\numberline {4.2}Datos}{32}{section.31}
+\contentsline {subsection}{\numberline {4.2.1}Jerarqu\IeC {\'\i }a de niveles de seguridad}{32}{subsection.32}
+\contentsline {subsection}{\numberline {4.2.2}Asignaci\'on de niveles}{32}{subsection.33}
+\contentsline {subsection}{\numberline {4.2.3}Excepciones}{33}{subsection.34}
+\contentsline {subsection}{\numberline {4.2.4}Didfail modificado}{33}{subsection.35}
+\contentsline {section}{\numberline {4.3}Resultados obtenidos}{33}{section.36}
+\contentsline {chapter}{\numberline {5}Limitaciones}{35}{chapter.37}
+\contentsline {chapter}{\numberline {6}Conclusi\'on y futuros trabajos}{37}{chapter.38}
+\contentsline {chapter}{Bibliograf\'{\i }a}{39}{chapter*.39}
