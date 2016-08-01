@@ -17,7 +17,8 @@ Una forma estándar para proteger los datos confidenciales es el control de acces
 Para asegurar que la información se utiliza sólo de acuerdo con las políticas de confidencialidad pertinentes, es necesario analizar cómo fluye la información dentro del programa. La creencia de que un sistema es seguro con respecto a la confidencialidad debe surgir de un análisis riguroso que demuestre que el sistema en su conjunto hace cumplir las políticas de confidencialidad de sus usuarios. Este análisis debe demostrar que la información controlada por una política de confidencialidad no puede fluir a un lugar donde se viola esa política, la Figura 1 muestra un ejemplo básico indicando un flujo permitido y uno que no lo es (que viola las políticas de seguridad). Las políticas de confidencialidad que deseamos cumplir son, por lo tanto, las políticas de flujo de información y los mecanismos que las hacen cumplir son los controles de flujo de información. Esto dió lugar a un nuevo enfoque: el uso de técnicas de lenguajes de programación para especificar y hacer cumplir las políticas de flujo de información.\par
 
 \begin{center}
- \includegraphics[scale=0.5]{Figura1}
+ \includegraphics[scale=0.5]{Figura1} \par
+ Figura 1: Flujos permitidos y no permitidos.
  \end{center}
 
 El análisis de confidencialidad e integridad para lenguajes de bajo nivel (assembly, bytecode) \cite{JavaBytecodeVerif, InformFlowForLowLevel, VerConfPolForMobCod, TypAssLangConf, PreStatAna} aún tiene un menor desarrollo que el alcanzado para lenguajes de alto nivel (Java, C). Esto se debe principalmente a la dificultad de razonar con programas no estructurados. Existen trabajos basados en sistemas de tipos que incluyen un subconjunto bastante extenso de Java bytecode \cite{SecTypePresComp, InformFlowForLowLevel, VerConfPolForMobCod, InformFlowByteode}. \par
