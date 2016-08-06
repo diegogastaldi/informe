@@ -17,43 +17,48 @@ En este capitulo se muestra un ejemplo del análisis mediante el uso de tres apli
 
 \subsection{Jerarquía de niveles de seguridad}
 
-En este ejemplo se usaron los niveles de seguridad que muestra la Figura 17. En ella se puede observar a modo de comentario la representación gráfica del orden generado.\par
+En este ejemplo se usaron los niveles de seguridad que muestra la Figura 18. En ella se puede observar a modo de comentario la representación gráfica del orden generado.\par
 
 \begin{center}
-\includegraphics[scale=0.5]{Figura17}
+\includegraphics[scale=0.5]{Figura18}\par
+Figura 18: Ejemplo de definición de orden parcial entre niveles de seguridad.
 \end{center}
 
 \subsection{Asignación de niveles}
 
-Para mostrar el funcionamiento de la herramienta solo se le asigna niveles a dos categorías como muestra la Figura 18, ya que, como se ah mencionado con anterioridad, no es necesario darle niveles a todas las categorías participantes en los flujos de información, los restantes niveles de seguridad serán inferidos por el análisis. \par
+Para mostrar el funcionamiento de la herramienta solo se le asigna niveles a dos categorías como muestra la Figura 19, ya que, como se ah mencionado con anterioridad, no es necesario darle niveles a todas las categorías participantes en los flujos de información, los restantes niveles de seguridad serán inferidos por el análisis. \par
 
 \begin{center}
-\includegraphics[scale=0.75]{Figura18}
+\includegraphics[scale=0.75]{Figura19}\par
+Figura 19: Ejemplo de asignación de niveles a categorías de sources y sinks.
 \end{center}
 
 \subsection{Excepciones}
 
-La excepción de la Figura 19 hace que se ignore el flujo del device ID del usuario al Log.\par
+La excepción de la Figura 20 hace que se ignore el flujo del device ID del usuario al Log.\par
 
 \begin{center}
-\includegraphics[scale=0.75]{Figura19}
+\includegraphics[scale=0.75]{Figura20}\par
+Figura 20: Ejemplo de definición de excepción.
 \end{center}
 
 \subsection{Didfail modificado}
 
-La figura 20 muestra los flujos de información, los métodos que participan y los niveles de seguridad tiene cada uno asignado.\par
+La figura 21 muestra los flujos de información, los métodos que participan y los niveles de seguridad tiene cada uno asignado.\par
 
 \begin{center}
-\includegraphics[scale=0.38]{Figura20}
+\includegraphics[scale=0.38]{Figura21}\par
+Figura 21: COMPLETAR
 \end{center}
 
 \section{Resultados obtenidos}
 
-Los resultados obtenidos (Figura 21) muestran que no se producen flujos de información que viole los niveles de seguridad. Además muestra el menor nivel posible, con respecto a los niveles de seguridad, a cada categoría que no tenían nivel asignado.\par
+Los resultados obtenidos (Figura 22) muestran que no se producen flujos de información que viole los niveles de seguridad. Además muestra el menor nivel posible, con respecto a los niveles de seguridad, a cada categoría que no tenían nivel asignado.\par
 La salida también incluye los Intent lanzados por las aplicaciones. En el conjunto actual de aplicaciones, estos ya fueron utilizados para el análisis y no agrega información en la salida, pero teniendo en cuenta una posible adición de otra aplicación al conjunto, el usuario tiene la posibilidad de ver el nivel de la información que la nueva aplicación puede obtener (en caso de que su archivo manifest así lo permita).\par
 
 \begin{center}
-\includegraphics[scale=0.9]{Figura21}
+\includegraphics[scale=0.9]{Figura22}\par
+Figura 22: Resultados del análisis.
 \end{center}
 
-El nivel asignado a la categoría Log merece una aclaración. Como se mencionó en la descripción de las aplicaciones a analizar, al Log le llega información desde dos lugares, el device Id del usuario con un nivel de seguridad semi-private1 y la ubicación del dispositivo con nivel semi-public1. Para evitar la violación de seguridad, el Log debe tener un nivel igual o mas privado que sus sources, el cual seria semi-private1 o private. Sin embargo, lo obtenido por la herramienta es semi-public1. Esto ocurre por la excepción dada (Figura 19), que ignora el flujo del device Id al log.
+El nivel asignado a la categoría Log merece una aclaración. Como se mencionó en la descripción de las aplicaciones a analizar, al Log le llega información desde dos lugares, el device Id del usuario con un nivel de seguridad semi-private1 y la ubicación del dispositivo con nivel semi-public1. Para evitar la violación de seguridad, el Log debe tener un nivel igual o mas privado que sus sources, el cual seria semi-private1 o private. Sin embargo, lo obtenido por la herramienta es semi-public1. Esto ocurre por la excepción dada (Figura 20), que ignora el flujo del device Id al log.
