@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.10)  1 AUG 2016 20:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.10)  1 AUG 2016 20:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -698,13 +698,13 @@ Package pdftex.def Info: Imagenes/Figura2.png used on input line 59.
 File: Imagenes/Figura3.jpeg Graphic file (type jpg)
 
 <use Imagenes/Figura3.jpeg>
-Package pdftex.def Info: Imagenes/Figura3.jpeg used on input line 84.
+Package pdftex.def Info: Imagenes/Figura3.jpeg used on input line 86.
 (pdftex.def)             Requested size: 366.36786pt x 238.39003pt.
 
 <Imagenes/Figura4.png, id=339, 373.395pt x 481.8pt>
 File: Imagenes/Figura4.png Graphic file (type png)
  <use Imagenes/Figura4.png>
-Package pdftex.def Info: Imagenes/Figura4.png used on input line 92.
+Package pdftex.def Info: Imagenes/Figura4.png used on input line 95.
 (pdftex.def)             Requested size: 280.04556pt x 361.3491pt.
 
 [13 <./Imagenes/Figura3.jpeg>]
@@ -712,42 +712,42 @@ Package pdftex.def Info: Imagenes/Figura4.png used on input line 92.
 File: Imagenes/Figura5.png Graphic file (type png)
 
 <use Imagenes/Figura5.png>
-Package pdftex.def Info: Imagenes/Figura5.png used on input line 97.
+Package pdftex.def Info: Imagenes/Figura5.png used on input line 100.
 (pdftex.def)             Requested size: 394.47276pt x 138.51714pt.
  [14 <./Imagenes/Figura4.png> <./Imagenes/Figura5.png>] <Imagenes/Figura6.png, 
 id=351, 488.82625pt x 232.87pt>
 File: Imagenes/Figura6.png Graphic file (type png)
 
 <use Imagenes/Figura6.png>
-Package pdftex.def Info: Imagenes/Figura6.png used on input line 106.
+Package pdftex.def Info: Imagenes/Figura6.png used on input line 109.
 (pdftex.def)             Requested size: 391.06152pt x 186.29623pt.
 
 <Imagenes/Figura7.png, id=352, 491.8375pt x 282.05376pt>
 File: Imagenes/Figura7.png Graphic file (type png)
 
 <use Imagenes/Figura7.png>
-Package pdftex.def Info: Imagenes/Figura7.png used on input line 110.
+Package pdftex.def Info: Imagenes/Figura7.png used on input line 113.
 (pdftex.def)             Requested size: 393.47052pt x 225.6433pt.
  [15 <./Imagenes/Figura6.png>]
 <Imagenes/Figura8.png, id=359, 472.76625pt x 255.95625pt>
 File: Imagenes/Figura8.png Graphic file (type png)
 
 <use Imagenes/Figura8.png>
-Package pdftex.def Info: Imagenes/Figura8.png used on input line 114.
+Package pdftex.def Info: Imagenes/Figura8.png used on input line 117.
 (pdftex.def)             Requested size: 378.2135pt x 204.76526pt.
 
 <Imagenes/Figura9.png, id=360, 478.78876pt x 156.585pt>
 File: Imagenes/Figura9.png Graphic file (type png)
 
 <use Imagenes/Figura9.png>
-Package pdftex.def Info: Imagenes/Figura9.png used on input line 118.
+Package pdftex.def Info: Imagenes/Figura9.png used on input line 121.
 (pdftex.def)             Requested size: 383.03152pt x 125.26816pt.
 
 <Imagenes/Figura10.png, id=361, 456.70625pt x 198.7425pt>
 File: Imagenes/Figura10.png Graphic file (type png)
 
 <use Imagenes/Figura10.png>
-Package pdftex.def Info: Imagenes/Figura10.png used on input line 122.
+Package pdftex.def Info: Imagenes/Figura10.png used on input line 125.
 (pdftex.def)             Requested size: 365.36548pt x 158.9942pt.
  [16 <./Imagenes/Figura7.png> <./Imagenes/Figura8.png> <./Imagenes/Figura9.png>
 ] [17 <./Imagenes/Figura10.png>])
@@ -950,7 +950,7 @@ usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (45 pages, 1557766 bytes).
+Output written on Thesis.pdf (45 pages, 1556156 bytes).
 PDF statistics:
  558 PDF objects out of 1000 (max. 8388607)
  457 compressed objects within 5 object streams

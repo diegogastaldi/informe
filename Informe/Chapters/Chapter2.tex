@@ -56,7 +56,9 @@ Además de la comunicación entre aplicaciones, los intents también se utilizan pa
 Android es un pila de software de código abierto creado para una amplia gama de dispositivos.\par
 
 \begin{center}
-\includegraphics[scale=0.75]{Figura2}
+\includegraphics[scale=0.75]{Figura2}\par
+ Figura 2: Android Stack.
+
 \end{center}
 
 Android \cite{IntAnd} trabaja en Linux, y cada aplicación utiliza un proceso propio. Los dispositivos tienen un único foco de ejecución principal, que es la aplicación que está visible en la pantalla, pero puede tener varias aplicaciones en un segundo plano, cada una con su propia pila de tareas. La pila de tareas es la secuencia de ejecución de procesos en Android. Se componen de actividades que se van apilando según son invocadas, y solo pueden terminarse cuando las tareas que tiene encima están terminadas, o cuando el sistema las destruye porque necesita memoria, por lo que tienen que estar preparadas para terminar en cualquier momento. El sistema siempre eliminará la actividad que lleve más tiempo parada. En caso de que el sistema necesitara mucha memoria, si la aplicación no está en el foco, puede ser eliminada por completo a excepción de su actividad principal. \par 
@@ -81,7 +83,8 @@ Por último, el campo Category es un string (cadena de caracteres) que contiene i
 Cada aplicación es comprimida en un paquete APK, lo que permite su distribución e instalación. Estos paquetes contienen una colección de archivos, recursos, permisos, entre otras cosas, como muestra la siguiente figura. \par 
 
 \begin{center}
-\includegraphics[scale=0.5]{Figura3}
+\includegraphics[scale=0.5]{Figura3} \par
+Figura 3: Estructura de paquete Apk de Android.
 \end{center}
 
 \section{Ejemplo Motivador}
@@ -89,12 +92,14 @@ Cada aplicación es comprimida en un paquete APK, lo que permite su distribución 
 La comunicación entre las aplicaciones es muy común y necesario para cumplir con sus objetivos. Esta comunicación la llevan a cabo principalmente mediante el uso de intents. Un ejemplo de ello es una foto, la cual puede fluir a través de diferentes aplicaciones: es sacada por la cámara y almacenada, luego es editada por alguna aplicación de edición para posteriormente ser compartida a través de alguna red social.\par
 
 \begin{center}
- \includegraphics[scale=0.75]{Figura4}
+ \includegraphics[scale=0.75]{Figura4} \par
+ Figura 4: Ejemplo de comunicación entre aplicaciones.
  \end{center}
 En la siguiente imagen se muestra un ejemplo donde información sensible puede fluir desde un source a un sink, y en su "viaje", pasar por múltiples aplicaciones que pueden ver y modificar su información: \par
 
 \begin{center}
- \includegraphics[scale=0.75]{Figura5}
+ \includegraphics[scale=0.75]{Figura5} \par
+ Figura 5: Ejemplo de flujo de información desde un source a un sink.
  \end{center}
  
 Aquí la aplicación SendSms obtiene Device Id (Figura 6: (1)), lo guarda en un intent (Figura 6: (2)) y luego lo envía mediante el método startActivityForResult (Figura 6: (3)) para iniciar una nueva actividad. Dicho intent es implícito, es decir, no tiene un destinatario preestablecido, por lo que el sistema operativo se encarga de comprobar que aplicaciones pueden manejarlo (mediante la comprobación de sus archivos manifest). En este ejemplo, la aplicación elegida fue Echoer.apk debido que su Manifest cumplía con los requisitos (Figura 10: (4)). Ésta aplicación recibe el intent, lo guarda en un campo de la clase MainActivity (Figura 8: (5)), y luego de que se oprima el botón "button1", la información que tenia el intent es enviada de vuelta a la aplicación SendSms (Figura 9: (6)), para que este último envié el mensaje (Figura 7: (7)). \par
@@ -103,23 +108,28 @@ Las figura Figura 8 (5) y Figura 9 (6) muestran como fluye la información al Log
 
 \par
 \begin{center}
- \includegraphics[scale=0.8]{Figura6}
+ \includegraphics[scale=0.8]{Figura6} \par
+ Figura 6: SendSMS.button1listener.java
  \end{center}
 \par
 \begin{center}
- \includegraphics[scale=0.8]{Figura7}
+ \includegraphics[scale=0.8]{Figura7} \par
+ Figura 7: SendSMS.MainActivity.java
  \end{center}
 \par
 \begin{center}
- \includegraphics[scale=0.8]{Figura8}
+ \includegraphics[scale=0.8]{Figura8} \par
+ Figura 8: Echoer.MainActivity.java
  \end{center}
 \par
 \begin{center}
- \includegraphics[scale=0.8]{Figura9}
+ \includegraphics[scale=0.8]{Figura9} \par
+ Figura 9: Echoer.button1listener.java
  \end{center}
 \par
 \begin{center}
- \includegraphics[scale=0.8]{Figura10}
+ \includegraphics[scale=0.8]{Figura10} \par
+ Figura 10: AndroidManifest.xml in Echoer.apk
  \end{center}
  
 En este ejemplo se representa lo que sucede en muchas aplicaciones ya sea por mala intención o por descuidos: la aplicación SendSms quiere comunicarse con otro componente de sí misma, enviarle información para que éste lo trate según corresponda, para lo cual manda un intent con dicha información. A continuación, Echoer recibe el intent, filtra la información, y luego envía otro intent para que la aplicación inicial siga con su normal funcionamiento. Aquí SendSms no sabe que su información fue vista y tratada por otra aplicación. Este flujo es detectado por Didfail.\par

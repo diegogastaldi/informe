@@ -14,7 +14,8 @@ Aquí, aportes y modificaciones a DidFail fueron realizados usando el lenguaje de
 Un ejemplo de los escenarios a analizar por la herramienta es el que muestra la imagen que sigue (Figura 11), donde el componente 1 envía datos al componente 2, este ultimo los recibe y envía otros como respuesta. Por otro lado, el componente 3 interactúa con el componente 2 de manera similar. Vale aclarar que estos componentes pueden o no ser parte de una misma aplicación, lo cual no cambia el resultado en el análisis.
 
 \begin{center}
-\includegraphics[scale=0.75]{Figura11}
+\includegraphics[scale=0.75]{Figura11}\par
+Figura 11: R(Ii) denota la respuesta al intent Ii.
 \end{center}
 \par
 
@@ -23,7 +24,8 @@ Estos flujos son originalmente representados de a pares, donde el componente izq
 A partir de las modificaciones que afectaron a Didfail, los source y sink tienen un campo extra llamado level, que permite, una vez calculado el flujo, comparar los niveles y ver si se corresponden con el orden entre ellos. Un ejemplo concreto de estos se puede observar en la figura 12, la cual muestra un sink con sus correspondientes posibles source (las aplicaciones que generaron esta salida son aplicaciones de prueba llamadas Echoer, SendSms y WriteFile: vease Capitulo 4). Aquí el formato esta dado por los diccionarios de Python. \par
 
 \begin{center}
-\includegraphics[scale=0.6]{Figura12}
+\includegraphics[scale=0.6]{Figura12}\par
+Figura 12: Ejemplo de resultados de Didfail.
 \end{center}
 
 \subsection{Información obtenida a través de archivo de configuración únicamente}
@@ -39,7 +41,8 @@ Los motivos por el que la relación entre los niveles debe ser de orden parcial s
 \par
 
 \begin{center}
-\includegraphics[scale=0.75]{Figura13}
+\includegraphics[scale=0.75]{Figura13}\par
+Figura 13: Ejemplo de orden parcial entre niveles de seguridad.
 \end{center}
 
 Para brindar los niveles y sus relaciones, el usuario debe modificar el archivo security-levels.txt. Aquí debe respetar la siguiente sintaxis: \par
@@ -62,7 +65,8 @@ Vale aclarar que la categoría es un nombre que se le da a un conjunto de métodos
 Las categorías y sus métodos dependen de la API de android que se este utilizando.\par
 
 \begin{center}
-\includegraphics[scale=0.75]{Figura14}
+\includegraphics[scale=0.75]{Figura14}\par
+Figura 14: Ejemplo de asignación de niveles de seguridad a sources y sinks.
 \end{center}
 
 En la figura 14 se muestra un ejemplo de asignación de niveles a métodos donde al método source1 se le asigna el nivel privado, lo cual se interpreta de la siguiente manera: la información que obtiene la ejecución del método source1 es información privada que, de acuerdo al orden de los niveles anteriores, no debe llegar a ser argumento de alguno de los métodos con un nivel menor, como son Public, Semi-private1 o Semi-private2. \par
@@ -85,7 +89,8 @@ A modo de ejemplo, la Figura 15 muestra una excepción donde, si la información q
 Si bien las excepciones podrían haber sido implementadas para que trabajen con categorías en lugar de que lo hagan con métodos directamente, haciendo el trabajo del usuario mas simple e intuitivo, tiene como desventaja que al dar una excepción de una categoría A a una categoría B, en realidad se estarían considerando muchas excepciones (todas las posibles combinaciones de los métodos pertenecientes a la categoría A, con todos los métodos de la categoría B). Por ello es que la excepciones trabajan con métodos, lo que le permite ser mas epecíficas y manejables.\par
 
 \begin{center}
-\includegraphics[scale=0.7]{Figura15}
+\includegraphics[scale=0.7]{Figura15}\par
+Figura 15: Ejemplo de una definición de excepción.
 \end{center}
 
 \section{Etapa 1}
@@ -99,7 +104,8 @@ En cualquier caso que no se cumplan los requisitos antes mencionados, se generar
 En la figura 16 se muestra la información necesaria para llevar a cabo la primer etapa del análisis, los chequeos que se realizan para que funcione correctamente y la salida generada en esta etapa. \par
 
 \begin{center}
-\includegraphics[scale=0.7]{Figura16}
+\includegraphics[scale=0.7]{Figura16}\par
+Figura 16: Primer etapa del análisis.
 \end{center}
 
 \section{Etapa 2}
@@ -111,7 +117,8 @@ Una ultima alternativa seria, por ejemplo, el caso de que el flujo se dé entre `
 Para llevar a cabo el análisis en esta etapa, a partir de la salida proveniente de Didfail  y combinándolas con los niveles correspondientes a cada source y sink de la misma, se ejecuta una implementación del algoritmo de Jacob Rehof y Torben Mogensen \cite{JacobRehofTorbenMogensen}. La figura 17 muestra un pseudocódigo de dicho algoritmo, el cual chequea si se produce una violación de seguridad comprobando si en cada flujo de información, sus niveles se corresponden con alguna relación del orden de niveles. Para ello también contiene una representación del orden generado. Pero, previo a cualquier chequeo, se comprueba si el flujo pertenece a una excepción, en tal caso nunca será considerara violación de seguridad.\par
 
 \begin{center}
-\includegraphics[scale=0.7]{Figura17} NUMERO DUPLICADO
+\includegraphics[scale=0.7]{Figura17}\par FIGURA A HACER
+Figura 17: Algoritmo de Jacob Rehof y Torben Mogensen.
 \end{center}
 
 Además del funcionamiento antes mencionado, el algoritmo también tiene la posibilidad de asignar niveles a métodos que no poseen uno previamente asignado. Esto lo realiza asignándole el menor nivel del orden al método y luego comprobando que en todos los flujos en los que aparece el método variable (método sin nivel asignado) como sink, si el nivel actual asignado es el supremo entre su nivel y el nivel del otro método participante del flujo. En caso de ser así, el nivel no es modificado, pero si por el contrario esto no se cumple, al método variable se le asigna el nivel supremo antes mencionado.\par
