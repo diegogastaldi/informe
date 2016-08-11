@@ -7,9 +7,9 @@ En este capitulo se muestra un ejemplo del análisis mediante el uso de tres apli
 \section{Descripción de aplicaciones a analizar}
 
 \begin{description}
-\item[SendSMS.apk:] Esta aplicación filtra el device ID del usuario a través de un mensaje de texto. Lee el Device ID y a continuación lo añade a un intent utilizando el método putExtra(), acto seguido envía el intent a través del método startActivityForResult() permitiendo a otra aplicación recibirlo y responder. Una vez recibida la respuesta, la aplicación filtra los datos a un mensaje.
-\item[Echoer.apk:] Esta aplicación recibe un intent usando el método getIntent(), escribe los datos recibidos en el Log y por ultimo, envía los datos de vuelta usando setResult().
-\item[WriteFile.apk:] Esta aplicación es similar a SendSMS, excepto que lee la ubicación del dispositivo y la fuga a un archivo.
+\item[SendSMS.apk:] Esta aplicación filtra el \textit{device ID} del usuario a través de un mensaje de texto. Lee el \textit{Device ID} y a continuación lo añade a un intent utilizando el método \textit{putExtra()}, acto seguido envía el intent a través del método \textit{startActivityForResult()} permitiendo a otra aplicación recibirlo y responder. Una vez recibida la respuesta, la aplicación filtra los datos a un mensaje.
+\item[Echoer.apk:] Esta aplicación recibe un intent usando el método \textit{getIntent()}, escribe los datos recibidos en el \textit{Log} y por ultimo, envía los datos de vuelta usando \textit{setResult()}.
+\item[WriteFile.apk:] Esta aplicación es similar a \textit{SendSMS}, excepto que lee la ubicación del dispositivo y la fuga a un archivo.
 \end{description}
 \par
 
@@ -35,7 +35,7 @@ Figura 19: Ejemplo de asignación de niveles a categorías de sources y sinks.
 
 \subsection{Excepciones}
 
-La excepción de la Figura 20 hace que se ignore el flujo del device ID del usuario al Log.\par
+La excepción de la Figura 20 hace que se ignore el flujo del \textit{device ID} del usuario al \textit{Log}.\par
 
 \begin{center}
 \includegraphics[scale=0.75]{Figura20}\par
@@ -61,4 +61,4 @@ La salida también incluye los Intent lanzados por las aplicaciones. En el conjun
 Figura 22: Resultados del análisis.
 \end{center}
 
-El nivel asignado a la categoría Log merece una aclaración. Como se mencionó en la descripción de las aplicaciones a analizar, al Log le llega información desde dos lugares, el device Id del usuario con un nivel de seguridad semi-private1 y la ubicación del dispositivo con nivel semi-public1. Para evitar la violación de seguridad, el Log debe tener un nivel igual o mas privado que sus sources, el cual seria semi-private1 o private. Sin embargo, lo obtenido por la herramienta es semi-public1. Esto ocurre por la excepción dada (Figura 20), que ignora el flujo del device Id al log.
+El nivel asignado a la categoría \textit{Log} merece una aclaración. Como se mencionó en la descripción de las aplicaciones a analizar, al \textit{Log} le llega información desde dos lugares, el \textit{device Id} del usuario con un nivel de seguridad \textit{semi-private1} y la ubicación del dispositivo con nivel \textit{semi-public1}. Para evitar la violación de seguridad, el \textit{Log} debe tener un nivel igual o mas privado que sus sources, el cual seria \textit{semi-private1} o \textit{private}. Sin embargo, lo obtenido por la herramienta es \textit{semi-public1}. Esto ocurre por la excepción dada (Figura 20), que ignora el flujo del \textit{device Id} al \textit{log}.

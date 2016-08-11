@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.10)  1 AUG 2016 20:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.10)  11 AUG 2016 11:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -687,67 +687,67 @@ File: Imagenes/Figura1.jpg Graphic file (type jpg)
 Package pdftex.def Info: Imagenes/Figura1.jpg used on input line 20.
 (pdftex.def)             Requested size: 356.83224pt x 237.88815pt.
  [6 <./Imagenes/Figura1.jpg>] [7] [8] [9]
-<Imagenes/Figura2.png, id=320, 465.23813pt x 322.95656pt>
+<Imagenes/Figura2.png, id=316, 465.23813pt x 322.95656pt>
 File: Imagenes/Figura2.png Graphic file (type png)
 
 <use Imagenes/Figura2.png>
 Package pdftex.def Info: Imagenes/Figura2.png used on input line 59.
 (pdftex.def)             Requested size: 348.92773pt x 242.21681pt.
- [10 <./Imagenes/Figura2.png>] [11] [12]
-<Imagenes/Figura3.jpeg, id=338, 732.7375pt x 476.78125pt>
+ [10 <./Imagenes/Figura2.png>] [11]
+<Imagenes/Figura3.jpeg, id=329, 732.7375pt x 476.78125pt>
 File: Imagenes/Figura3.jpeg Graphic file (type jpg)
 
 <use Imagenes/Figura3.jpeg>
 Package pdftex.def Info: Imagenes/Figura3.jpeg used on input line 86.
 (pdftex.def)             Requested size: 366.36786pt x 238.39003pt.
-
-<Imagenes/Figura4.png, id=339, 373.395pt x 481.8pt>
+ [12]
+<Imagenes/Figura4.png, id=335, 373.395pt x 481.8pt>
 File: Imagenes/Figura4.png Graphic file (type png)
  <use Imagenes/Figura4.png>
 Package pdftex.def Info: Imagenes/Figura4.png used on input line 95.
 (pdftex.def)             Requested size: 280.04556pt x 361.3491pt.
 
 [13 <./Imagenes/Figura3.jpeg>]
-<Imagenes/Figura5.png, id=344, 525.965pt x 184.69pt>
+<Imagenes/Figura5.png, id=340, 525.965pt x 184.69pt>
 File: Imagenes/Figura5.png Graphic file (type png)
 
 <use Imagenes/Figura5.png>
-Package pdftex.def Info: Imagenes/Figura5.png used on input line 100.
+Package pdftex.def Info: Imagenes/Figura5.png used on input line 101.
 (pdftex.def)             Requested size: 394.47276pt x 138.51714pt.
  [14 <./Imagenes/Figura4.png> <./Imagenes/Figura5.png>] <Imagenes/Figura6.png, 
-id=351, 488.82625pt x 232.87pt>
+id=347, 488.82625pt x 232.87pt>
 File: Imagenes/Figura6.png Graphic file (type png)
 
 <use Imagenes/Figura6.png>
-Package pdftex.def Info: Imagenes/Figura6.png used on input line 109.
+Package pdftex.def Info: Imagenes/Figura6.png used on input line 111.
 (pdftex.def)             Requested size: 391.06152pt x 186.29623pt.
 
-<Imagenes/Figura7.png, id=352, 491.8375pt x 282.05376pt>
+<Imagenes/Figura7.png, id=348, 491.8375pt x 282.05376pt>
 File: Imagenes/Figura7.png Graphic file (type png)
 
 <use Imagenes/Figura7.png>
-Package pdftex.def Info: Imagenes/Figura7.png used on input line 113.
+Package pdftex.def Info: Imagenes/Figura7.png used on input line 116.
 (pdftex.def)             Requested size: 393.47052pt x 225.6433pt.
  [15 <./Imagenes/Figura6.png>]
-<Imagenes/Figura8.png, id=359, 472.76625pt x 255.95625pt>
+<Imagenes/Figura8.png, id=355, 472.76625pt x 255.95625pt>
 File: Imagenes/Figura8.png Graphic file (type png)
 
 <use Imagenes/Figura8.png>
-Package pdftex.def Info: Imagenes/Figura8.png used on input line 117.
+Package pdftex.def Info: Imagenes/Figura8.png used on input line 121.
 (pdftex.def)             Requested size: 378.2135pt x 204.76526pt.
 
-<Imagenes/Figura9.png, id=360, 478.78876pt x 156.585pt>
+<Imagenes/Figura9.png, id=356, 478.78876pt x 156.585pt>
 File: Imagenes/Figura9.png Graphic file (type png)
 
 <use Imagenes/Figura9.png>
-Package pdftex.def Info: Imagenes/Figura9.png used on input line 121.
+Package pdftex.def Info: Imagenes/Figura9.png used on input line 126.
 (pdftex.def)             Requested size: 383.03152pt x 125.26816pt.
 
-<Imagenes/Figura10.png, id=361, 456.70625pt x 198.7425pt>
+<Imagenes/Figura10.png, id=357, 456.70625pt x 198.7425pt>
 File: Imagenes/Figura10.png Graphic file (type png)
 
 <use Imagenes/Figura10.png>
-Package pdftex.def Info: Imagenes/Figura10.png used on input line 125.
+Package pdftex.def Info: Imagenes/Figura10.png used on input line 131.
 (pdftex.def)             Requested size: 365.36548pt x 158.9942pt.
  [16 <./Imagenes/Figura7.png> <./Imagenes/Figura8.png> <./Imagenes/Figura9.png>
 ] [17 <./Imagenes/Figura10.png>])
@@ -758,119 +758,121 @@ Cap\'{\i }tulo 3.
 ------------------------------------------------------------------------------
 [19
 
-] <Imagenes/Figura11.png, id=384, 418.56375pt x 252.945pt>
+] <Imagenes/Figura11.png, id=380, 418.56375pt x 252.945pt>
 File: Imagenes/Figura11.png Graphic file (type png)
 
 <use Imagenes/Figura11.png>
 Package pdftex.def Info: Imagenes/Figura11.png used on input line 17.
 (pdftex.def)             Requested size: 313.92203pt x 189.70828pt.
 
-<Imagenes/Figura12.png, id=385, 712.6625pt x 201.75375pt>
+<Imagenes/Figura12.png, id=381, 712.6625pt x 201.75375pt>
 File: Imagenes/Figura12.png Graphic file (type png)
 
 <use Imagenes/Figura12.png>
-Package pdftex.def Info: Imagenes/Figura12.png used on input line 26.
+Package pdftex.def Info: Imagenes/Figura12.png used on input line 27.
 (pdftex.def)             Requested size: 427.6008pt x 121.05318pt.
 
-Overfull \hbox (10.12773pt too wide) in paragraph at lines 26--27
+Overfull \hbox (10.12773pt too wide) in paragraph at lines 27--27
  [] 
  []
 
 [20 <./Imagenes/Figura11.png>] [21 <./Imagenes/Figura12.png>]
-<Imagenes/Figura13.png, id=397, 400.49625pt x 376.40625pt>
+<Imagenes/Figura13.png, id=393, 400.49625pt x 376.40625pt>
 File: Imagenes/Figura13.png Graphic file (type png)
 
 <use Imagenes/Figura13.png>
-Package pdftex.def Info: Imagenes/Figura13.png used on input line 42.
+Package pdftex.def Info: Imagenes/Figura13.png used on input line 44.
 (pdftex.def)             Requested size: 300.37144pt x 282.30399pt.
- [22 <./Imagenes/Figura13.png>]
-<Imagenes/Figura14.png, id=404, 460.72125pt x 475.7775pt>
+
+Overfull \hbox (5.01227pt too wide) in paragraph at lines 48--48
+[]\OT1/cmr/m/n/12 Para brin-dar los ni-ve-les y sus re-la-cio-nes, el usua-rio 
+de-be mo-di-fi-car el archivo\OT1/cmr/m/it/12 security-
+ []
+
+[22 <./Imagenes/Figura13.png>]
+<Imagenes/Figura14.png, id=400, 460.72125pt x 475.7775pt>
 File: Imagenes/Figura14.png Graphic file (type png)
 
 <use Imagenes/Figura14.png>
-Package pdftex.def Info: Imagenes/Figura14.png used on input line 65.
+Package pdftex.def Info: Imagenes/Figura14.png used on input line 68.
 (pdftex.def)             Requested size: 345.54008pt x 356.83223pt.
  [23] [24 <./Imagenes/Figura14.png>] [25]
-<Imagenes/Figura15.png, id=418, 584.1825pt x 81.30376pt>
+<Imagenes/Figura15.png, id=414, 584.1825pt x 81.30376pt>
 File: Imagenes/Figura15.png Graphic file (type png)
 
 <use Imagenes/Figura15.png>
-Package pdftex.def Info: Imagenes/Figura15.png used on input line 88.
+Package pdftex.def Info: Imagenes/Figura15.png used on input line 91.
 (pdftex.def)             Requested size: 408.92496pt x 56.91223pt.
  [26 <./Imagenes/Figura15.png>]
-<Imagenes/Figura16.png, id=424, 476.78125pt x 657.45625pt>
+<Imagenes/Figura16.png, id=420, 476.78125pt x 657.45625pt>
 File: Imagenes/Figura16.png Graphic file (type png)
 
 <use Imagenes/Figura16.png>
-Package pdftex.def Info: Imagenes/Figura16.png used on input line 102.
+Package pdftex.def Info: Imagenes/Figura16.png used on input line 106.
 (pdftex.def)             Requested size: 333.74458pt x 460.21625pt.
  [27] [28 <./Imagenes/Figura16.png>]
-<Imagenes/Figura17.png, id=436, 864.22874pt x 384.43625pt>
+<Imagenes/Figura17.png, id=432, 468.75125pt x 391.4625pt>
 File: Imagenes/Figura17.png Graphic file (type png)
 
 <use Imagenes/Figura17.png>
-Package pdftex.def Info: Imagenes/Figura17.png used on input line 114.
-(pdftex.def)             Requested size: 604.956pt x 269.10353pt.
-
-Overfull \hbox (187.48293pt too wide) in paragraph at lines 114--115
- [] 
- []
-
-[29]) (./Chapters/Chapter4.tex [30 <./Imagenes/Figura17.png>]
+Package pdftex.def Info: Imagenes/Figura17.png used on input line 119.
+(pdftex.def)             Requested size: 328.12363pt x 274.02187pt.
+ [29]) (./Chapters/Chapter4.tex [30 <./Imagenes/Figura17.png>]
 Cap\'{\i }tulo 4.
 ------------------------------------------------------------------------------
  4 Resultados Experimentales
 ------------------------------------------------------------------------------
 [31
 
-]
-File: Imagenes/Figura17.png Graphic file (type png)
- <use Imagenes/Figura17.png>
-Package pdftex.def Info: Imagenes/Figura17.png used on input line 23.
-(pdftex.def)             Requested size: 432.11331pt x 192.21765pt.
-
-Overfull \hbox (14.64024pt too wide) in paragraph at lines 23--24
- [] 
- []
-
-<Imagenes/Figura18.png, id=450, 566.115pt x 106.3975pt>
+] <Imagenes/Figura18.png, id=446, 864.22874pt x 384.43625pt>
 File: Imagenes/Figura18.png Graphic file (type png)
 
 <use Imagenes/Figura18.png>
-Package pdftex.def Info: Imagenes/Figura18.png used on input line 31.
-(pdftex.def)             Requested size: 424.5852pt x 79.79791pt.
+Package pdftex.def Info: Imagenes/Figura18.png used on input line 23.
+(pdftex.def)             Requested size: 432.11331pt x 192.21765pt.
 
-Overfull \hbox (7.11214pt too wide) in paragraph at lines 31--32
+Overfull \hbox (14.64024pt too wide) in paragraph at lines 23--23
  [] 
  []
 
-[32 <./Imagenes/Figura18.png>]
-<Imagenes/Figura19.png, id=456, 491.8375pt x 83.31125pt>
+<Imagenes/Figura19.png, id=447, 566.115pt x 106.3975pt>
 File: Imagenes/Figura19.png Graphic file (type png)
 
 <use Imagenes/Figura19.png>
-Package pdftex.def Info: Imagenes/Figura19.png used on input line 39.
-(pdftex.def)             Requested size: 368.87721pt x 62.48328pt.
+Package pdftex.def Info: Imagenes/Figura19.png used on input line 32.
+(pdftex.def)             Requested size: 424.5852pt x 79.79791pt.
 
-<Imagenes/Figura20.png, id=457, 1126.2075pt x 566.115pt>
-File: Imagenes/Figura20.png Graphic file (type png)
-
-<use Imagenes/Figura20.png>
-Package pdftex.def Info: Imagenes/Figura20.png used on input line 47.
-(pdftex.def)             Requested size: 427.9633pt x 215.12593pt.
-
-Overfull \hbox (10.49023pt too wide) in paragraph at lines 47--48
+Overfull \hbox (7.11214pt too wide) in paragraph at lines 32--32
  [] 
  []
 
-[33 <./Imagenes/Figura19.png> <./Imagenes/Figura20.png>]
-<Imagenes/Figura21.png, id=466, 381.425pt x 174.6525pt>
+[32 <./Imagenes/Figura18.png> <./Imagenes/Figura19.png>]
+<Imagenes/Figura20.png, id=454, 491.8375pt x 83.31125pt>
+File: Imagenes/Figura20.png Graphic file (type png)
+
+<use Imagenes/Figura20.png>
+Package pdftex.def Info: Imagenes/Figura20.png used on input line 41.
+(pdftex.def)             Requested size: 368.87721pt x 62.48328pt.
+
+<Imagenes/Figura21.png, id=455, 1126.2075pt x 566.115pt>
 File: Imagenes/Figura21.png Graphic file (type png)
 
 <use Imagenes/Figura21.png>
-Package pdftex.def Info: Imagenes/Figura21.png used on input line 56.
+Package pdftex.def Info: Imagenes/Figura21.png used on input line 50.
+(pdftex.def)             Requested size: 427.9633pt x 215.12593pt.
+
+Overfull \hbox (10.49023pt too wide) in paragraph at lines 50--50
+ [] 
+ []
+
+[33 <./Imagenes/Figura20.png> <./Imagenes/Figura21.png>]
+<Imagenes/Figura22.png, id=464, 381.425pt x 174.6525pt>
+File: Imagenes/Figura22.png Graphic file (type png)
+
+<use Imagenes/Figura22.png>
+Package pdftex.def Info: Imagenes/Figura22.png used on input line 60.
 (pdftex.def)             Requested size: 343.27931pt x 157.18579pt.
-) (./Chapters/Chapter5.tex [34 <./Imagenes/Figura21.png>]
+) (./Chapters/Chapter5.tex [34 <./Imagenes/Figura22.png>]
 Cap\'{\i }tulo 5.
 ------------------------------------------------------------------------------
  5 Limitaciones
@@ -935,10 +937,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 93.
  ) 
 Here is how much of TeX's memory you used:
- 14241 strings out of 493089
- 201546 string characters out of 6134841
- 276489 words of memory out of 5000000
- 17383 multiletter control sequences out of 15000+600000
+ 14244 strings out of 493089
+ 201631 string characters out of 6134841
+ 275489 words of memory out of 5000000
+ 17385 multiletter control sequences out of 15000+600000
  12012 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,13n,45p,1087b,690s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -950,10 +952,10 @@ usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (45 pages, 1556156 bytes).
+Output written on Thesis.pdf (45 pages, 1647249 bytes).
 PDF statistics:
- 558 PDF objects out of 1000 (max. 8388607)
- 457 compressed objects within 5 object streams
+ 557 PDF objects out of 1000 (max. 8388607)
+ 454 compressed objects within 5 object streams
  110 named destinations out of 1000 (max. 500000)
- 415 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 420 words of extra memory for PDF output out of 10000 (max. 10000000)
 
