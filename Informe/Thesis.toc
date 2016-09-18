@@ -34,7 +34,7 @@
 \contentsline {subsection}{\numberline {4.2.2}Asignaci\'on de niveles}{32}{subsection.34}
 \contentsline {subsection}{\numberline {4.2.3}Excepciones}{33}{subsection.35}
 \contentsline {subsection}{\numberline {4.2.4}Didfail modificado}{33}{subsection.36}
-\contentsline {section}{\numberline {4.3}Resultados obtenidos}{33}{section.37}
-\contentsline {chapter}{\numberline {5}Limitaciones}{35}{chapter.38}
-\contentsline {chapter}{\numberline {6}Conclusi\'on y futuros trabajos}{37}{chapter.39}
-\contentsline {chapter}{Bibliograf\'{\i }a}{39}{chapter*.40}
+\contentsline {section}{\numberline {4.3}Resultados obtenidos}{35}{section.37}
+\contentsline {chapter}{\numberline {5}Limitaciones}{37}{chapter.38}
+\contentsline {chapter}{\numberline {6}Conclusi\'on y futuros trabajos}{39}{chapter.39}
+\contentsline {chapter}{Bibliograf\'{\i }a}{41}{chapter*.40}

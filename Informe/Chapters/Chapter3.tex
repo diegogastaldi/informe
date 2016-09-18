@@ -1,7 +1,7 @@
 \lhead{\emph{Diseño e Implementación}}
 \graphicspath{{Imagenes/}} 
 
-\chapter{Diseño e Implementacón}
+\chapter{Diseño e Implementación}
 
 El objetivo es que a partir de la información que nos proporciona la herramienta Didfail (con algunas modificaciones) y la información ingresada por el usuario como los niveles de seguridad con los que se va a trabajar, el orden parcial que los relaciona, las excepciones, y la asignación de niveles tanto a los source como a los sinks, identificar cual es el flujo de información que viola lo anterior mencionado en caso de que exista o informar la ausencia de dichas violaciones y brindar una posible asignación de niveles a los source y sinks que no fueron proporcionados por el usuario.
 Dicho análisis puede considerarse dividido en dos etapas: la primera consiste en la recopilación de información necesaria para efectuar el análisis y la segunda, a partir de la anterior, generar la información saliente, calcularla e informarla a través de la salida preestablecida. \par
@@ -21,7 +21,7 @@ Figura 11: R(Ii) denota la respuesta al intent Ii.
 
 En el escenario de la figura 11, Didfail determina que la información puede fluir  de  C1 a C2, de C2 a C1, de C3 a C2 y de C2 a C3 de manera directa, pero también pueden suceder flujos de C1 a C3 y de C3 a C1, en el caso de que C2 al recibir la información de, por ejemplo, C1, la guarde en algún campo y posteriormente la envié como respuesta a C3, luego de recibir un intent proveniente de este último.\par
 Estos flujos son originalmente representados de a pares, donde el componente izquierdo representa el source del flujo (quien envía el intent) y el componente derecho representa el sink del flujo (quien recibe el intent). Por ende, el resultado seria (source1, sink3), (source3, sink1), (source1, sink1) y (source3, sink3). \par
-A partir de las modificaciones que afectaron a Didfail, los source y sink tienen un campo extra llamado level, que permite, una vez calculado el flujo, comparar los niveles y ver si se corresponden con el orden entre ellos. Un ejemplo concreto de estos se puede observar en la figura 12, la cual muestra un sink con sus correspondientes posibles source (las aplicaciones que generaron esta salida son aplicaciones de prueba llamadas Echoer, SendSms y WriteFile: vease Capitulo 4). Aquí el formato esta dado por los diccionarios de Python. \par
+A partir de las modificaciones que afectaron a Didfail, los source y sink tienen un campo extra llamado level, que permite, una vez calculado el flujo, comparar los niveles y ver si se corresponden con el orden entre ellos. Un ejemplo concreto de estos se puede observar en la figura 12, la cual muestra un sink con sus correspondientes posibles source (las aplicaciones que generaron esta salida son aplicaciones de prueba llamadas Echoer, SendSms y WriteFile: véase Capitulo 4). Aquí el formato esta dado por los diccionarios de Python. \par
 
 \begin{center}
 \includegraphics[scale=0.6]{Figura12}\par
@@ -45,7 +45,7 @@ Los motivos por el que la relación entre los niveles debe ser de orden parcial s
 Figura 13: Ejemplo de orden parcial entre niveles de seguridad.
 \end{center}
 
-Para brindar los niveles y sus relaciones, el usuario debe modificar el archivo\textit{security-levels.txt}. Aquí debe respetar la siguiente sintaxis: \par
+Para brindar los niveles y sus relaciones, el usuario debe modificar el archivo \textit{security-levels.txt}. Aquí debe respetar la siguiente sintaxis: \par
 \begin{description}
 \item[Comentarios:] Las lineas que comienzan con un ``\#'' son ignoradas.
 \item[Relaciones:] Las relaciones son vistas como dos textos separados por un $ \le $ , siendo los espacios ignorados. Aquí el string que se encuentra a la izquierda de $ \le $ representa al nivel que precede al nivel representado por el string a la derecho del símbolo.
