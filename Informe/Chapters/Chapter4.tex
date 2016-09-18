@@ -17,59 +17,59 @@ En este capitulo se muestra un ejemplo del análisis mediante el uso de tres apli
 
 \subsection{Jerarquía de niveles de seguridad}
 
-En este ejemplo se usaron los niveles de seguridad que muestra la Figura 18. En ella se puede observar a modo de comentario la representación gráfica del orden generado.\par
+En este ejemplo se usaron los niveles de seguridad que muestra la Figura 19. En ella se puede observar a modo de comentario la representación gráfica del orden generado.\par
 
 \begin{center}
-\includegraphics[scale=0.5]{Figura18}\par
-Figura 18: Ejemplo de definición de orden parcial entre niveles de seguridad.
+\includegraphics[scale=0.5]{Figura19}\par
+Figura 19: Ejemplo de definición de orden parcial entre niveles de seguridad.
 \end{center}
 
 \subsection{Asignación de niveles}
 
-Para mostrar el funcionamiento de la herramienta solo se le asigna niveles a dos categorías como muestra la Figura 19, ya que, como se ah mencionado con anterioridad, no es necesario darle niveles a todas las categorías participantes en los flujos de información, los restantes niveles de seguridad serán inferidos por el análisis. \par
+Para mostrar el funcionamiento de la herramienta solo se le asigna niveles a dos categorías como muestra la Figura 20, ya que, como se ah mencionado con anterioridad, no es necesario darle niveles a todas las categorías participantes en los flujos de información, los restantes niveles de seguridad serán inferidos por el análisis. \par
 
 \begin{center}
-\includegraphics[scale=0.75]{Figura19}\par
-Figura 19: Ejemplo de asignación de niveles a categorías de sources y sinks.
+\includegraphics[scale=0.75]{Figura20}\par
+Figura 20: Ejemplo de asignación de niveles a categorías de sources y sinks.
 \end{center}
 
 \subsection{Excepciones}
 
-La excepción de la Figura 20 hace que se ignore el flujo del \textit{device ID} del usuario al \textit{Log}.\par
+La excepción de la Figura 21 hace que se ignore el flujo del \textit{device ID} del usuario al \textit{Log}.\par
 
 \begin{center}
-\includegraphics[scale=0.75]{Figura20}\par
-Figura 20: Ejemplo de definición de excepción.
+\includegraphics[scale=0.75]{Figura21}\par
+Figura 21: Ejemplo de definición de excepción.
 \end{center}
 
 \subsection{Didfail modificado}
 
-Las figuras 21 muestran los flujos de información, los métodos que participan y los niveles de seguridad tiene cada uno asignado. El formato mostrado se corresponde con una lista de diccionarios (estructura de datos proporcionada por el lenguaje python), donde cada uno contiene el soruce y el sink del flujo, y en estos últimos se especifica el método y el nivel de seguridad correspondiente. En el caso de la figura 21a se puede observar que, por ejemplo, el análisis detectó un flujo que va del método \textit{android.telephony.TelephonyManager: java.lang.String getDeviceId()} con nivel \textit{semi-private1} al sink \textit{android.util.log: int i(java.lang.String, java.lang.String)} con nivel variable \textit{LOG} y por lo tanto éste nivel variable no podrá ser mas público que el nivel del source antes mencionado. \par
-En el caso de la figura 21b el source o el sink corresponde a un intent, el cual es identificado por un id y en el caso de la figura 21c, ambos componentes del flujo son intents.\par
+Las figuras 22 muestran los flujos de información, los métodos que participan y los niveles de seguridad tiene cada uno asignado. El formato mostrado se corresponde con una lista de diccionarios (estructura de datos proporcionada por el lenguaje python), donde cada uno contiene el soruce y el sink del flujo, y en estos últimos se especifica el método y el nivel de seguridad correspondiente. En el caso de la figura 22a se puede observar que, por ejemplo, el análisis detectó un flujo que va del método \textit{android.telephony.TelephonyManager: java.lang.String getDeviceId()} con nivel \textit{semi-private1} al sink \textit{android.util.log: int i(java.lang.String, java.lang.String)} con nivel variable \textit{LOG} y por lo tanto éste nivel variable no podrá ser mas público que el nivel del source antes mencionado. \par
+En el caso de la figura 22b el source o el sink corresponde a un intent, el cual es identificado por un id y en el caso de la figura 22c, ambos componentes del flujo son intents.\par
 
 \begin{center}
-\includegraphics[scale=0.60]{Figura21a}\par
-Figura 21a: Flujos que no involucran intents.
+\includegraphics[scale=0.60]{Figura22a}\par
+Figura 22a: Flujos que no involucran intents.
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.60]{Figura21b}\par
-Figura 21b: Flujos con un intents involucrado.
+\includegraphics[scale=0.60]{Figura22b}\par
+Figura 22b: Flujos con un intents involucrado.
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.60]{Figura21c}\par
-Figura 21c: Flujos con dos intents involucrados.
+\includegraphics[scale=0.60]{Figura22c}\par
+Figura 22c: Flujos con dos intents involucrados.
 \end{center}
 
 \section{Resultados obtenidos}
 
-Los resultados obtenidos (Figura 22) muestran que no se producen flujos de información que viole los niveles de seguridad. Además muestra el menor nivel posible, con respecto a los niveles de seguridad, a cada categoría que no tenían nivel asignado.\par
+Los resultados obtenidos (Figura 23) muestran que no se producen flujos de información que viole los niveles de seguridad. Además muestra el menor nivel posible, con respecto a los niveles de seguridad, a cada categoría que no tenían nivel asignado.\par
 La salida también incluye los Intent lanzados por las aplicaciones. En el conjunto actual de aplicaciones, estos ya fueron utilizados para el análisis y no agrega información en la salida, pero teniendo en cuenta una posible adición de otra aplicación al conjunto, el usuario tiene la posibilidad de ver el nivel de la información que la nueva aplicación puede obtener (en caso de que su archivo manifest así lo permita).\par
 
 \begin{center}
-\includegraphics[scale=0.9]{Figura22}\par
-Figura 22: Resultados del análisis.
+\includegraphics[scale=0.9]{Figura23}\par
+Figura 23: Resultados del análisis.
 \end{center}
 
 El nivel asignado a la categoría \textit{Log} merece una aclaración. Como se mencionó en la descripción de las aplicaciones a analizar, al \textit{Log} le llega información desde dos lugares, el \textit{device Id} del usuario con un nivel de seguridad \textit{semi-private1} y la ubicación del dispositivo con nivel \textit{semi-public1}. Para evitar la violación de seguridad, el \textit{Log} debe tener un nivel igual o mas privado que sus sources, el cual seria \textit{semi-private1} o \textit{private}. Sin embargo, lo obtenido por la herramienta es \textit{semi-public1}. Esto ocurre por la excepción dada (Figura 20), que ignora el flujo del \textit{device Id} al \textit{log}. \par
