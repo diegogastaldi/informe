@@ -44,12 +44,6 @@ Patrick Cousot and Radhia Cousot.
 \newblock {\em In Proceedings of the 4th ACM SIGACT-SIGPLAN Symposium on
   Principles of Pro- gramming Languages}, 1977.
 
-\bibitem{IntAnd}
-Jorge Cordero Luis Cruz Miguel Gonz{\'a}lez Francisco Hern{\'a}ndez David
-  Palomero Jos{\'e} Rodr{\'\i}guez de Llera Daniel Sanz Mariam Saucedo
-  Pilar~Torralbo Manuel~B{\'a}ez, {\'A}lvaro~Borrego and {\'A}lvaro Zapata.
-\newblock {\em Introducci{\'o}n a Android}.
-
 \bibitem{JavaBytecodeVerif}
 David~Pichardie Gilles~Barthe and Tamara Rezk.
 \newblock A certified lightweight non- interference java bytecode verifier.
@@ -118,11 +112,6 @@ Steve Zdancewic.
 \newblock {\em Proceedings of the 1st International Workshop on the Programming
   Language Interference and Dependence}, 2004.
 
-\bibitem{FloSenSecTyp}
-S.~Hunt and D.~Sands.
-\newblock On flow-sensitive security types.
-\newblock {\em POPL'06, Proceedings of the 33rd Annual}, 2006.
-
 \bibitem{VarObjFiel}
 F.~Bavera and E.~Bonelli.
 \newblock ypebased information flow analysis for bytecode languages with
@@ -137,5 +126,16 @@ F.~Bavera and E.~Bonelli.
   robust.ps http://dc.exa.unrc.edu.ar/docentes/pancho/fbavera/papers/ifbcode
   robust.pshttp://dc.exa.unrc.edu.ar/docentes/pancho/fbavera/papers/ifbcode
   robust.ps.
+
+\bibitem{IntAnd}
+Jorge Cordero Luis Cruz Miguel Gonz{\'a}lez Francisco Hern{\'a}ndez David
+  Palomero Jos{\'e} Rodr{\'\i}guez de Llera Daniel Sanz Mariam Saucedo
+  Pilar~Torralbo Manuel~B{\'a}ez, {\'A}lvaro~Borrego and {\'A}lvaro Zapata.
+\newblock {\em Introducci{\'o}n a Android}.
+
+\bibitem{PPTSegAndroid}
+Juan Heguiabehere~Joaqu{\'\i}n Rinaudo.
+\newblock Seguridad y protecci{\'o}n de datos en aplicaciones android.
+\newblock Escuela de verano de ciencias inform{\'a}ticas UNRC, 2015.
 
 \end{thebibliography}

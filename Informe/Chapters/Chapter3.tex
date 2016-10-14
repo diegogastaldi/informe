@@ -17,7 +17,6 @@ Un ejemplo de los escenarios a analizar por la herramienta es el que muestra la 
 \includegraphics[scale=0.75]{Figura11}\par
 Figura 11: R(Ii) denota la respuesta al intent Ii.
 \end{center}
-\par
 
 En el escenario de la figura 11, Didfail determina que la información puede fluir  de  C1 a C2, de C2 a C1, de C3 a C2 y de C2 a C3 de manera directa, pero también pueden suceder flujos de C1 a C3 y de C3 a C1, en el caso de que C2 al recibir la información de, por ejemplo, C1, la guarde en algún campo y posteriormente la envié como respuesta a C3, luego de recibir un intent proveniente de este último.\par
 Estos flujos son originalmente representados de a pares, donde el componente izquierdo representa el source del flujo (quien envía el intent) y el componente derecho representa el sink del flujo (quien recibe el intent). Por ende, el resultado seria (source1, sink3), (source3, sink1), (source1, sink1) y (source3, sink3). \par
@@ -109,25 +108,29 @@ Figura 16: Primer etapa del análisis.
 
 \section{Etapa 2}
 
-Una vez que se cuenta con toda la información necesaria, se lleva a cabo el chequeo de los flujos de información. La idea general de dicho chequeo es comprobar que la información no fluya a lugares ``más públicos'' que de donde salió, es decir, que los niveles de los métodos con los que esta información es recopilada no sean menores (precedan en el orden de los niveles) a los niveles de los métodos donde puede llegar dicha información. Pero, dado que no todos los métodos pueden tener nivel asignado, es necesario la previa asignación de un nivel, para luego proceder con el chequeo. \par
-En la figura 17 se puede observar la información necesaria para llevar a cabo esta etapa, las cuales se corresponden con la salida de la etapa número 1. Aquí tomando los flujos provenientes de Didfail (Entrada 1) y las asignaciones de niveles a métodos (Entrada 4) genera nuevos flujos a los que les agrega el campo level correspondiendo tanto para el source como para el sink. Luego, a partir de los nuevos flujos generados, sumado a la entrada 2 y 3 de la figura 17, se ejecuta una variación del algoritmo de Jacob Rehof y Torben Mogensen \cite{JacobRehofTorbenMogensen} a partir del cual se obtiene la salida del análisis. La figura 18 muestra un pseudocódigo de dicho algoritmo, el cual chequea si se produce una violación de seguridad comprobando si en cada flujo de información, sus niveles se corresponden con alguna relación del orden de niveles. Para ello también contiene una representación del orden generado. Pero, previo a cualquier chequeo, se comprueba si el flujo pertenece a una excepción, en tal caso nunca será considerara violación de seguridad.\par
+Una vez que se cuenta con toda la información necesaria, se lleva a cabo el chequeo de los flujos de información. La idea general de dicho chequeo es comprobar que la información no fluya a lugares ``más públicos'' que de donde salió, es decir, que los niveles de los métodos con los que esta información es recopilada no sean menores (precedan en el orden de los niveles) a los niveles de los métodos donde puede llegar. Pero, dado que no todos los métodos pueden tener nivel asignado, es necesario la previa asignación de un nivel, para luego proceder con el chequeo. \par
+
+\begin{center}
+\includegraphics[scale=0.7]{Figura16}\par
+Figura 17: Segunda etapa del análisis.
+\end{center}
+
+En la figura 17 se puede observar la información necesaria para llevar a cabo esta etapa, las cuales se corresponden con la salida de la etapa número 1. Aquí tomando los flujos provenientes de Didfail (Entrada 1) y las asignaciones de niveles a métodos (Entrada 4) genera nuevos flujos a los que les agrega el campo ``level" correspondiendo tanto para el source como para el sink. Luego, a partir de los nuevos flujos generados, sumado a la entrada 2 y 3, se ejecuta una variación del algoritmo de Jacob Rehof y Torben Mogensen \cite{JacobRehofTorbenMogensen} a partir del cual se obtiene la salida del análisis. La figura 18 muestra un pseudocódigo de dicho algoritmo, el cual chequea si se produce una violación de seguridad comprobando si en cada flujo de información, sus niveles se corresponden con alguna relación del orden de niveles. Para ello también contiene una representación del orden generado. Pero, previo a cualquier chequeo, se comprueba si el flujo pertenece a una excepción, en tal caso nunca será considerara violación de seguridad.\par
 
 \begin{center}
 \includegraphics[scale=0.7]{Figura18}\par
 Figura 18: Algoritmo de Jacob Rehof y Torben Mogensen.
 \end{center}
 
-DESCRIPCION DEL ALGORITMO
-
-Además del funcionamiento antes mencionado, el algoritmo también tiene la posibilidad de asignar niveles a métodos que no poseen uno previamente asignado. Esto lo realiza asignándole el menor nivel del orden al método y luego comprobando que en todos los flujos en los que aparece el método variable (método sin nivel asignado) como sink, si el nivel actual asignado es el supremo entre su nivel y el nivel del otro método participante del flujo. En caso de ser así, el nivel no es modificado, pero si por el contrario esto no se cumple, al método variable se le asigna el nivel supremo antes mencionado.\par
-Como salida del algoritmo hay dos posibilidades: Indica que todo esta bien y la asignación que hizo a los métodos que no tenían niveles para evitar violaciones de seguridad, o bien, informando la violación de seguridad encontrada.\par
-Si se tomara como entrada a la etapa 2 el escenario de la figura 11, 13 y 14 de manera tal de que se correspondan con las entradas 1, 2 y 4 de la figura 17, por ejemplo, \textit{source1} tiene asignado el nivel \textit{Private}, además, como sabemos que la información obtenida por \textit{source1} puede llegar a \textit{sink3}, y este último tiene nivel \textit{Semi-private3} y dado que el orden de los niveles indica que \textit{Semi-private3} es menor que \textit{Private}, se estaría produciendo una violación de seguridad. Pero, como dicho flujo esta presente en las excepciones, éste es descartado.\par
+Además del funcionamiento antes mencionado, el algoritmo también le asigna niveles a los métodos a los cuales no se les asignó en la primer etapa. Esto lo realiza asignándole el menor nivel del orden al método y luego comprobando que en todos los flujos en los que aparece el método variable (método sin nivel asignado) como sink, si el nivel actual asignado es el supremo entre su nivel y el nivel del otro método participante del flujo. En caso de ser así, el nivel no es modificado, pero si por el contrario esto no se cumple, al método variable se le asigna el nivel supremo antes mencionado.\par
+Como salida del algoritmo hay dos posibilidades: retorna un mensaje indicando que el chequeo no encontró violaciones de seguridad y la asignación que hizo a los métodos que no tenían niveles para evitar violaciones de seguridad, o bien, informando la violación de seguridad encontrada. \par
+El algoritmo utiliza principios tales como pilas, relación de orden y conjunto, entre otros, en su implementación.
+A modo de ejemplo, si se tomara como entrada a la etapa 2 el escenario de la figura 11, 13 y 14 de manera tal de que se correspondan con las entradas 1, 2 y 4 de la figura 17, por ejemplo, \textit{source1} tiene asignado el nivel \textit{Private}, además, como sabemos que la información obtenida por \textit{source1} puede llegar a \textit{sink3}, y este último tiene nivel \textit{Semi-private3} y dado que el orden de los niveles indica que \textit{Semi-private3} es menor que \textit{Private}, se estaría produciendo una violación de seguridad. Pero, como dicho flujo esta presente en las excepciones, éste es descartado.\par
 Otro caso que puede ocurrir es que la información vaya de un nivel menor a uno mayor o el caso que los niveles de seguridad sean iguales, en ambos casos no hay problemas de seguridad. Teniendo en cuenta el ejemplo, este caso es representado por el flujo \textit{source1 - sink1}.\par
 Una ultima alternativa seria, por ejemplo, el caso de que el flujo se dé entre \textit{Semi-private1} y \textit{Semi-private2}: Aquí, los niveles son incomparable en el orden, lo que también deriva en una violación de seguridad (\textit{source3 - sink3}).\par
 
 \section{Compilación y uso}
 
-CREAR UNA NUEVA MAQUINA VIRTUAL Y COMPROBAR SI LO DICHO ES CIERTO: COMPLETAR
 Para poder utilizar la herramienta que se describe en este informe se requiere de un sistema operativo Linux dado que ésta ejecuta diferentes scripts con comandos que este sistema operativo entiende. Además se requiere un interprete del lenguaje de programación python.
 El archivo .rar que contiene la herramienta, proporciona las aplicaciones de android utilizadas en los ejemplos descriptos, pero puede ser reemplezadas por el conjunto de aplicaciones deseados.(DEBE PROPORCIONARSE EL APK O DESCOMPRIMIDO)
 La herramienta consta de diferentes scripts con funciones diferentes:
