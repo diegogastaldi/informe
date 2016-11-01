@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.10)  13 OCT 2016 20:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.12.10)  31 OCT 2016 20:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -693,12 +693,12 @@ File: Imagenes/Figura2.png Graphic file (type png)
 <use Imagenes/Figura2.png>
 Package pdftex.def Info: Imagenes/Figura2.png used on input line 58.
 (pdftex.def)             Requested size: 348.92773pt x 242.21681pt.
- [10 <./Imagenes/Figura2.png>] [11] [12]
+ [10 <./Imagenes/Figura2.png>] [11] [12] [13]
 Overfull \hbox (1.28584pt too wide) in paragraph at lines 104--105
 []\OT1/cmr/m/n/12 Sin bien son re-la-ti-va-men-te es-ca-sas y pue-
  []
 
-[13] <Imagenes/Figura3.jpeg, id=351, 732.7375pt x 476.78125pt>
+<Imagenes/Figura3.jpeg, id=351, 732.7375pt x 476.78125pt>
 File: Imagenes/Figura3.jpeg Graphic file (type jpg)
 
 <use Imagenes/Figura3.jpeg>
@@ -807,21 +807,27 @@ File: Imagenes/Figura16.png Graphic file (type png)
 Package pdftex.def Info: Imagenes/Figura16.png used on input line 105.
 (pdftex.def)             Requested size: 333.74458pt x 460.21625pt.
  [29] [30 <./Imagenes/Figura16.png>]
-<Imagenes/Figura18.png, id=452, 468.75125pt x 391.4625pt>
+File: Imagenes/Figura16.png Graphic file (type png)
+
+<use Imagenes/Figura16.png>
+Package pdftex.def Info: Imagenes/Figura16.png used on input line 114.
+(pdftex.def)             Requested size: 333.74458pt x 460.21625pt.
+ [31]
+<Imagenes/Figura18.png, id=456, 468.75125pt x 391.4625pt>
 File: Imagenes/Figura18.png Graphic file (type png)
 
 <use Imagenes/Figura18.png>
-Package pdftex.def Info: Imagenes/Figura18.png used on input line 115.
+Package pdftex.def Info: Imagenes/Figura18.png used on input line 121.
 (pdftex.def)             Requested size: 328.12363pt x 274.02187pt.
- [31 <./Imagenes/Figura18.png>]) [32]
-(./Chapters/Chapter4.tex [33]
+ [32 <./Imagenes/Figura18.png>] [33])
+(./Chapters/Chapter4.tex [34]
 Cap\'{\i }tulo 4.
 ------------------------------------------------------------------------------
  4 Resultados Experimentales
 ------------------------------------------------------------------------------
-[34
+[35
 
-] <Imagenes/Figura19.png, id=472, 864.22874pt x 384.43625pt>
+] <Imagenes/Figura19.png, id=478, 864.22874pt x 384.43625pt>
 File: Imagenes/Figura19.png Graphic file (type png)
 
 <use Imagenes/Figura19.png>
@@ -832,7 +838,7 @@ Overfull \hbox (14.64024pt too wide) in paragraph at lines 23--23
  [] 
  []
 
-<Imagenes/Figura20.png, id=473, 566.115pt x 106.3975pt>
+<Imagenes/Figura20.png, id=479, 566.115pt x 106.3975pt>
 File: Imagenes/Figura20.png Graphic file (type png)
 
 <use Imagenes/Figura20.png>
@@ -843,58 +849,58 @@ Overfull \hbox (7.11214pt too wide) in paragraph at lines 32--32
  [] 
  []
 
-[35 <./Imagenes/Figura19.png> <./Imagenes/Figura20.png>]
-<Imagenes/Figura21.png, id=480, 491.8375pt x 83.31125pt>
+[36 <./Imagenes/Figura19.png> <./Imagenes/Figura20.png>]
+<Imagenes/Figura21.png, id=486, 491.8375pt x 83.31125pt>
 File: Imagenes/Figura21.png Graphic file (type png)
 
 <use Imagenes/Figura21.png>
 Package pdftex.def Info: Imagenes/Figura21.png used on input line 41.
 (pdftex.def)             Requested size: 368.87721pt x 62.48328pt.
 
-<Imagenes/Figura22a.png, id=481, 650.43pt x 529.98pt>
+<Imagenes/Figura22a.png, id=487, 650.43pt x 529.98pt>
 File: Imagenes/Figura22a.png Graphic file (type png)
 
 <use Imagenes/Figura22a.png>
 Package pdftex.def Info: Imagenes/Figura22a.png used on input line 51.
 (pdftex.def)             Requested size: 390.261pt x 317.99043pt.
- [36 <./Imagenes/Figura21.png>]
-<Imagenes/Figura22b.png, id=487, 641.39626pt x 549.05125pt>
+ [37 <./Imagenes/Figura21.png>]
+<Imagenes/Figura22b.png, id=493, 641.39626pt x 549.05125pt>
 File: Imagenes/Figura22b.png Graphic file (type png)
 
 <use Imagenes/Figura22b.png>
 Package pdftex.def Info: Imagenes/Figura22b.png used on input line 56.
 (pdftex.def)             Requested size: 384.84071pt x 329.43329pt.
- [37 <./Imagenes/Figura22a.png>]
-<Imagenes/Figura22c.png, id=493, 628.3475pt x 145.54375pt>
+ [38 <./Imagenes/Figura22a.png>]
+<Imagenes/Figura22c.png, id=499, 628.3475pt x 145.54375pt>
 File: Imagenes/Figura22c.png Graphic file (type png)
 
 <use Imagenes/Figura22c.png>
 Package pdftex.def Info: Imagenes/Figura22c.png used on input line 61.
 (pdftex.def)             Requested size: 377.0114pt x 87.3269pt.
- [38 <./Imagenes/Figura22b.png> <./Imagenes/Figura22c.png>] <Imagenes/Figura23.
-png, id=500, 381.425pt x 174.6525pt>
+ [39 <./Imagenes/Figura22b.png> <./Imagenes/Figura22c.png>] <Imagenes/Figura23.
+png, id=507, 381.425pt x 174.6525pt>
 File: Imagenes/Figura23.png Graphic file (type png)
 
 <use Imagenes/Figura23.png>
 Package pdftex.def Info: Imagenes/Figura23.png used on input line 71.
 (pdftex.def)             Requested size: 343.27931pt x 157.18579pt.
-) (./Chapters/Chapter5.tex [39 <./Imagenes/Figura23.png>]
+) (./Chapters/Chapter5.tex [40 <./Imagenes/Figura23.png>]
 Cap\'{\i }tulo 5.
 ------------------------------------------------------------------------------
  5 Limitaciones
 ------------------------------------------------------------------------------
-[40
+[41
 
-]) (./Chapters/Chapter6.tex [41]
+]) (./Chapters/Chapter6.tex [42]
 Cap\'{\i }tulo 6.
 ------------------------------------------------------------------------------
  6 Conclusi\'on y futuros trabajos
 ------------------------------------------------------------------------------
-[42
+[43
 
-]) (./Thesis.bbl [43] [44
+]) (./Thesis.bbl [44] [45
 
-] [45]
+] [46]
 Underfull \hbox (badness 10000) in paragraph at lines 122--129
 []\OT1/cmr/m/n/12 F. Ba-ve-ra and E. Bo-ne-lli.  Ty-pe-ba-sed in-for-ma-tion fl
 ow
@@ -926,7 +932,7 @@ ers/ifbcode
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
- [46]
+ [47]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
  (./Thesis.aux
 LaTeX Info: Redefining \. on input line 23.
@@ -935,7 +941,7 @@ LaTeX Info: Redefining \% on input line 23.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 1442657966FFE1B9CEEDE8644D180BED;7563.
+(rerunfilecheck)             Checksum: EFE27D8B864DAA33453FD5DE2B00EC16;7563.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -943,11 +949,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 93.
  ) 
 Here is how much of TeX's memory you used:
- 14264 strings out of 493089
- 201986 string characters out of 6134841
+ 14272 strings out of 493089
+ 202063 string characters out of 6134841
  275489 words of memory out of 5000000
- 17396 multiletter control sequences out of 15000+600000
- 12012 words of font info for 44 fonts, out of 8000000 for 9000
+ 17399 multiletter control sequences out of 15000+600000
+ 12713 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,13n,45p,1152b,693s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -958,10 +964,10 @@ usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
 r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (50 pages, 1761317 bytes).
+Output written on Thesis.pdf (51 pages, 1767787 bytes).
 PDF statistics:
- 594 PDF objects out of 1000 (max. 8388607)
- 482 compressed objects within 5 object streams
- 117 named destinations out of 1000 (max. 500000)
+ 600 PDF objects out of 1000 (max. 8388607)
+ 487 compressed objects within 5 object streams
+ 120 named destinations out of 1000 (max. 500000)
  446 words of extra memory for PDF output out of 10000 (max. 10000000)
 

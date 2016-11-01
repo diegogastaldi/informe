@@ -130,9 +130,16 @@ Otro caso que puede ocurrir es que la información vaya de un nivel menor a uno m
 Una ultima alternativa seria, por ejemplo, el caso de que el flujo se dé entre \textit{Semi-private1} y \textit{Semi-private2}: Aquí, los niveles son incomparable en el orden, lo que también deriva en una violación de seguridad (\textit{source3 - sink3}).\par
 
 \section{Compilación y uso}
-
-Para poder utilizar la herramienta que se describe en este informe se requiere de un sistema operativo Linux dado que ésta ejecuta diferentes scripts con comandos que este sistema operativo entiende. Además se requiere un interprete del lenguaje de programación python.
-El archivo .rar que contiene la herramienta, proporciona las aplicaciones de android utilizadas en los ejemplos descriptos, pero puede ser reemplezadas por el conjunto de aplicaciones deseados.(DEBE PROPORCIONARSE EL APK O DESCOMPRIMIDO)
-La herramienta consta de diferentes scripts con funciones diferentes:
-	- Explicar los script disponibles para correr (tanto gui o file como análisis completo o solo la segunda etapa). Como hacerlos.
-Ubicacion de archivos de salida
+Para poder utilizar la herramienta que se describe en este informe se requiere de un sistema operativo Linux dado que ésta ejecuta diferentes scripts con comandos de este sistema operativo. Además se requieren herramientas tales como \textit{java}, \textit{gcc}, \textit{wxglade}, entre otras, las cuales son descargados mediante el script con nombre \textit{install.sh} ubicado en la carpeta root del proyecto.
+Los pasos para poder utilizar el programa que se describe en este informe son:
+\begin{enumerate}
+\item Colocar la carpeta contenedora en el root del sistema, por ejemplo \par \textit{$/home/userName/security\_android$}.
+\item Ejecutar el script \textit{install.sh}: \textit{./install.sh}
+\end{enumerate}
+Una vez ejecutado el paso antes descripto, se concluye con la instalación y para su posterior uso se pueden utilizar los siguientes scripts ubicados en la carpeta \textit{/cert}:
+\begin{itemize}
+\item run-didfail.sh: ejecuta el análisis completo (incluye las dos etapas del análisis) obteniendo los datos necesarios para su ejecución desde los archivos \textit{$cert/securityLevels/assign-levels.txt$}, \textit{$cert/securityLevels/security-levels.txt$} y \textit{$cert/securityLevels/exceptions.txt$} y guardando la salida en el archivo \testit{$/toyapps/out/out.txt$}.
+\item run-check-levels-file.sh: ejecuta solo la segunda etapa del análisis utilizando los archivos antes mencionados.
+\item run-check-levels-gui.sh: ejecuta la segunda etapa del análisis utilizando la interfaz gráfica tanto para la obtención de la información como para mostrar los resultados.
+\end{itemize}
+En la carpeta contenedora del sistema se proporcionan tres aplicaciones android, basadas en las cuales se realizaron los ejemplos del actual informe. Para ejecutar el análisis sobre otras aplicaciones, se deben colocar los contenedores \textit{.apk} de éstas en la carpeta \textit{toyapps}.
