@@ -11,18 +11,19 @@ Una de las técnicas de análisis estático lleva a cabo el análisis del flujo de d
 
 \section{Information Flow}
 
-La protección de la confidencialidad de la información manipulada por los sistemas de computación no es un problema de los últimos años, sino por el contrario, es un problema de larga data siendo cada vez más importante. Las prácticas de seguridad estándares previas al surgimiento de estudios sobre information-flow \cite{InformationFlow} no ofrecían garantías sustanciales de que el comportamiento de extremo a extremo de un sistema informático satisfacía las políticas de seguridad importantes como la confidencialidad. Una política de confidencialidad de extremo a extremo afirma que los datos de entrada secretas no pueden deducirse por un atacante a través de observaciones sobre salida del sistema.\par
-Los mecanismos de seguridad convencionales, tales como el control de acceso y cifrado no se refieren directamente a la aplicación de las políticas de flujo de información. Analizar las características de confidencialidad de un sistema informático es difícil, ya que estos puede incluir errores de implementación y diseño y, además, como los sistemas informáticos modernos comúnmente incorporan hosts o código que no son de confianza, posiblemente maliciosos, hace que la garantía de confidencialidad sea aún más difícil. \par 
-Una forma estándar para proteger los datos confidenciales es el control de acceso: se requiere algún privilegio con el fin de acceder a los archivos u objetos que contienen los datos confidenciales. El problema aquí es que las verificaciones de control de acceso imponen restricciones a la divulgación de información, pero no de su propagación. Una vez que la información es liberado de su contenedor, el programa que accede a ella puede, por error o malicia, inadecuadamente transmitir la información en alguna forma. No es realista suponer que todos los programas en un sistema de computación grande son dignos de confianza; Por otro lado, los mecanismos de seguridad tales como la verificación de firmas y escaneo de antivirus no garantizan la conservación de la confidencialidad. \par
-Para asegurar que la información se utiliza sólo de acuerdo con las políticas de confidencialidad pertinentes, es necesario analizar cómo fluye la información dentro del programa. La creencia de que un sistema es seguro con respecto a la confidencialidad debe surgir de un análisis riguroso que demuestre que el sistema en su conjunto hace cumplir las políticas de confidencialidad de sus usuarios. Este análisis debe demostrar que la información controlada por una política de confidencialidad no puede fluir a un lugar donde se viola esa política, la Figura 1 muestra un ejemplo básico indicando un flujo permitido y uno que no lo es (que viola las políticas de seguridad). Las políticas de confidencialidad que deseamos cumplir son, por lo tanto, las políticas de flujo de información y los mecanismos que las hacen cumplir son los controles de flujo de información. Esto dió lugar a un nuevo enfoque: el uso de técnicas de lenguajes de programación para especificar y hacer cumplir las políticas de flujo de información.\par
+La protección de la confidencialidad de la información manipulada por los sistemas de computación no es un problema de los últimos años, sino por el contrario, es un problema de larga data siendo cada vez más importante. Las prácticas de seguridad estándares previas al surgimiento de estudios sobre information-flow \cite{InformationFlow} no ofrecían garantías sustanciales de que el comportamiento de extremo a extremo de un sistema informático satisfacía las políticas de seguridad importantes como la confidencialidad. Una política de confidencialidad de extremo a extremo afirma que los datos de entrada considerados secretos no pueden deducirse por un atacante a través de observaciones sobre salida del sistema.\par
+Los mecanismos de seguridad convencionales, tales como el control de acceso y cifrado no se refieren directamente a la aplicación de las políticas de flujo de información. Analizar las características de confidencialidad de un sistema informático es difícil, ya que estos puede incluir errores de implementación y diseño y, sumado a ésto, como los sistemas informáticos modernos comúnmente incorporan hosts o código que no son de confianza, posiblemente maliciosos, hace que la garantía de confidencialidad sea aún más difícil. \par 
+Una forma estándar para proteger los datos confidenciales es el control de acceso, el cual requiere de algún privilegio para poder acceder a los archivos u objetos que contienen los datos confidenciales. El problema aquí es que las verificaciones de control de acceso imponen restricciones a la divulgación de información, pero no de su propagación. Una vez que la información es liberado de su contenedor, el programa que accede a ella puede, por error o malicia, inadecuadamente transmitir la información en alguna forma. No es realista suponer que todos los programas en un sistema de computación grande son dignos de confianza. De igual manera, los mecanismos de seguridad tales como la verificación de firmas y escaneo de antivirus tampoco garantizan la conservación de la confidencialidad. \par
+Para asegurar que la información se utiliza de acuerdo con las políticas de confidencialidad pertinentes, es necesario analizar cómo fluye la información dentro del programa. La creencia de que un sistema es seguro con respecto a la confidencialidad debe surgir de un análisis riguroso que demuestre que el sistema en su conjunto hace cumplir las políticas de confidencialidad de sus usuarios. Este análisis debe demostrar que la información controlada por una política de confidencialidad no puede fluir a un lugar donde se viola esa política. La Figura 1 muestra un ejemplo básico indicando un flujo permitido y uno que no lo es (que viola las políticas de seguridad). Las políticas de confidencialidad que deseamos cumplir son, por lo tanto, las políticas de flujo de información y los mecanismos que las hacen cumplir son los controles de flujo de información. \par
+Lo anterior mencionado fué la base para el surgimiento de un nuevo enfoque en el que se utilizan técnicas de lenguajes de programación para especificar y hacer cumplir las políticas de flujo de información.\par
 
 \begin{center}
  \includegraphics[scale=0.5]{Figura1} \par
  Figura 1: Flujos permitidos y no permitidos.
  \end{center}
 
-El análisis de confidencialidad e integridad para lenguajes de bajo nivel (assembly, bytecode) \cite{JavaBytecodeVerif, InformFlowForLowLevel, VerConfPolForMobCod, TypAssLangConf, PreStatAna} aún tiene un menor desarrollo que el alcanzado para lenguajes de alto nivel (Java, C). Esto se debe principalmente a la dificultad de razonar con programas no estructurados. Existen trabajos basados en sistemas de tipos que incluyen un subconjunto bastante extenso de Java bytecode \cite{SecTypePresComp, InformFlowForLowLevel, VerConfPolForMobCod, InformFlowByteode}. \par
-Numerosos trabajos se direccionan en extender el análisis para que soporte desclasificación de información \cite{DimensPrincDeclass}. Entre estos podemos nombrar Intransitive noninterference \cite{PreStatAna}, decentralized label model \cite{AndrTaintFlow}, relaxing noninterference \cite{DinDep, InfFloMon} and robust declassification \cite{EnfRobDeclQuaRob}. Específicamente éste último, no es un tema cerrado \cite{ChallInformFloSec} ya que no hay trabajos específicos en cuanto a desclasificación para lenguajes de bajo nivel, como bytecode: para verificar que programas en Bytecode satisfacen robust declassification es necesario poder verificar que los ataques (código no confiable insertado en determinados puntos del programa) cumple con ciertos requisitos. Por lo tanto, si se quiere contar con una herramienta para verificar la seguridad de los programas que pueda ser utilizada en la práctica es necesario poder verificar que los ataques no violan los requisitos. Actualmente no existen análisis ni herramientas que garanticen robust declassification para aplicaciones Android.\par
+El análisis de confidencialidad e integridad para lenguajes de bajo nivel (assembly, bytecode) \cite{JavaBytecodeVerif, InformFlowForLowLevel, VerConfPolForMobCod, TypAssLangConf, PreStatAna} en la actualidad tiene un menor desarrollo que el alcanzado para lenguajes de alto nivel (Java, C). Esto se debe principalmente a la dificultad de razonar con programas no estructurados. Existen trabajos basados en sistemas de tipos que incluyen un subconjunto bastante extenso de Java bytecode \cite{SecTypePresComp, InformFlowForLowLevel, VerConfPolForMobCod, InformFlowByteode}. \par
+Numerosos trabajos se direccionan en extender el análisis para que soporte desclasificación de información \cite{DimensPrincDeclass}. Entre estos podemos nombrar \textit{Intransitive noninterference} \cite{PreStatAna}, \textit{decentralized label model} \cite{AndrTaintFlow}, \textit{relaxing noninterference} \cite{DinDep, InfFloMon} y \textit{robust declassification} \cite{EnfRobDeclQuaRob}. En el caso específico del último mencionado, no es un tema cerrado \cite{ChallInformFloSec} ya que no hay trabajos específicos en cuanto a desclasificación para lenguajes de bajo nivel, como bytecode: para verificar que programas en Bytecode satisfacen robust declassification es necesario poder verificar que los ataques (código no confiable insertado en determinados puntos del programa) cumple con ciertos requisitos. Por lo tanto, si se quiere contar con una herramienta para verificar la seguridad de los programas que pueda ser utilizada en la práctica es necesario poder verificar que los ataques no violan los requisitos. Actualmente no existen análisis ni herramientas que garanticen robust declassification para aplicaciones Android.\par
 Los resultados preliminares sobre técnicas de information-flow para Bytecode \cite{InformFlowByteode, VarObjFiel} y Robust Declassification para Bytecode \cite{EnfRobDeclQuaRob, TypInformFlow}, si bien contribuyen al conocimiento de IFA, no son técnicas enfocadas a aplicaciones Android. Dado el estado del arte en el área de information-flow y desclasificación es necesario avanzar en la definición de análisis para aplicaciones Android.\par
 
 \subsection{Niveles de Seguridad}
@@ -52,66 +53,67 @@ Un intent puede incluir un destinatario, una acción y, posiblemente, otros datos
 Además de la comunicación entre aplicaciones, los intents también se utilizan para la comunicación intra-aplicación entre los diferentes componentes de una sola aplicación. El uso de intents implícitos para la comunicación intra-aplicación ha demostrado ser un error común en el desarrollo de aplicaciones de Android. Un componente que utiliza un intent implícito para comunicarse con otro componente en la misma aplicación podría ser vulnerable a que otra aplicación intercepte su mensaje. Esto permite a aplicaciones maliciosas secuestrar o espiar en aplicaciones que tienen acceso a información o recursos sensibles.\par
 
 \subsection{Introducción a la plataforma Android}
-Android es un pila de software de código abierto creado para una amplia gama de dispositivos.\par
+Android es un pila de software de código abierto creado para una amplia gama de dispositivos, el cual está compuesto por cinco componentes principales:
+\begin{description}
+\item[Kernel de Linux:] Provee acceso al hardward.
+\item[Código nativo de userspace:] Incluyen servicios y bibliotecas de sistemas que se comunican con servicios y drivers de bajo nivel.
+\item[Bibliotecas y servicios escritos en Java].
+\item[Maquina virtual Dalvik / ART:] Provee una capa de abstracción eficiente al sistema operativo.
+\item[Aplicaciones Android]
+\end{description}
 
 \begin{center}
 \includegraphics[scale=0.75]{Figura2}\par
  Figura 2: Android Stack.
 \end{center}
 
-Android esta compuesto por cinco componentes principales:
+Android \cite{IntAnd} trabaja en Linux, donde cada aplicación utiliza un proceso propio. Aquí los dispositivos tienen un único foco de ejecución principal, que es la aplicación que está visible en la pantalla, pero puede tener varias aplicaciones en un segundo plano, cada una con su propia pila de tareas. \par
+La pila de tareas es la secuencia de ejecución de procesos en Android. Ésta está compuesta de actividades que se van apilando según son invocadas, y solo pueden terminar cuando las tareas que tiene encima ya lo hicieron, o cuando el sistema las destruye porque necesita memoria, por lo que tienen que estar preparadas para terminar en cualquier momento. El sistema siempre eliminará la actividad que lleve más tiempo parada. En caso de que se necesitara mucha memoria, si la aplicación no está en el foco, puede ser eliminada por completo a excepción de su actividad principal. \par 
+Una de las características principales del diseño en Android es la reutilización de componentes entre las aplicaciones, es decir, dos aplicaciones diferentes pueden utilizar una misma componente, aunque éste esté en otra aplicación, para así evitar la repetición innecesaria de código y su consiguiente ocupación de espacio. \par
+Los componentes de una aplicación son los elementos básicos con los que se construyen. Si bien hay cuatro tipos de éstos, las aplicaciones están compuestas principalmente de actividades: habrá tantas actividades como ventanas distintas tenga la aplicación. Sin embargo, por si solos, los componentes no pueden hacer funcionar una aplicación ya que es necesario que estén comunicados. Dicha comunicación es llevada a cabo a través de ``intents". \par 
+Los \textit{intents} deben declararse en el archivo llamado \textit{AndroidManifest.xml}. \par
+Los cuatro componentes antes mencionados son:
 \begin{description}
-\item[Kernel de Linux:] Provee acceso al hardward.
-\item[Código nativo de userspace:] Incluyen servicios y bibliotecas de sistemas , loas cuales se comunican con servicios y drivers de bajo nivel.
-\item[Bibliotecas y servicios escritos en Java].
-\item[Maquina virtual Dalvik / ART:] Provee una capa de abstracción eficiente al sistema operativo.
-\item[Aplicaciones Android]
-\end{description}
-
-Android \cite{IntAnd} trabaja en Linux, y cada aplicación utiliza un proceso propio. Los dispositivos tienen un único foco de ejecución principal, que es la aplicación que está visible en la pantalla, pero puede tener varias aplicaciones en un segundo plano, cada una con su propia pila de tareas. La pila de tareas es la secuencia de ejecución de procesos en Android. Se componen de actividades que se van apilando según son invocadas, y solo pueden terminarse cuando las tareas que tiene encima están terminadas, o cuando el sistema las destruye porque necesita memoria, por lo que tienen que estar preparadas para terminar en cualquier momento. El sistema siempre eliminará la actividad que lleve más tiempo parada. En caso de que el sistema necesitara mucha memoria, si la aplicación no está en el foco, puede ser eliminada por completo a excepción de su actividad principal. \par 
-Una de las características principales del diseño en Android es la reutilización de componentes entre las aplicaciones, es decir, dos aplicaciones diferentes pueden utilizar una misma componente, aunque esté en otra aplicación para así, evitar la repetición innecesaria de código, y la consiguiente ocupación de espacio. Los componentes son los elementos básicos con los que se construyen el proyecto. Hay cuatro tipos, pero las aplicaciones se componen principalmente de actividades. Habrá tantas actividades como ventanas distintas tenga la aplicación. Sin embargo, por si solos, los componentes no pueden hacer funcionar una aplicación. Para ello están los ``intents". Todos ellos deben declararse en el archivo llamado \textit{AndroidManifest.xml} (junto con otros elementos que se mostrarán después) con el mismo nombre que lleve la clase asociada. Por ejemplo, la clase \textit{MainActivity}, será definida en el AndroidManifest con el mismo nombre. 
-Los cuatro componentes mencionados antes son:
-\begin{description}
-\item[Actividades:] Una actividad (o Activity) es la componente principal encargada de mostrar al usuario la interfaz gráfica. Se define una actividad por cada interfaz del proyecto. Las actividades tienen un ciclo de vida, es decir, pasan por diferentes estados desde que se inician hasta que se destruyen. Sus 3 posibles estados son: Activo: ocurre cuando la actividad está en ejecución; Pausado: aún se está ejecutando y es visible, pero no es la tarea principal; Parado: la actividad está detenida, no es visible al usuario y el sistema puede liberar memoria.
-\item[Servicio:] Los servicios (o service) son tareas no visibles que se ejecutan siempre por debajo, incluso cuando la actividad asociada no se encuentra en primer plano. Tiene un hilo propio (aunque no se pueden ejecutar solo), lo que permite llevar a cabo cualquier tarea, por pesada que sea. No necesita interfaz, a no ser que se pida explícitamente, en cuyo caso la clase Service la exportaría. 
-\item[Receptores de Mensajes de Distribución:] También llamados broadcast receiver, son los encargados de reaccionar ante los eventos ocurridos en el dispositivo, ya sean generados por el sistema o por una aplicación externa.
-No tienen interfaz, pero pueden lanzar una activity por medio de un evento. 
-\item[Proveedores de contenidos:] Estos proveedores en inglés llamados content provider, se encargan de que la aplicación pueda acceder a la información que necesita, siempre que se haya declarado el correspondiente provider
-en el AndroidManifest , compartiendo información sin revelar estructura u orden interno.
+\item[Actividades:] Una actividad (o Activity) es la componente principal encargada de mostrar al usuario la interfaz gráfica. Se define una actividad por cada interfaz del proyecto. Las actividades tienen un ciclo de vida, es decir, pasan por diferentes estados desde que se inician hasta que se destruyen: \textit{activo} cuando la actividad está en ejecución; \textit{pausado} cuando aún se está ejecutando y es visible, pero no es la tarea principal; y \textit{parado} cuando la actividad está detenida, no es visible al usuario y el sistema puede liberar su memoria.
+\item[Servicio:] Los servicios (o service) son tareas no visibles que se ejecutan siempre por ``debajo'', incluso cuando la actividad asociada no se encuentra en primer plano. Tiene un hilo propio (aunque no pueden iniciar su ejecución solos), lo que permite llevar a cabo cualquier tarea, por más pesada que ésta sea.
+\item[Receptores de Mensajes de Distribución:] También llamados ``broadcast receiver'', son los encargados de reaccionar ante los eventos ocurridos en el dispositivo, ya sean generados por el sistema o por una aplicación externa.
+No tienen interfaz, pero pueden lanzar una ``activity'' a través de un evento.
+\item[Proveedores de contenidos:] O ``content provider'', se encargan de que la aplicación pueda acceder a la información que necesita, siempre que se haya declarado el correspondiente ``provider''
+en el AndroidManifest.
 \item[Intents:] Los intents son el medio de activación de los componentes (excepto los content provider). Contiene los datos que describen la operación que desarrollará el componente a quien va dirigido. 
-Pueden ser explícitos o implícitos. Los implícitos no especifican el componente al que va destinado, mientras que el explícito, si. 
-\item[Intent-filters:] Utilizados únicamente por los intents implícitos, los intent-filters definen (y delimitan) qué tipos de intent puede lanzar la actividad, o qué tipos de intent puede recibir un broadcast. Por ejemplo, para un intent que no especifica a que actividad va dirigido, se consulta el intent filter de una de ellas, y si lo satisface, el intent lanzará esa actividad. Se definen en el AndroidManifest con la etiqueta $<$ intent-filter $>$ . La información que pasan los intents debe estar contenida en la definición del intent filter para que la componente pueda ser activada (o pueda recibirlo en el caso del broadcast). Esta información se compone de tres campos: Action, Data y Category. \par
-El campo Action es un string que informa del tipo de acción llevada a cabo. Las acciones pueden ser dadas por la clase Intent, por una API de Android o definidas por el diseñador. \par
+Pueden ser explícitos o implícitos (no especifican el componente al que va destinado).
+\item[Intent-filters:] Utilizados únicamente por los intents implícitos. Los intent-filters definen (y delimitan) los tipos de intent puede lanzar una actividad y los que puede recibir un broadcast. Por ejemplo, para un intent que no especifica a que actividad va dirigido, se consulta el intent filter de una de ellas, y si lo satisface, el intent lanzará esa actividad. Se definen en el AndroidManifest con la etiqueta $<$ intent-filter $>$ . La información que pasan los intents debe estar contenida en la definición del intent filter para que el componente pueda ser activado (o pueda recibirlo en el caso del broadcast). Esta información se compone de tres campos: Action, Data y Category. \par
+El campo Action es una cadena de caracteres que contiene la información del tipo de acción que se llevará a cabo. Las acciones pueden ser dadas por la clase Intent, por una API de Android o definidas por el diseñador. \par
 El campo Data contiene la información del identificador (URI) del dato que se asocia a la acción y del tipo de ese dato. Es importante la coherencia ya que si la acción requiere un dato de tipo texto, un intent con un dato de tipo imagen no podría ser lanzado.\par
-Por último, el campo Category es un string (cadena de caracteres) que contiene información adicional sobre el tipo de componente al que va dirigido el intent. La lista de categorías esta incluida en la clase Intent.
-\item[AndroidManifest:]  este fichero es un documento xml en el que se declaran los elementos de la aplicación, así como sus restricciones, permisos, procesos, acceso a datos e interacciones con elementos de otras aplicaciones. Cada elemento se declara con una etiqueta única. No debe confundirse este documento con el xml asociado a cada actividad. Los elementos gráficos y distribución de la pantalla serán definidos para cada actividad dentro de su xml, pero no en el AndroidManifest. 
+Por último, el campo Category es una cadena de caracteres que contiene información adicional sobre el tipo de componente al que va dirigido el intent.
+\item[AndroidManifest:]  este fichero es un documento ``xml'' en el que se declaran los elementos de la aplicación, así como sus restricciones, permisos, procesos, acceso a datos e interacciones con elementos de otras aplicaciones. Cada elemento se declara con una etiqueta única. No debe confundirse este documento con el ``xml'' asociado a cada actividad. Los elementos gráficos y distribución de la pantalla serán definidos para cada actividad dentro de su ``xml'', pero no en el AndroidManifest. 
 \end{description}
 
 Cada aplicación es comprimida en un paquete APK, lo que permite su distribución e instalación. Estos paquetes contienen una colección de archivos, recursos, permisos, entre otras cosas, como muestra la siguiente figura. \par 
-
-\subsection{Modelo de seguridad de Android}
-Android utiliza dos métodos complementarios de permisos:
-\begin{description}
-\item[Bajo nivel:] Permisos de usuarios y grupos de Linux, conocidos como sandbox de Android. Estos permisos generan restricciones entre usuarios evitando que interactúen directamente entre sí o que un usuario acceda a los archivos de otros. Desde el punto de vista de las aplicaciones, casi siempre cada aplicación pertenece a usuarios diferentes.
-\item[Alto nivel:] Permisos de aplicaciones, para efectúa acciones específicas, lo cual regula el acceso de las aplicaciones a los recursos de hardware.
-\end{description}
-
-\subsection{Android y Malware}
-
-Malware \cite{PPTSegAndroid} es el nombre genérico que se le da al software cuyo propósito resulta en causar un perjuicio al usuario (robo de información, falta de disponibilidad en los equipos o a la información, gastos no autorizados). Existen diferentes tipos de Malware como son virus, troyanos y gusanos.\par
-En el caso del sistema operativo Android, este tipo de software logra sus propósitos de diferentes puntos:
-\begin{description}
-\item[Vulnerabilidad del kernel de Linux:] Sin bien son relativamente escasas y pueden hacerse obsoletas con una actualización, pero cómo éstas últimas raramente se producen, son un punto a tener en cuenta.
-\item[Abuso de confianza:] Cuando la aplicación solicita los permisos para realizar el perjuicio al usuario y éste últimos se los da.
-\item[Restricciones por compromiso de diseño:] Las tarjetas SD son ejemplo de éstos dado que tienen formato FAT y no implementan permisos.
-\item[Aplicaciones vulnerables:] Ciertas aplicaciones con permisos necesarios para realizar sus funciones puede ser utilizadas por Malware a través de sus vulnerabilidades.
-\end{description}
-Como defensa ante el Malware se pueden utilizar tanto el análisis estático, como el análisis dinámico como se describió antes en este informe.
 
 \begin{center}
 \includegraphics[scale=0.5]{Figura3} \par
 Figura 3: Estructura de paquete Apk de Android.
 \end{center}
+
+\subsection{Modelo de seguridad de Android}
+Android utiliza dos métodos complementarios de permisos:
+\begin{description}
+\item[Bajo nivel:] Permisos de usuarios y grupos de Linux, conocidos como sandbox de Android. Estos permisos generan restricciones entre usuarios evitando que interactuen directamente entre sí o que un usuario acceda a los archivos de otros. Desde el punto de vista de las aplicaciones, en la mayoría de los casos cada una de ellas pertenecen a usuarios de linux diferentes.
+\item[Alto nivel:] Permisos que las aplicaciones requieren que se les proporcionen para poder efectuar acciones específicas, lo cual regula el acceso de las aplicaciones a los recursos de hardware.
+\end{description}
+
+\subsection{Android y Malware}
+
+Malware \cite{PPTSegAndroid} es el nombre genérico que se le da al software cuyo propósito resulta en causar un perjuicio al usuario (robo de información, falta de disponibilidad en los equipos de la información, gastos no autorizados). Existen diferentes tipos de Malware como virus, troyanos y gusanos.\par
+En el caso del sistema operativo Android, este tipo de software logra sus propósitos de diferentes puntos:
+\begin{description}
+\item[Vulnerabilidad del kernel de Linux:] Sin bien son relativamente escasas y pueden hacerse obsoletas con una actualización (raramente se producen) son un punto a tener en cuenta.
+\item[Abuso de confianza:] Cuando la aplicación solicita los permisos para realizar el perjuicio al usuario y éste últimos se los proporciona.
+\item[Restricciones por compromiso de diseño:] Las tarjetas SD son ejemplo de éstos dado que tienen formato FAT y no implementan permisos.
+\item[Aplicaciones vulnerables:] Ciertas aplicaciones con permisos necesarios para realizar sus funciones puede ser utilizadas por Malware a través de sus vulnerabilidades.
+\end{description}
+Como defensa ante el Malware se pueden utilizar tanto el análisis estático, como el análisis dinámico como se describió antes en este informe.
 
 \section{Ejemplo Motivador}
 
@@ -177,7 +179,7 @@ Epicc identifica propiedades (tales como action, category and data MIME type) de
 
 \subsection{Didfail}
 
-DidFail (Droid Intent Data Flow Analysis for Information Leakage) \cite{Didfail} usa el análisis estático para detectar potenciales fugas de information sensible entre un conjunto de aplicaciones Android. DidFail combina FlowDroid y Epicc para realizar un seguimiento de los flujos de datos tanto entre componentes como dentro de cada componente de un conjunto de aplicaciones. DidFail tiene dos fases en el análisis:
+DidFail (Droid Intent Data Flow Analysis for Information Leakage) \cite{Didfail} usa el análisis estático para detectar potenciales fugas de información sensible entre un conjunto de aplicaciones Android. DidFail combina FlowDroid y Epicc para realizar un seguimiento de los flujos de datos tanto entre componentes como dentro de cada componente de un conjunto de aplicaciones. DidFail tiene dos fases en el análisis:
 \begin{itemize}
 \item Dado un conjunto de aplicaciones, primero determina el flujo de datos individualmente por cada una, y las condiciones en las que estos son posibles.
 \item Luego, basándose en los resultados de la primer fase, enumera los flujos de datos potencialmente peligrosos habilitados por las aplicaciones en su conjunto.
