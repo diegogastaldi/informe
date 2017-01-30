@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015)
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: unsrt.bst
@@ -13,11 +13,19 @@ Too many commas in name 1 of "Steven Arzt, Siegfried Rasthofer, Christian Fritz,
 while executing---line 944 of file unsrt.bst
 Too many commas in name 1 of "Steven Arzt, Siegfried Rasthofer, Christian Fritz, Eric Bodden, Alexandre Bartel, Jacques Klein, Damien Octeau, Patrick McDaniel and Yves Le Traon" for entry Flowdroid
 while executing---line 944 of file unsrt.bst
-Name 1 in "Michael I. Gordon, Deokhwan Kim, Jeff Perkins, Limei Gilham, Nguyen Nguyen, and Martin Rinard" has a comma at the end for entry DroidSafe
+Name 1 in "D. Octeau, P. McDaniel, S. Jha, A. Bartel, E. Bodden, J. Klein, and Y. L. Traon" has a comma at the end for entry Epicc
 while executing---line 944 of file unsrt.bst
-Too many commas in name 1 of "Michael I. Gordon, Deokhwan Kim, Jeff Perkins, Limei Gilham, Nguyen Nguyen, and Martin Rinard" for entry DroidSafe
+Too many commas in name 1 of "D. Octeau, P. McDaniel, S. Jha, A. Bartel, E. Bodden, J. Klein, and Y. L. Traon" for entry Epicc
 while executing---line 944 of file unsrt.bst
-Too many commas in name 1 of "Michael I. Gordon, Deokhwan Kim, Jeff Perkins, Limei Gilham, Nguyen Nguyen, and Martin Rinard" for entry DroidSafe
+Too many commas in name 1 of "D. Octeau, P. McDaniel, S. Jha, A. Bartel, E. Bodden, J. Klein, and Y. L. Traon" for entry Epicc
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "D. Octeau, P. McDaniel, S. Jha, A. Bartel, E. Bodden, J. Klein, and Y. L. Traon" for entry Epicc
+while executing---line 944 of file unsrt.bst
+Name 1 in "R. Vall ́ee-Rai, P. Co, E. Gagnon, L. Hendren, P. Lam, and V. Sundaresan" has a comma at the end for entry Soot
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "R. Vall ́ee-Rai, P. Co, E. Gagnon, L. Hendren, P. Lam, and V. Sundaresan" for entry Soot
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "R. Vall ́ee-Rai, P. Co, E. Gagnon, L. Hendren, P. Lam, and V. Sundaresan" for entry Soot
 while executing---line 944 of file unsrt.bst
 Name 1 in "Gilles Barthe, David Pichardie, and Tamara Rezk" has a comma at the end for entry JavaBytecodeVerif
 while executing---line 944 of file unsrt.bst
@@ -49,45 +57,73 @@ Too many commas in name 1 of "Manuel B{\'a}ez, {\'A}lvaro Borrego, Jorge Cordero
 while executing---line 944 of file unsrt.bst
 Too many commas in name 1 of "Manuel B{\'a}ez, {\'A}lvaro Borrego, Jorge Cordero, Luis Cruz, Miguel Gonz{\'a}lez, Francisco Hern{\'a}ndez, David Palomero, Jos{\'e} Rodr{\'\i}guez de Llera, Daniel Sanz, Mariam Saucedo, Pilar Torralbo and {\'A}lvaro Zapata" for entry IntAnd
 while executing---line 944 of file unsrt.bst
-You've used 24 entries,
+Name 1 in "Michael I. Gordon, Deokhwan Kim, Jeff Perkins, Limei Gilham, Nguyen Nguyen, and Martin Rinard" has a comma at the end for entry DroidSafe
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Michael I. Gordon, Deokhwan Kim, Jeff Perkins, Limei Gilham, Nguyen Nguyen, and Martin Rinard" for entry DroidSafe
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Michael I. Gordon, Deokhwan Kim, Jeff Perkins, Limei Gilham, Nguyen Nguyen, and Martin Rinard" for entry DroidSafe
+while executing---line 944 of file unsrt.bst
+Name 1 in "W. Enck, P. Gilbert, B.-G. Chun, L. P. Cox, J. Jung, P. McDaniel, and A. Sheth" has a comma at the end for entry TaintDroid
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "W. Enck, P. Gilbert, B.-G. Chun, L. P. Cox, J. Jung, P. McDaniel, and A. Sheth" for entry TaintDroid
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "W. Enck, P. Gilbert, B.-G. Chun, L. P. Cox, J. Jung, P. McDaniel, and A. Sheth" for entry TaintDroid
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "W. Enck, P. Gilbert, B.-G. Chun, L. P. Cox, J. Jung, P. McDaniel, and A. Sheth" for entry TaintDroid
+while executing---line 944 of file unsrt.bst
+Name 1 in "L. Li, A. Bartel, J. Klein, Y. L. Traon, S. Arzt, S. Rasthofer, E. Bodden, D. Octeau, and P. McDanie" has a comma at the end for entry IccTa
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "L. Li, A. Bartel, J. Klein, Y. L. Traon, S. Arzt, S. Rasthofer, E. Bodden, D. Octeau, and P. McDanie" for entry IccTa
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "L. Li, A. Bartel, J. Klein, Y. L. Traon, S. Arzt, S. Rasthofer, E. Bodden, D. Octeau, and P. McDanie" for entry IccTa
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "L. Li, A. Bartel, J. Klein, Y. L. Traon, S. Arzt, S. Rasthofer, E. Bodden, D. Octeau, and P. McDanie" for entry IccTa
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "L. Li, A. Bartel, J. Klein, Y. L. Traon, S. Arzt, S. Rasthofer, E. Bodden, D. Octeau, and P. McDanie" for entry IccTa
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "L. Li, A. Bartel, J. Klein, Y. L. Traon, S. Arzt, S. Rasthofer, E. Bodden, D. Octeau, and P. McDanie" for entry IccTa
+while executing---line 944 of file unsrt.bst
+Warning--empty institution in IccTa
+Warning--empty institution in Biba77
+You've used 29 entries,
             1791 wiz_defined-function locations,
-            573 strings with 8060 characters,
-and the built_in function-call counts, 3384 in all, are:
-= -- 279
-> -- 188
+            601 strings with 9159 characters,
+and the built_in function-call counts, 4087 in all, are:
+= -- 338
+> -- 224
 < -- 0
-+ -- 72
-- -- 48
-* -- 115
-:= -- 646
-add.period$ -- 71
-call.type$ -- 24
-change.case$ -- 25
++ -- 86
+- -- 57
+* -- 140
+:= -- 778
+add.period$ -- 86
+call.type$ -- 29
+change.case$ -- 32
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 170
-empty$ -- 311
-format.name$ -- 48
-if$ -- 721
+cite$ -- 35
+duplicate$ -- 206
+empty$ -- 377
+format.name$ -- 57
+if$ -- 871
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 15
-newline$ -- 122
-num.names$ -- 24
-pop$ -- 70
+int.to.str$ -- 29
+missing$ -- 18
+newline$ -- 147
+num.names$ -- 29
+pop$ -- 85
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 73
+skip$ -- 88
 stack$ -- 0
 substring$ -- 0
-swap$ -- 15
+swap$ -- 18
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 4
-while$ -- 24
-width$ -- 26
-write$ -- 240
-(There were 21 error messages)
+warning$ -- 6
+while$ -- 29
+width$ -- 31
+write$ -- 290
+(There were 38 error messages)

@@ -147,20 +147,20 @@
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
 \supervisor  {}
 \examiner    {}
-\degree      {Trabajo final de la Licenciatura en Ciencias de la Computación}
+\degree      {Trabajo Final de la Licenciatura en Ciencias de la Computación}
 \authors     {}
 \university  {\texorpdfstring{\href{https://www.unrc.edu.ar/)}
-                {Universidad Nacional de Río Cuarto. }}}
+                {Universidad Nacional de Río Cuarto}}}
 \UNIVERSITY   {\texorpdfstring{\href{https://www.unrc.edu.ar/)}
-                {Universidad Nacional de Río Cuarto.}}}
+                {Universidad Nacional de Río Cuarto}}}
 \department  {\texorpdfstring{\href{http://dc.exa.unrc.edu.ar/principal/}
-                {Departamento de Computación.}}}
+                {Departamento de Computación}}}
 \DEPARTMENT {\texorpdfstring{\href{http://dc.exa.unrc.edu.ar/principal/}
-                {Departamento de Computación.}}}
+                {Departamento de Computación}}}
 \faculty     {\texorpdfstring{\href{http://www.exa.unrc.edu.ar/}
-                {Facultad de Ciencias Exactas, Físico - Química y Naturales.}}}
+                {Facultad de Ciencias Exactas, Físico - Química y Naturales}}}
 \FACULTY    {\texorpdfstring{\href{http://www.exa.unrc.edu.ar/}
-                {Facultad de Ciencias Exactas, Físico - Química y Naturales.}}}
+                {Facultad de Ciencias Exactas, Físico - Química y Naturales}}}
 
 \addresses   {}
 \subject     {}

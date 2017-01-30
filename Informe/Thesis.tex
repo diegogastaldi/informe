@@ -19,7 +19,7 @@
 \frontmatter      
 
 \title  {
-Didfail con niveles de seguridad
+Confidencialidad de Datos en Aplicaciones Android
 }
 \addresses  {\groupname\\\deptname\\\univname} 
 \authors  {\texorpdfstring
@@ -27,8 +27,8 @@ Didfail con niveles de seguridad
             {Diego Gastaldi}
             }
 \supervisor     {\texorpdfstring
-            {\href{pancho@dc.exa.unrc.edu.ar }{Francisco Babera}}
-            {Francisco Babera}
+            {\href{pancho@dc.exa.unrc.edu.ar }{Francisco Bavera}}
+            {Francisco Bavera}
             }
 \date       {\today}
 \keywords   {}
@@ -53,9 +53,25 @@ Didfail con niveles de seguridad
 \abstract{
 \addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
 
-Aplicaciones Android tanto maliciosas y mal intencionadas como programadas descuidadamente o mal, pueden fugar información importante de los usuarios. Para detectarlo se pueden analizar las aplicaciones con distintos enfoques. Esta herramienta se centra en el análisis estático, combinando y aumentando diferentes trabajos como Didfail, Flowdrior, Epicc, Soot, entre otros. El análisis se realiza sobre un conjunto de aplicaciones, donde se identifican las posibles comunicaciones interapplication (comunicación entre componentes de diferentes aplicaciones) e interapplication (comunicaciones entre componentes de una misma aplicación), dándole la posibilidad al usuario de crear un jerarquía de niveles de seguridad y asignárselas a diferentes informaciones que pueden fluir entre las distintas aplicaciones. Junto con ellas, el usuario puede brindar excepciones, permitiendo a flujos que violen los niveles de seguridad no ser considerado peligroso. \par
-Una vez obtenida la información antes mencionada, se lleva a cabo el análisis chequeando que los flujos de la información no violen la jerarquía de los niveles de seguridad, mediante el uso de una implementación del algoritmo de Jacob Rehof y Torben Mogensen \cite{JacobRehofTorbenMogensen}. \par
-Este informe describe el método de análisis, implementación y resultados experimentales de las nuevas funcionalidades agregadas a Didfail. \par
+Aplicaciones {\tt Android}, tanto maliciosas y mal intencionadas como programadas descuidadamente o mal, pueden filtrar información importante 
+de los usuarios. Para detectar estas filtraciones de información se pueden analizar las aplicaciones con distintos enfoques. Esta trabajo 
+presenta el desarrollo de una herramienta basada en análisis estático para detectar filtraciones de información. 
+Combinando y extendiendo diferentes trabajos previos como {\tt DidFail} \cite{Didfail}, {\tt Flowdroid} \cite{Flowdroid}, {\tt Epicc} \cite{Epicc}, 
+{\tt Soot} \cite{Soot}, entre otros se obtiene una herramienta que 
+permite realizar el análisis sobre un conjunto de aplicaciones, donde se identifican las posibles comunicaciones inter-aplicación 
+(comunicación entre componentes de diferentes aplicaciones) e intra-aplicación (comunicaciones entre componentes de una misma aplicación), 
+con el fin de detectar filtraciones de información confidencial. \par
+
+El usuario puede crear un jerarquía de niveles de seguridad y asignárselas a diferentes informaciones que pueden fluir 
+entre las distintas aplicaciones. La herramienta permite configurar una política de seguridad multinivel.
+Junto con ellas, el usuario puede brindar excepciones, permitiendo a flujos que violen los niveles de 
+seguridad no ser considerado peligroso. Este último punto, permite flexibilidad y que la herramienta pueda ser utilizada en  aplicaciones reales.\par
+
+La herramienta genera información del flujo de los datos en el programa, luego, con la información obtenida se analiza  
+que el flujo de la información no viole la política de seguridad asignada por el usuario (que se respeete la jerarquía de niveles de seguridad de los datos). 
+Este último paso se realiza aplicando una implementación del algoritmo de {\it Jacob Rehof} y {\it Torben Mogensen} \cite{JacobRehofTorbenMogensen}. \par
+
+Este informe describe el método de análisis, implementación y resultados experimentales de la herramienta obtenida. \par
 }
 
 \clearpage  
@@ -72,17 +88,17 @@ Este informe describe el método de análisis, implementación y resultados experim
 \mainmatter
 \pagestyle{fancy} 
 
-\input{Chapters/Chapter1} 
-
-\input{Chapters/Chapter2} 
-
-\input{Chapters/Chapter3} 
-
-\input{Chapters/Chapter4} 
-
-\input{Chapters/Chapter5} 
-
-\input{Chapters/Chapter6} 
+ \input{Chapters/Chapter1} 
+ 
+ \input{Chapters/Chapter2} 
+% 
+ \input{Chapters/Chapter3} 
+% 
+ \input{Chapters/Chapter4} 
+% 
+ \input{Chapters/Chapter5} 
+% 
+ \input{Chapters/Chapter6} 
 
 %% ----------------------------------------------------------------
 %% ----------------------------------------------------------------

@@ -29,8 +29,9 @@ Además, el usuario tiene la posibilidad de no proveer niveles a los métodos que 
 
 Por otro lado, se realizaron modificaciones a {\tt Didfail} \cite{Didfail} para realizar los análisis individuales de las aplicaciones de manera concurrente, y se generó un alternativa para los casos en que las aplicaciones ya fueron analizadas individualmente y solo se pretende verificar nuevas asignaciones de niveles de seguridad, ya que la primer parte del análisis es la más costosa en cuanto a tiempos y recursos que utiliza {\tt DidFail}.\par
 
-La herramienta desarrollada se encuentra disponible bajo licencia {\it Open Source} en 
-\url{https://github.com/diegogastaldi/security\_android.git}. 
+La herramienta desarrollada se encuentra disponible en 
+
+{\it https://github.com/diegogastaldi/security\_android.git}. 
 
 \section{Estructura del Informe}
 

@@ -172,12 +172,11 @@ En la siguiente imagen se muestra un ejemplo donde información sensible puede fl
  {\it \small Figura 5: Ejemplo de flujo de información desde un source a un sink.}
  \end{center}
  
-Aquí la aplicación \texttt{SendSms} obtiene \texttt{Device Id} ({\it Figura 6:(1)}), lo guarda en un intent ({\it Figura 6:(2)}) y luego lo envía mediante el método \texttt{startActivityForResult} ({\it Figura 6:(3)}) para iniciar una nueva actividad. Dicho intent es implícito, es decir, no tiene un destinatario preestablecido, por lo que el sistema operativo se encarga de comprobar que aplicaciones pueden manejarlo (mediante la comprobación de sus archivos manifest). En este ejemplo, la aplicación elegida fue \texttt{Echoer.apk} debido que su manifest cumplía con los requisitos ({\it Figura 10:(4)}). Ésta aplicación recibe el intent, lo guarda en un campo de la clase \texttt{MainActivity} ({\it Figura 8:(5)}), y luego de que se oprima el botón \texttt{button1}, la información que tenia el intent es enviada de vuelta a la aplicación \texttt{SendSms} ({\it Figura 9:(6)}), para que este último envié el mensaje ({\it Figura 7:(7)}). \par
+Aquí la aplicación \textit{SendSms} obtiene \textit{Device Id} ({\it Figura 6: (1)}), lo guarda en un intent (Figura 6: (2)) y luego lo envía mediante el método \textit{startActivityForResult} (Figura 6: (3)) para iniciar una nueva actividad. Dicho intent es implícito, es decir, no tiene un destinatario preestablecido, por lo que el sistema operativo se encarga de comprobar que aplicaciones pueden manejarlo (mediante la comprobación de sus archivos manifest). En este ejemplo, la aplicación elegida fue \textit{Echoer.apk} debido que su Manifest cumplía con los requisitos (Figura 10: (4)). Ésta aplicación recibe el intent, lo guarda en un campo de la clase \textit{MainActivity} (Figura 8: (5)), y luego de que se oprima el botón \textit{button1}, la información que tenia el intent es enviada de vuelta a la aplicación \textit{SendSms} (Figura 9: (6)), para que este último envié el mensaje (Figura 7: (7)). \par
+En el escenario descripto, el source (\textit{deviceId}), es información privada del dispositivo, puede llegar a dos sinks diferentes: uno de ellos es el Sms saliente y el otro sink es el \textit{Log}, y de acuerdo a los niveles que se le asignen a estos últimos, los flujos puede o no producir una violación de seguridad. \par
+Las figura Figura 8 (5) y Figura 9 (6) muestran como fluye la información al \textit{Log} escribiendo el contenido del intent recibido.
 
-En el escenario descripto, el source (\texttt{deviceId}), es información privada del dispositivo, puede llegar a dos sinks diferentes: uno de ellos es el {\tt sms} saliente y el otro sink es el \texttt{Log}, y de acuerdo a los niveles que se le asignen a estos últimos, los flujos puede o no producir una violación de seguridad. \par
-
-Las {\it Figura 8:(5)} y {\it Figura 9:(6)} muestran como fluye la información al \texttt{Log} escribiendo el contenido del intent recibido.\par
-
+\par
 \begin{center}
  \includegraphics[scale=0.8]{Figura6}
  {\it \small Figura 6: SendSMS.button1listener.java.}
@@ -189,7 +188,7 @@ Las {\it Figura 8:(5)} y {\it Figura 9:(6)} muestran como fluye la información a
  \end{center}
 \par
 \begin{center}
- \includegraphics[scale=0.8]{Figura8}\hspace{2cm}
+ \includegraphics[scale=0.8]{Figura8}
  {\it \small Figura 8: Echoer.MainActivity.java.}
  \end{center}
 \par
@@ -199,40 +198,36 @@ Las {\it Figura 8:(5)} y {\it Figura 9:(6)} muestran como fluye la información a
  \end{center}
 \par
 \begin{center}
- \includegraphics[scale=0.8]{Figura10}\hspace{2cm} 
+ \includegraphics[scale=0.8]{Figura10} 
  {\it \small Figura 10: AndroidManifest.xml in Echoer.apk.}
  \end{center}
  
-En este ejemplo se representa lo que sucede en muchas aplicaciones, ya sea, por mala intención o por descuidos: la aplicación \texttt{SendSms} quiere comunicarse con otro componente de sí misma, enviarle información para que éste lo trate según corresponda, para lo cual manda un intent con dicha información. A continuación, {\tt Echoer} recibe el intent, filtra la información, y luego envía otro intent para que la aplicación inicial siga con su normal funcionamiento. Aquí \texttt{SendSms} no sabe que su información fue vista y tratada por otra aplicación. \par
+En este ejemplo se representa lo que sucede en muchas aplicaciones ya sea por mala intención o por descuidos: la aplicación \textit{SendSms} quiere comunicarse con otro componente de sí misma, enviarle información para que éste lo trate según corresponda, para lo cual manda un intent con dicha información. A continuación, Echoer recibe el intent, filtra la información, y luego envía otro intent para que la aplicación inicial siga con su normal funcionamiento. Aquí \textit{SendSms} no sabe que su información fue vista y tratada por otra aplicación. Este flujo es detectado por Didfail.\par
 
-\section{Herramientas de Análisis Estático}
+\section{Herramientas de análisis estático}
 
-La herramienta detallada en este informe se construyó sobre {\tt Didfail}, la cual a su vez utiliza {\tt Flowdroid} y {\tt Epicc}. \par
+La herramienta detallada en este informe se construyó sobre Didfail, la cual a su vez utiliza Flowdroid y Epicc. \par
 
 \subsection{Flowdroid}
 
-{\tt Flowdroid} \cite{Flowdroid} es una herramienta de análisis estático para aplicaciones {\tt Android}, de código abierto. La cual reduce el programa a un representación intermedia que modela el ciclo de vida de las aplicaciones de {\tt Android}. \par
-
-Analizar dichas aplicaciones es mas complicado que analizar un programa en {\tt Java}  porque estos corren sin el framework de {\tt Android}, tienen un simple punto de entrada (el método {\tt main}). En cambio, las aplicaciones {\tt Android}, pueden tener multiples puntos de entradas, llamados implícitamente por el framework. {\tt Flowdroid} resuelve este problema creando un método llamado {\tt dummymain()}, el cual emula el ciclo de vida de las aplicaciones incluyendo todas las llamadas implícitas que pueden ocurrir.\par
-
-{\tt Flowdorid} puede detectar precisamente solo flujos de datos intraprocedurales, ya que los interprocedurales incluyen intents, invocación a servicios, entre otros.\par
+Flowdroid \cite{Flowdroid} es una herramienta de análisis estático para aplicaciones {\tt Android}, de código abierto. La cual reduce el programa a un simple gráfico que modela el ciclo de vida de las aplicaciones de {\tt Android}. \par
+Analizar dichas aplicaciones es mas complicado que analizar un programa en java  porque estos corren sin el framework de {\tt Android}, tienen un simple punto de entrada (el método main). En cambio, las aplicaciones {\tt Android}, pueden tener multiples puntos de entradas, llamados implícitamente por el framework. Flowdroid resuelve este problema creando un método llamado dummymain(), el cual emula el ciclo de vida de las aplicaciones incluyendo todas las llamadas implícitas que pueden ocurrir.\par
+Flowdorid puede detectar precisamente solo flujos de datos intraprocedurales, ya que los interprocedurales incluyen intents, service, entre otros.\par
 
 \subsection{Epicc}
 
-{\tt Epicc} \cite{Epicc} analiza la comunicación entre componentes de manera precisa y efectiva, por lo que se podría decir que es un complemento a lo realizado por {\tt Flowdroid}. \par
-
-{\tt Epicc} identifica propiedades (tales como action, category and data MIME type) de los intents que pueden ser enviados y recibidos por los diferentes componentes.
+Epicc analiza la comunicación entre componentes de manera precisa y efectiva, por lo que se podría decir que es un complemento a lo realizado por Flowdroid. \par
+Epicc identifica propiedades (tales como action, category and data MIME type) de los intents que pueden ser enviados y recibidos por los diferentes componentes.
 
 \subsection{Didfail}
 
-{\tt DidFail} ({\it Droid Intent Data Flow Analysis for Information Leakage}) \cite{Didfail} usa el análisis estático para detectar potenciales fugas de información sensible entre un conjunto de aplicaciones {\tt Android}. {\tt DidFail} combina {\tt FlowDroid} y {\tt Epicc} para realizar un seguimiento de los flujos de datos tanto entre componentes como dentro de cada componente de un conjunto de aplicaciones. {\tt DidFail} tiene dos fases en el análisis:
-
+DidFail (Droid Intent Data Flow Analysis for Information Leakage) \cite{Didfail} usa el análisis estático para detectar potenciales fugas de información sensible entre un conjunto de aplicaciones {\tt Android}. DidFail combina FlowDroid y Epicc para realizar un seguimiento de los flujos de datos tanto entre componentes como dentro de cada componente de un conjunto de aplicaciones. DidFail tiene dos fases en el análisis:
 \begin{itemize}
 \item Dado un conjunto de aplicaciones, primero determina el flujo de datos individualmente por cada una, y las condiciones en las que estos son posibles.
 \item Luego, basándose en los resultados de la primer fase, enumera los flujos de datos potencialmente peligrosos habilitados por las aplicaciones en su conjunto.
 \end{itemize}
 
-En los capítulos siguientes se presenta como a partir de la salida que proporciona {\tt Didfail}, y mediante modificaciones en dicha herramienta, se le dan niveles a los métodos involucrados en los flujos, se chequean si se produce violaciones de seguridad de acuerdo al orden establecido entre los niveles, ignorando aquellos métodos que son considerados excepciones, y las opciones para introducir dicha información.\par
+En los capítulos siguientes se presenta como a partir de la salida que proporciona Didfail, y mediante modificaciones en dicha herramienta, se le dan niveles a los métodos involucrados en los flujos, se chequean si se produce violaciones de seguridad de acuerdo al orden establecido entre los niveles, ignorando aquellos métodos que son considerados excepciones, y las opciones para introducir dicha información.\par
 
 
 \section{Trabajos Relacionados}
