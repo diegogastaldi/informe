@@ -22,64 +22,64 @@ Las tres aplicaciones a analizar son:
 
 \subsection{Jerarquía de niveles de seguridad}
 
-En este ejemplo se usaron los niveles de seguridad que muestra la {\it Figura 19}. En ella se puede observar a modo de comentario la representación gráfica del retículo (el orden parcial) generado.\par
+En este ejemplo se usaron los niveles de seguridad que muestra la {\it Figura 20}. En ella se puede observar a modo de comentario la representación gráfica del retículo (el orden parcial) generado.\par
 
 \begin{center}
-\includegraphics[scale=0.5]{Figura19}
-{\it \small Figura 19: Ejemplo de definición de orden parcial entre niveles de seguridad.}
+\includegraphics[scale=0.5]{Figura20}
+{\it \small Figura 20: Ejemplo de definición de orden parcial entre niveles de seguridad.}
 \end{center}
 
 \subsection{Asignación de niveles}
 
-Para mostrar el funcionamiento de la herramienta solo se le asigna niveles a dos categorías como muestra la {\it Figura 20}, ya que, como se mencionó con anterioridad, no es necesario darle niveles a todas las categorías participantes en los flujos de información, los restantes niveles de seguridad serán inferidos por el análisis. Es decir, en este ejemplo, el usuario considera que la información confidencial de su interés es la asociada a las variables {\tt READ\_PHONE\_STATE} y {\tt ACCESES\_FINE\_LOCATION} cuyos niveles de seguridad (confidencialidad) son {\tt Semi-private1} y {\tt Semi-public1}, respectivamente.\par
+Para mostrar el funcionamiento de la herramienta solo se le asigna niveles a dos categorías como muestra la {\it Figura 21}, ya que, como se mencionó con anterioridad, no es necesario darle niveles a todas las categorías participantes en los flujos de información, los restantes niveles de seguridad serán inferidos por el análisis. Es decir, en este ejemplo, el usuario considera que la información confidencial de su interés es la asociada a las variables {\tt READ\_PHONE\_STATE} y {\tt ACCESES\_FINE\_LOCATION} cuyos niveles de seguridad (confidencialidad) son {\tt Semi-private1} y {\tt Semi-public1}, respectivamente.\par
 
 \begin{center}
-\includegraphics[scale=0.75]{Figura20}
-{\it \small Figura 20: Ejemplo de asignación de niveles a categorías de sources y sinks.}
+\includegraphics[scale=0.75]{Figura21}
+{\it \small Figura 21: Ejemplo de asignación de niveles a categorías de sources y sinks.}
 \end{center}
 
 \subsection{Excepciones}
 
-La excepción de la {\it Figura 21} hace que se ignore el flujo del \textit{device ID} del usuario al \textit{Log}. Con esta excepción el usuario
+La excepción de la {\it Figura 22} hace que se ignore el flujo del \textit{device ID} del usuario al \textit{Log}. Con esta excepción el usuario
 considera que los flujos de información del \textit{device ID} al \textit{Log} son seguros. Es decir, el usuario permite que se filtre información de un nivel de confidencialidad superior (el {\it device ID}) a un nivel inferior (el {\it Log}) porque no considera peligroso este flujo en particular. \par
 
 \begin{center}
-\includegraphics[scale=0.75]{Figura21}\hspace{2cm}
-{\it \small Figura 21: Ejemplo de definición de excepción.}
+\includegraphics[scale=0.75]{Figura22}\hspace{2cm}
+{\it \small Figura 22: Ejemplo de definición de excepción.}
 \end{center}
 
 \subsection{Flujos de información detectados}
 
-Las {\it Figuras 22 (a, b y c)} muestran los flujos de información, los métodos que participan y los niveles de seguridad que tiene asignado cada uno. El formato mostrado se corresponde con una lista de diccionarios (estructura de datos proporcionada por el lenguaje {\tt Python}), donde cada uno contiene el {\it source} y el {\it sink} del flujo, y en estos últimos se especifica el método y el nivel de seguridad correspondiente. En el caso de la {\it Figura 22a} se puede observar que, por ejemplo, el análisis detectó un flujo que va del método \textit{android.telephony.TelephonyManager: java.lang.String getDeviceId()} con nivel \texttt{semi-private1} al {\it sink} \textit{android.util.log: int i(java.lang.String, java.lang.String)} con nivel variable \texttt{LOG}. Por lo tanto, éste nivel variable ({\tt LOG}) no podrá tener un nivel menor (no podrá ser más {\it público}) que el nivel del {\it source} antes mencionado. Es importante recordar que se denominan niveles variables a aquellos que no fueron definidos por el usuario y serán inferidos por la herramienta. \par
+Las {\it Figuras 23 (a, b y c)} muestran los flujos de información, los métodos que participan y los niveles de seguridad que tiene asignado cada uno. El formato mostrado se corresponde con una lista de diccionarios (estructura de datos proporcionada por el lenguaje {\tt Python}), donde cada uno contiene el {\it source} y el {\it sink} del flujo, y en estos últimos se especifica el método y el nivel de seguridad correspondiente. En el caso de la {\it Figura 23a} se puede observar que, por ejemplo, el análisis detectó un flujo que va del método \textit{android.telephony.TelephonyManager: java.lang.String getDeviceId()} con nivel \texttt{semi-private1} al {\it sink} \textit{android.util.log: int i(java.lang.String, java.lang.String)} con nivel variable \texttt{LOG}. Por lo tanto, éste nivel variable ({\tt LOG}) no podrá tener un nivel menor (no podrá ser más {\it público}) que el nivel del {\it source} antes mencionado. Es importante recordar que se denominan niveles variables a aquellos que no fueron definidos por el usuario y serán inferidos por la herramienta. \par
 
-En el caso de la {\it Figura 22b} el {\it source} o el {\it sink} corresponde a un {\it intent}, el cual es identificado por un {\tt id} y en el caso de la {\it Figura 22c}, ambos componentes del flujo son {\it intents}.\par
+En el caso de la {\it Figura 23b} el {\it source} o el {\it sink} corresponde a un {\it intent}, el cual es identificado por un {\tt id} y en el caso de la {\it Figura 23c}, ambos componentes del flujo son {\it intents}.\par
 
 \begin{center}
-\includegraphics[scale=0.60]{Figura22a}
-{\it \small Figura 22a: Flujos que no involucran intents.}
+\includegraphics[scale=0.60]{Figura23a}
+{\it \small Figura 23a: Flujos que no involucran intents.}
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.60]{Figura22b}
-{\it \small Figura 22b: Flujos con un intent involucrado.}
+\includegraphics[scale=0.60]{Figura23b}
+{\it \small Figura 23b: Flujos con un intent involucrado.}
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.60]{Figura22c}
-{\it \small Figura 22c: Flujos con dos intents involucrados.}
+\includegraphics[scale=0.60]{Figura23c}
+{\it \small Figura 23c: Flujos con dos intents involucrados.}
 \end{center}
 
 \section{Resultados obtenidos}
 
-Los resultados obtenidos ({\it Figura 23}) muestran que no se producen flujos de información que viole la política de seguridad (los niveles de seguridad) definidos por el usuario. Además muestra el menor nivel posible, con respecto a los niveles de seguridad, a cada categoría que no tenían un nivel asignado.\par
+Los resultados obtenidos ({\it Figura 24}) muestran que no se producen flujos de información que viole la política de seguridad (los niveles de seguridad) definidos por el usuario. Además muestra el menor nivel posible, con respecto a los niveles de seguridad, a cada categoría que no tenían un nivel asignado.\par
 
 La salida también incluye los {\it intents} lanzados por las aplicaciones. En el conjunto actual de aplicaciones, estos ya fueron utilizados para el análisis y no agrega información en la salida, pero teniendo en cuenta una posible adición de otra aplicación al conjunto, el usuario tiene la posibilidad de ver el nivel de la información que la nueva aplicación puede obtener (en caso de que su archivo {\it manifest} así lo permita).\par
 
 \begin{center}
-\includegraphics[scale=0.9]{Figura23}\hspace{2cm}
-{\it \small Figura 23: Resultado final del análisis realizado por la herramienta.}
+\includegraphics[scale=0.9]{Figura24}\hspace{2cm}
+{\it \small Figura 24: Resultado final del análisis realizado por la herramienta.}
 \end{center}
 
-El nivel asignado a la categoría \textit{Log} merece una aclaración. Como se mencionó en la descripción de las aplicaciones a analizar, al \textit{Log} le llega información desde dos lugares, el \textit{device Id} del usuario con un nivel de seguridad \texttt{semi-private1} y la ubicación del dispositivo con nivel \texttt{semi-public1}. Para evitar la violación de seguridad, el \textit{Log} debe tener un nivel igual o mayor (más {\it privado)} que sus {\it sources}, el cual, sería \texttt{semi-private1} o \texttt{private}. Sin embargo, lo obtenido por la herramienta es \texttt{semi-public1}. Esto ocurre por la excepción dada ({\it Figura 20}), que ignora el flujo del \textit{device Id} al \textit{log}. \par
+El nivel asignado a la categoría \textit{Log} merece una aclaración. Como se mencionó en la descripción de las aplicaciones a analizar, al \textit{Log} le llega información desde dos lugares, el \textit{device Id} del usuario con un nivel de seguridad \texttt{semi-private1} y la ubicación del dispositivo con nivel \texttt{semi-public1}. Para evitar la violación de seguridad, el \textit{Log} debe tener un nivel igual o mayor (más {\it privado)} que sus {\it sources}, el cual, sería \texttt{semi-private1} o \texttt{private}. Sin embargo, lo obtenido por la herramienta es \texttt{semi-public1}. Esto ocurre por la excepción dada ({\it Figura 21}), que ignora el flujo del \textit{device Id} al \textit{log}. \par
 
 Vale aclarar que si bien en el ejemplo los niveles se refieren a la confidencialidad de la información, la herramienta puede ser utilizada con niveles que se correspondan con la integridad de la misma y así obtener los resultados acorde a estos. Confidencialidad e integridad son dos propiedades duales \cite{Biba77} y pueden verificarse utilizando las mismas técnicas. \par
